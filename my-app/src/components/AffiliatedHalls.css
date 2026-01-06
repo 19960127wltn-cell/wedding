@@ -1,0 +1,44 @@
+.affiliated-halls-section {
+  padding: 40px 0;
+  margin-bottom: 0;
+}
+
+.logos-container {
+  margin-top: 50px;
+}
+
+.logos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 40px 80px; /* Vertical and horizontal gap */
+  align-items: center;
+  justify-items: center;
+}
+
+.logo-item-wrapper {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.logo-item-wrapper.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.logo-item {
+  filter: grayscale(100%) opacity(0.6);
+  transition: filter 0.4s ease, opacity 0.4s ease;
+  cursor: pointer;
+}
+
+.logo-item:hover {
+  filter: grayscale(0%) opacity(1);
+}
+
+@media (max-width: 499px) {
+  .logos-grid {
+    grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns, each taking equal space */
+    gap: 20px; /* Adjust gap for smaller screens */
+  }
+}

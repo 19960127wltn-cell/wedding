@@ -1,0 +1,27 @@
+{
+  "gnb": [
+    { "id": "home", "label": "홈", "link": "/dashboard" },
+    { "id": "hr", "label": "인사", "link": "/hr" },
+    { "id": "asset", "label": "자산", "link": "/asset" },
+    { "id": "accounting", "label": "회계", "link": "/accounting" },
+    { "id": "supplies", "label": "소모품", "link": "/supplies" },
+    { "id": "admin", "label": "관리자", "link": "/admin" }
+  ],
+  "lnb": {
+    "home": [
+        { "id": "dashboard", "label": "전체 현황", "icon": "layout-dashboard", "link": "/dashboard" },
+        { "id": "dept", "label": "부서별 조회", "icon": "users", "link": "/department_employee_inquiry" },
+        { "id": "mail", "label": "메일함", "icon": "mail", "link": "/mail" }
+    ],
+    "hr": [
+        { "id": "hr-dashboard", "label": "인사 대시보드", "icon": "layout-dashboard", "link": "/hr/dashboard" },
+        { "id": "hr-mng", "label": "인사 관리", "icon": "users", "link": "/member" }
+    ],
+    "admin": [
+      { "id": "admin-dashboard", "label": "관리자 대시보드", "icon": "layout-dashboard", "link": "/admin" },
+      { "id": "users-mng", "label": "사용자 관리", "icon": "users", "link": "/admin/users" },
+      { "id": "code-mng", "label": "공통 코드 관리", "icon": "code", "link": "/admin/code-management" },
+      { "id": "menu-permission", "label": "메뉴 권한 관리", "icon": "shield", "link": "/admin/menu-permission" }
+    ]
+  }
+}

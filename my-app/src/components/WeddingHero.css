@@ -1,0 +1,180 @@
+/* WeddingHero.css */
+
+.wedding-hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+@media (min-width: 1280px) {
+    .wedding-hero {
+        height: 80vh; /* Reverted to original height as requested */
+    }
+}
+
+.wedding-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.wedding-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.4) 0%,
+        rgba(0,0,0,0.2) 60%,
+        rgba(0,0,0,0.5) 100%
+    );
+    z-index: 1;
+}
+
+.wedding-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.wedding-hero-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.wedding-hero-title {
+    font-family: 'Weddingday', var(--font-serif);
+    font-size: 80px;
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+@media (min-width: 768px) {
+    .wedding-hero-title {
+        font-size: 150px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .wedding-hero-title {
+        margin-bottom: 30px; /* Slight increase for balance */
+    }
+}
+
+.wedding-hero-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255,255,255,0.4);
+    margin: 20px 0 40px;
+}
+
+@media (min-width: 1280px) {
+    .wedding-hero-divider {
+        display: none; /* Hidden on large screens as requested */
+    }
+}
+
+.wedding-hero-description {
+    color: rgba(255,255,255,0.9) !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.4);
+    font-family: var(--font-serif); /* Added for serif font */
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+}
+
+@media (min-width: 768px) {
+    .wedding-hero-description {
+        font-size: 24px !important;
+    }
+}
+
+@media (min-width: 1280px) {
+    .wedding-hero-description span {
+        margin-bottom: 0.8em !important; /* Increase line spacing for phrases on desktop */
+    }
+    .wedding-hero-description span:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+/* Scroll Indicator */
+.wedding-hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+}
+
+@media (min-width: 1280px) {
+    .wedding-hero-scroll-indicator {
+        display: none; /* Hidden on large screens as requested */
+    }
+}
+
+.scroll-lane {
+    width: 2px;
+    height: 50px;
+    background: rgba(255,255,255,0.2);
+    position: relative;
+    border-radius: 1px;
+}
+
+.scroll-dot {
+    width: 2px;
+    height: 15px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: scrollMove 2s infinite ease-in-out;
+}
+
+@keyframes scrollMove {
+    0% { transform: translateY(0); opacity: 0; }
+    20% { opacity: 1; }
+    80% { opacity: 1; }
+    100% { transform: translateY(35px); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}

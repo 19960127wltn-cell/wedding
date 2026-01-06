@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부서별 임직원 조회 - 성원애드피아</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#00479d', secondary: '#2563EB', accent: '#f58220', surface: '#F8F9FC', 'surface-dark': '#E5E7EB',
+                        success: '#10b981', danger: '#ef4444', warning: '#f59e0b',
+                    },
+                    borderRadius: { '3xl': '1.5rem', '4xl': '2rem' }
+                }
+            }
+        }
+    </script>
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Library Styles -->
+    <link rel="stylesheet" href="../styles/base.css">
+    <link rel="stylesheet" href="../styles/layout.css">
+    <link rel="stylesheet" href="../styles/components.css">
+
+    <!-- Specialized Styles for Kanban -->
+    <style>
+        .kanban-board {
+            display: flex;
+            gap: 1.5rem;
+            height: 100%;
+            overflow-x: auto;
+            cursor: grab;
+            scroll-behavior: smooth;
+            padding-bottom: 1rem;
+            padding-right: 50vw;
+        }
+
+        .kanban-board.grabbing {
+            cursor: grabbing;
+            scroll-behavior: auto;
+            user-select: none;
+        }
+
+        .dept-column {
+            width: 44rem;
+            /* Significantly Increased for wider cards (prevent wrapping) */
+            flex-shrink: 0;
+            display: flex;
+            flex-direction: column;
+            background-color: #F8F9FC;
+            border-radius: 1.5rem;
+            border: 1px solid #E5E7EB;
+            height: 100%;
+        }
+
+        .card-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 1rem;
+            display: grid;
+            /* 2-column Grid */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            /* Increased gap */
+            align-content: start;
+        }
+
+        /* Custom Scrollbar */
+        .card-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .card-list::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+
+        /* Anchor Tab Active State */
+        .anchor-tab-active {
+            background-color: #00479d !important;
+            color: white !important;
+            border-color: #00479d !important;
+        }
+
+        .anchor-tab-active span {
+            background-color: rgba(255, 255, 255, 0.2) !important;
+            color: white !important;
+        }
+
+        /* OVERRIDE: Reduce AppShell padding to maximize Kanban Board Space */
+        .app-content-scroll {
+            padding: 1.5rem !important;
+            /* Fixed ~24px all around */
+            display: flex;
+            flex-direction: column;
+        }
+
+        @media (min-width: 768px) {
+            .app-content-scroll {
+                padding-top: 1.5rem !important;
+                /* 24px Top */
+                padding-bottom: 0 !important;
+                /* 0px Bottom (Let columns touch bottom or use board padding) */
+                padding-left: 2rem !important;
+                padding-right: 2rem !important;
+            }
+        }
+    </style>
+
+    <!-- Library Scripts -->
+    <script type="module" src="../components/index.js"></script>
+</head>
+
+<body>
+    <!-- Hide Default Header, Custom structure below -->
+    <app-shell page-title="부서별 임직원 조회" active-gnb="hr" active-lnb="dept">
+
+        <!-- Removed negative margin hack, relying on CSS override -->
+        <div class="flex flex-col h-full gap-2">
+
+            <!-- 1. Search Filter Area -->
+            <div
+                class="bg-white rounded-[1.5rem] p-4 border border-gray-100 shadow-sm flex flex-col md:flex-row gap-4 items-center shrink-0">
+                <!-- Date Range -->
+                <div class="flex items-center bg-gray-50 rounded-xl px-4 py-2 border border-gray-100">
+                    <i data-lucide="calendar" class="w-4 h-4 text-gray-400 mr-3"></i>
+                    <input type="text" placeholder="YYYY.MM.DD"
+                        class="bg-transparent w-24 text-sm font-bold text-gray-700 text-center focus:outline-none placeholder-gray-300">
+                    <span class="mx-2 text-gray-300">~</span>
+                    <input type="text" placeholder="YYYY.MM.DD"
+                        class="bg-transparent w-24 text-sm font-bold text-gray-700 text-center focus:outline-none placeholder-gray-300">
+                </div>
+
+                <!-- Keyword Search -->
+                <div class="flex-1 relative flex items-center w-full">
+                    <i data-lucide="search" class="absolute left-4 w-4 h-4 text-gray-400"></i>
+                    <input type="text" id="keyword-search" placeholder="이름 / 부서명 검색..."
+                        class="w-full h-full pl-10 pr-4 py-2.5 text-sm font-medium focus:outline-none border-b border-transparent focus:border-primary transition-colors bg-transparent">
+                </div>
+
+                <!-- Search Button -->
+                <button id="btn-search-verify"
+                    class="px-6 py-2.5 bg-gray-800 text-white rounded-xl text-sm font-bold hover:bg-gray-900 transition-colors shadow-lg">
+                    조회
+                </button>
+            </div>
+
+            <!-- 2. Anchor Tabs -->
+            <div class="flex gap-2 overflow-x-auto pb-2 shrink-0 custom-scrollbar scroll-smooth" id="anchor-tabs">
+                <!-- Injected via JS -->
+            </div>
+
+            <!-- 3. Kanban Board (Main Content) -->
+            <div class="flex-1 overflow-hidden relative">
+                <div id="kanban-board" class="kanban-board custom-scrollbar select-none"> <!-- added select-none -->
+                    <!-- Columns Injected via JS -->
+                </div>
+            </div>
+
+        </div>
+
+        <!-- 4. Detail Modal -->
+        <ui-modal id="employee-modal" title="인사정보카드">
+            <!-- Modal Content Injected via JS -->
+        </ui-modal>
+
+    </app-shell>
+
+    <script type="module">
+        // --- Mock Data ---
+        const departments = [
+            { id: 'dept-1', name: '경영지원본부', count: 12 },
+            { id: 'dept-2', name: 'IT 개발실', count: 24 },
+            { id: 'dept-3', name: '디자인팀', count: 8 },
+            { id: 'dept-4', name: '영업 1팀', count: 15 },
+            { id: 'dept-5', name: '영업 2팀', count: 14 },
+            { id: 'dept-6', name: '생산관리팀', count: 30 },
+            { id: 'dept-7', name: '물류팀', count: 20 },
+        ];
+
+        const employees = [
+            { id: 1, name: '김성원', deptId: 'dept-1', role: '본부장', status: '출근', phone: '010-1234-5678', joined: '2010.03.01', email: 'kim@swadpia.co.kr' },
+            { id: 2, name: '이개발', deptId: 'dept-2', role: '수석', status: '휴가', phone: '010-1111-2222', joined: '2015.07.12', email: 'lee@swadpia.co.kr' },
+            { id: 3, name: '박디잔', deptId: 'dept-3', role: '책임', status: '출근', phone: '010-3333-4444', joined: '2018.01.05', email: 'park@swadpia.co.kr' },
+            { id: 4, name: '최영업', deptId: 'dept-4', role: '선임', status: '퇴근', phone: '010-5555-6666', joined: '2020.11.20', email: 'choi@swadpia.co.kr' },
+        ];
+
+        // Populate more dummy data
+        for (let i = 0; i < 50; i++) {
+            const dept = departments[Math.floor(Math.random() * departments.length)];
+            employees.push({
+                id: 100 + i,
+                name: `직원 ${i + 1}`,
+                deptId: dept.id,
+                role: '사원',
+                status: ['출근', '퇴근', '휴가'][Math.floor(Math.random() * 3)],
+                phone: `010-1234-${1000 + i}`,
+                joined: '2023.01.01',
+                email: `user${i}@swadpia.co.kr`
+            });
+        }
+
+        // --- Render Logic ---
+
+        function renderAnchorTabs() {
+            const container = document.getElementById('anchor-tabs');
+            container.innerHTML = departments.map(dept => `
+                <button id="btn-${dept.id}" onclick="handleTabClick('${dept.id}')" class="anchor-tab px-4 py-2 bg-white border border-gray-200 rounded-full text-xs font-bold text-gray-600 hover:text-primary hover:border-primary transition-all whitespace-nowrap shadow-sm">
+                    ${dept.name} <span class="bg-blue-50 text-primary px-1.5 py-0.5 rounded ml-1 text-[10px]">${dept.count}</span>
+                </button>
+            `).join('');
+        }
+
+        function renderKanban() {
+            const board = document.getElementById('kanban-board');
+            board.innerHTML = departments.map(dept => {
+                const deptEmps = employees.filter(e => e.deptId === dept.id);
+                return `
+                    <div id="${dept.id}" class="dept-column">
+                        <div class="p-4 border-b border-gray-200 bg-white rounded-t-[1.5rem] flex justify-between items-center sticky top-0 z-10">
+                            <h3 class="font-bold text-gray-800">${dept.name}</h3>
+                            <span class="bg-gray-100 text-gray-500 text-xs font-bold px-2 py-1 rounded-lg">${deptEmps.length}</span>
+                        </div>
+                        <div class="card-list">
+                            ${deptEmps.map(emp => createCardHTML(emp, dept.name)).join('')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            if (window.lucide) window.lucide.createIcons();
+        }
+
+        // Check if phone button style is requested Blue
+        function createCardHTML(emp, deptName) {
+            const statusColors = {
+                '출근': 'bg-green-100 text-green-600',
+                '휴가': 'bg-yellow-100 text-yellow-600',
+                '퇴근': 'bg-rose-100 text-rose-500'
+            };
+            const statusClass = statusColors[emp.status] || 'bg-gray-100 text-gray-500';
+
+            // Reference Image Layout
+            return `
+                <div onclick="openDetail(${emp.id})" 
+                    data-search-name="${emp.name}" 
+                    data-search-dept="${deptName}"
+                    class="bg-white p-5 rounded-[1.5rem] border border-gray-200 shadow-sm hover:shadow-md transition-all cursor-pointer group flex flex-col gap-4 relative">
+                    <!-- Top Section: Image + Info -->
+                    <div class="flex items-start gap-4">
+                        <!-- Left: Large Circle Image -->
+                        <div class="w-20 h-20 rounded-full bg-gray-100 overflow-hidden shrink-0 border border-gray-100">
+                            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${emp.name}" class="w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- Right: Info -->
+                        <div class="flex-1 min-w-0 pt-1">
+                            <div class="flex items-center justify-between mb-1">
+                                <div class="flex items-center gap-2">
+                                    <h4 class="font-bold text-gray-900 text-lg">${emp.name}</h4>
+                                    <span class="${statusClass} text-xs font-bold px-2 py-0.5 rounded-md leading-none">${emp.status}</span>
+                                </div>
+                                <!-- Star Icon -->
+                                <button class="text-gray-400 hover:text-yellow-400 transition-colors" onclick="event.stopPropagation(); toggleStar(this)">
+                                    <i data-lucide="star" class="w-5 h-5"></i>
+                                </button>
+                            </div>
+                            
+                            <p class="text-sm text-gray-600 font-medium mb-1 truncate">${emp.role}</p>
+                            <p class="text-sm text-gray-800 font-medium truncate tracking-tight mb-2">${emp.phone}</p>
+                        </div>
+                    </div>
+
+                    <!-- Bottom Section: Action Buttons -->
+                    <div class="flex gap-2 mt-auto">
+                        <!-- Phone Button: Blue Style (Confirmed) -->
+                        <button onclick="event.stopPropagation()" class="flex-1 py-2.5 bg-[#00479d] hover:bg-blue-900 text-white rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="phone" class="w-4 h-4 text-white"></i> 전화
+                        </button>
+                        <!-- Message Button: Gray Style -->
+                        <button onclick="event.stopPropagation()" class="flex-1 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-700 rounded-xl text-sm font-medium transition-colors flex items-center justify-center gap-2">
+                            <i data-lucide="message-square" class="w-4 h-4 text-gray-500"></i> 문자
+                        </button>
+                    </div>
+                </div>
+            `;
+        }
+
+        window.toggleStar = (btn) => {
+            const icon = btn.querySelector('svg');
+            if (btn.classList.contains('text-yellow-400')) {
+                btn.classList.remove('text-yellow-400');
+                btn.classList.add('text-gray-400');
+                icon.setAttribute('fill', 'none');
+            } else {
+                btn.classList.add('text-yellow-400');
+                btn.classList.remove('text-gray-400');
+                icon.setAttribute('fill', 'currentColor');
+            }
+        };
+
+        // --- Interaction Logic ---
+
+        // 1. Tab Click (Scroll Both Tab & Board)
+        window.handleTabClick = (deptId) => {
+            // Update Active State
+            document.querySelectorAll('.anchor-tab').forEach(btn => btn.classList.remove('anchor-tab-active'));
+            const btn = document.getElementById(`btn-${deptId}`);
+            if (btn) {
+                btn.classList.add('anchor-tab-active');
+                // Scroll Tab Button to Left (Start)
+                btn.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+            }
+
+            // Scroll Kanban Column
+            const col = document.getElementById(deptId);
+            if (col) {
+                // Manually scroll container or use scrollIntoView
+                // Using scrollIntoView on the column inside overflow-x flex container
+                col.scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+            }
+        };
+
+        // Wrapp in DOMContentLoaded to ensure elements are found
+        document.addEventListener('DOMContentLoaded', () => {
+            // Render Initial Data
+            renderAnchorTabs();
+            renderKanban();
+
+            // 3. Search Logic (Event Delegation)
+            const executeSearch = () => {
+                const searchInput = document.getElementById('keyword-search');
+                if (!searchInput) return;
+
+                const term = searchInput.value.toLowerCase().trim();
+                console.log("Searching for:", term);
+
+                departments.forEach(dept => {
+                    const deptCol = document.getElementById(dept.id);
+                    if (!deptCol) return;
+
+                    let visibleCount = 0;
+                    const cards = deptCol.querySelectorAll('.card-list > div');
+
+                    cards.forEach(card => {
+                        const name = (card.dataset.searchName || '').toLowerCase();
+                        const deptName = (card.dataset.searchDept || '').toLowerCase();
+
+                        // Match Name OR Dept Name
+                        const isVisible = name.includes(term) || deptName.includes(term);
+
+                        // Toggle Visibility
+                        if (isVisible) {
+                            card.classList.remove('hidden');
+                            card.style.display = 'flex';
+                            visibleCount++;
+                        } else {
+                            card.classList.add('hidden');
+                            card.style.display = 'none';
+                        }
+                    });
+
+                    if (visibleCount > 0) {
+                        deptCol.style.display = 'flex';
+                    } else {
+                        deptCol.style.setProperty('display', 'none', 'important');
+                    }
+                });
+            };
+
+            // Define Global Delegates
+            // Removed 'input' listener to support "Enter only" search
+            // document.addEventListener('input', (e) => {
+            //     if (e.target && e.target.id === 'keyword-search') {
+            //         executeSearch();
+            //     }
+            // });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.target && e.target.id === 'keyword-search' && e.key === 'Enter') {
+                    executeSearch();
+                }
+            });
+
+            document.addEventListener('click', (e) => {
+                if (e.target && e.target.id === 'btn-search-verify' || e.target.closest('#btn-search-verify')) {
+                    e.preventDefault();
+                    console.log("Search Button Clicked (Delegated)");
+                    executeSearch();
+                }
+            });
+
+            // 2. Drag to Scroll Logic (Event Delegation + Touch Support)
+            // State
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+            let isDraggingRaw = false;
+
+            const handleStart = (pageX, target) => {
+                const slider = document.getElementById('kanban-board');
+                if (!slider || !target.closest('#kanban-board')) return;
+
+                isDown = true;
+                isDraggingRaw = false;
+                slider.classList.add('grabbing');
+                startX = pageX;
+                scrollLeft = slider.scrollLeft;
+            };
+
+            const handleEnd = () => {
+                const slider = document.getElementById('kanban-board');
+                isDown = false;
+                if (slider) slider.classList.remove('grabbing');
+                setTimeout(() => {
+                    isDraggingRaw = false;
+                    window.isDraggingRaw = false; // FIX: Reset Global Flag
+                }, 50);
+            };
+
+            const handleMove = (pageX, e) => {
+                if (!isDown) return;
+                const slider = document.getElementById('kanban-board');
+                if (!slider) return;
+
+                if (e) e.preventDefault(); // Prevent text selection/scroll
+
+                const x = pageX;
+                const walk = (x - startX) * 1.5;
+
+                if (Math.abs(walk) > 5) {
+                    isDraggingRaw = true;
+                    window.isDraggingRaw = true;
+                    slider.scrollLeft = scrollLeft - walk;
+                }
+            };
+
+            // Mouse Events (Delegated to Doc)
+            document.addEventListener('mousedown', (e) => {
+                handleStart(e.pageX, e.target);
+            });
+
+            document.addEventListener('mouseleave', handleEnd);
+            document.addEventListener('mouseup', handleEnd);
+
+            document.addEventListener('mousemove', (e) => {
+                handleMove(e.pageX, e);
+            });
+
+            // Touch Events (Delegated to Doc)
+            document.addEventListener('touchstart', (e) => {
+                if (e.touches.length > 0) {
+                    handleStart(e.touches[0].pageX, e.target);
+                }
+            }, { passive: false });
+
+            document.addEventListener('touchend', handleEnd);
+
+            document.addEventListener('touchmove', (e) => {
+                if (e.touches.length > 0) {
+                    handleMove(e.touches[0].pageX, e);
+                }
+            }, { passive: false });
+
+            // Expose isDraggingRaw to window for click handlers to check
+            window.isDraggingRaw = isDraggingRaw;
+        });
+
+        // 4. Modal Logic (Redesign: 2-Column + Tabs)
+        window.openDetail = (id) => {
+            if (window.isDraggingRaw) return;
+
+            const emp = employees.find(e => e.id === id);
+            if (!emp) return;
+
+            const modal = document.getElementById('employee-modal');
+            const contentSlot = modal.querySelector('.custom-scrollbar');
+
+            if (contentSlot) {
+                // Extended Mock Data Generation (On the fly)
+                const mockData = {
+                    birth: '1990.05.05',
+                    ssnShort: '900505-1******',
+                    disabled: { isTrue: Math.random() < 0.1, desc: '청각장애 6급 (등록: 2001.10.20)' },
+                    address: '서울시 성동구 성수일로 80, 성원애드피아 본사',
+                    history: [
+                        { year: '2019.01', title: '입사', subtitle: '신입 공채 10기' },
+                        { year: '2020.03', title: '부서이동', subtitle: '영업팀 -> 경영지원팀' },
+                        { year: '2022.01', title: '승진', subtitle: '주임 -> 대리' }
+                    ],
+                    attendance: {
+                        vacation: { total: 21, used: 1.5, remain: 19.5, rate: 92 },
+                        stat: { late: Math.floor(Math.random() * 3), early: Math.floor(Math.random() * 2), absent: 0 }
+                    },
+                    evaluation: [
+                        { year: '2023', grade: 'A', score: 92, note: '최우수사원 선정' },
+                        { year: '2022', grade: 'B+', score: 85, note: '-' },
+                        { year: '2021', grade: 'A', score: 90, note: '-' }
+                    ],
+                    payroll: {
+                        yearTotal: '36,000,000',
+                        month: '3,000,000',
+                        hourly: '13,654'
+                    },
+                    performance: {
+                        longTerm: { title: 'ERP 고도화 프로젝트', progress: 80 },
+                        weekly: [
+                            { title: '급여 데이터 검증', days: [true, true, true, false, false], progress: 60 },
+                            { title: '2분기 부가세 신고', days: [false, false, true, true, true], progress: 100 }
+                        ]
+                    }
+                };
+
+                // Styles for Modal (Injected Inline for simplicity in this context)
+                const styles = `
+                    <style>
+                        .modal-layout { display: grid; grid-template-columns: 3fr 9fr; gap: 0; height: 600px; }
+                        .left-panel { background: #F8F9FC; border-right: 1px solid #E5E7EB; padding: 2rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+                        .right-panel { display: flex; flex-direction: column; overflow: hidden; background: #fff; }
+                        
+                        /* Tabs */
+                        .modal-tabs { display: flex; border-bottom: 1px solid #E5E7EB; background: #fff; padding: 0 1.5rem; }
+                        .modal-tab-btn { padding: 1rem 1.5rem; font-weight: 700; color: #6B7280; border-bottom: 2px solid transparent; transition: all 0.2s; font-size: 0.9rem; }
+                        .modal-tab-btn:hover { color: #00479d; background: #F3F4F6; }
+                        .modal-tab-btn.active { color: #00479d; border-bottom-color: #00479d; }
+
+                        /* Tab Content */
+                        .tab-content { display: none; padding: 2rem; overflow-y: auto; height: 100%; }
+                        .tab-content.active { display: block; animation: fadeIn 0.3s ease; }
+                        
+                        /* UI Components */
+                        .info-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 2rem; }
+                        .info-item label { display: block; font-size: 0.75rem; color: #9CA3AF; font-weight: 700; margin-bottom: 0.25rem; }
+                        .info-item div { font-size: 0.9rem; font-weight: 600; color: #1F2937; }
+                        
+                        .timeline-item { position: relative; padding-left: 1.5rem; padding-bottom: 1.5rem; border-left: 2px solid #E5E7EB; }
+                        .timeline-item:last-child { border-left-color: transparent; }
+                        .timeline-dot { position: absolute; left: -0.4rem; top: 0; width: 0.8rem; height: 0.8rem; border-radius: 50%; background: #fff; border: 2px solid #00479d; }
+                        
+                        .table-custom { width: 100%; text-align: left; border-collapse: separate; border-spacing: 0; }
+                        .table-custom th { background: #F9FAFB; padding: 0.75rem; font-size: 0.75rem; color: #6B7280; font-weight: 700; border-bottom: 1px solid #E5E7EB; }
+                        .table-custom td { padding: 0.75rem; font-size: 0.85rem; color: #374151; border-bottom: 1px solid #F3F4F6; }
+                        
+                        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+                    </style>
+                `;
+
+                // Render Content
+                contentSlot.innerHTML = `
+                    ${styles}
+                    <div class="modal-layout">
+                        <!-- LEFT PANEL -->
+                        <div class="left-panel">
+                            <div class="w-32 h-32 rounded-full bg-white p-1 shadow-md mb-4 border border-gray-100">
+                                <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=${emp.name}" class="w-full h-full rounded-full object-cover">
+                            </div>
+                            <h2 class="text-2xl font-black text-gray-900 mb-1">${emp.name}</h2>
+                            <div class="text-gray-400 font-bold text-sm mb-4 cursor-pointer hover:text-primary flex items-center gap-1">
+                                sw0000${emp.id} <i data-lucide="copy" class="w-3 h-3"></i>
+                            </div>
+                            
+                            <div class="flex flex-col gap-2 w-full mb-6">
+                                <div class="bg-white rounded-xl border border-gray-200 p-3 shadow-sm">
+                                    <div class="text-xs text-gray-400 font-bold mb-1">소속</div>
+                                    <div class="text-sm font-bold text-primary">${departments.find(d => d.id === emp.deptId)?.name}</div>
+                                </div>
+                                <div class="bg-white rounded-xl border border-gray-200 p-3 shadow-sm">
+                                    <div class="text-xs text-gray-400 font-bold mb-1">직급/직책</div>
+                                    <div class="text-sm font-bold text-gray-800">${emp.role}</div>
+                                </div>
+                            </div>
+
+                            <div class="w-full border-t border-gray-200 pt-6 mt-auto text-left space-y-3">
+                                <div class="flex items-center gap-3 text-sm font-medium text-gray-600">
+                                    <i data-lucide="phone" class="w-4 h-4 text-gray-400"></i> ${emp.phone}
+                                </div>
+                                <div class="flex items-center gap-3 text-sm font-medium text-gray-600">
+                                    <i data-lucide="mail" class="w-4 h-4 text-gray-400"></i> ${emp.email}
+                                </div>
+                                <div class="flex items-start gap-3 text-sm font-medium text-gray-600">
+                                    <i data-lucide="map-pin" class="w-4 h-4 text-gray-400 mt-0.5"></i> 
+                                    <span class="text-xs leading-relaxed">${mockData.address}</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- RIGHT PANEL -->
+                        <div class="right-panel">
+                            <!-- Tabs -->
+                            <div class="modal-tabs">
+                                <button class="modal-tab-btn active" onclick="switchTab(this, 'tab-hr')">인사 정보</button>
+                                <button class="modal-tab-btn" onclick="switchTab(this, 'tab-pay')">급여 및 계약</button>
+                                <button class="modal-tab-btn" onclick="switchTab(this, 'tab-perf')">업무 성과</button>
+                            </div>
+
+                            <!-- Tab 1: HR Info -->
+                            <div id="tab-hr" class="tab-content active show-scroll">
+                                <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2"><i data-lucide="user" class="w-5 h-5 text-primary"></i> 기본 정보</h3>
+                                <div class="info-grid">
+                                    <div class="info-item"><label>입사일</label><div>${emp.joined} (3년차)</div></div>
+                                    <div class="info-item"><label>생년월일</label><div>${mockData.birth}</div></div>
+                                    <div class="info-item"><label>주민번호(앞자리)</label><div>${mockData.ssnShort}</div></div>
+                                </div>
+                                ${mockData.disabled.isTrue ? `
+                                    <div class="bg-red-50 border border-red-100 rounded-lg p-3 flex items-center gap-3 mb-8">
+                                        <i data-lucide="alert-circle" class="w-5 h-5 text-red-500"></i>
+                                        <span class="text-sm font-bold text-red-600">특이사항: ${mockData.disabled.desc}</span>
+                                    </div>
+                                ` : ''}
+
+                                <div class="grid grid-cols-2 gap-8 mb-8">
+                                    <!-- History -->
+                                    <div>
+                                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2"><i data-lucide="history" class="w-5 h-5 text-primary"></i> 히스토리</h3>
+                                        <div class="pl-2">
+                                            ${mockData.history.map(h => `
+                                                <div class="timeline-item">
+                                                    <div class="timeline-dot"></div>
+                                                    <div class="text-xs font-bold text-gray-400 mb-0.5">${h.year}</div>
+                                                    <div class="text-sm font-bold text-gray-800">${h.title}</div>
+                                                    <div class="text-xs text-gray-500">${h.subtitle}</div>
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                    </div>
+                                    <!-- Attendance -->
+                                    <div>
+                                        <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2"><i data-lucide="calendar-check" class="w-5 h-5 text-primary"></i> 근태 현황 (2025)</h3>
+                                        <div class="bg-blue-50 rounded-2xl p-4 mb-4 flex items-center justify-between">
+                                            <div>
+                                                <div class="text-xs text-blue-500 font-bold mb-1">잔여 연차</div>
+                                                <div class="text-2xl font-black text-blue-700">${mockData.attendance.vacation.remain}일 <span class="text-xs font-medium text-blue-400">/ ${mockData.attendance.vacation.total}일</span></div>
+                                            </div>
+                                            <div class="w-12 h-12 rounded-full border-4 border-blue-200 border-t-blue-600 flex items-center justify-center text-[10px] font-bold text-blue-600">
+                                                ${mockData.attendance.vacation.rate}%
+                                            </div>
+                                        </div>
+                                        <div class="grid grid-cols-3 gap-2 text-center">
+                                            <div class="bg-gray-50 rounded-lg p-2"><div class="text-xs text-gray-400 font-bold">지각</div><div class="font-bold ${mockData.attendance.stat.late > 0 ? 'text-red-500' : 'text-gray-800'}">${mockData.attendance.stat.late}</div></div>
+                                            <div class="bg-gray-50 rounded-lg p-2"><div class="text-xs text-gray-400 font-bold">조퇴</div><div class="font-bold ${mockData.attendance.stat.early > 0 ? 'text-red-500' : 'text-gray-800'}">${mockData.attendance.stat.early}</div></div>
+                                            <div class="bg-gray-50 rounded-lg p-2"><div class="text-xs text-gray-400 font-bold">결근</div><div class="font-bold ${mockData.attendance.stat.absent > 0 ? 'text-red-500' : 'text-gray-800'}">${mockData.attendance.stat.absent}</div></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Evaluation -->
+                                <h3 class="text-lg font-bold text-gray-800 mb-4 flex items-center gap-2"><i data-lucide="award" class="w-5 h-5 text-primary"></i> 평가 및 상벌</h3>
+                                <table class="table-custom">
+                                    <thead><tr><th>년도</th><th>등급</th><th>점수</th><th>비고</th></tr></thead>
+                                    <tbody>
+                                        ${mockData.evaluation.map(ev => `
+                                            <tr>
+                                                <td class="font-bold">${ev.year}</td>
+                                                <td><span class="px-2 py-0.5 rounded bg-gray-100 text-xs font-bold text-gray-700">${ev.grade}</span></td>
+                                                <td class="font-bold">${ev.score}</td>
+                                                <td class="text-xs text-gray-500">${ev.note}</td>
+                                            </tr>
+                                        `).join('')}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Tab 2: Payroll -->
+                            <div id="tab-pay" class="tab-content show-scroll">
+                               <div class="bg-gradient-to-r from-gray-900 to-gray-800 rounded-2xl p-6 text-white mb-6 shadow-lg">
+                                    <div class="text-xs text-gray-400 font-bold mb-2">2025년 계약 연봉</div>
+                                    <div class="text-3xl font-black mb-1">₩ ${mockData.payroll.yearTotal}</div>
+                                    <div class="flex gap-4 text-sm text-gray-300">
+                                        <span>월 ₩ ${mockData.payroll.month}</span>
+                                        <span class="w-px h-4 bg-gray-600"></span>
+                                        <span>시급 ₩ ${mockData.payroll.hourly}</span>
+                                    </div>
+                               </div>
+                               
+                               <h3 class="text-lg font-bold text-gray-800 mb-4">최근 급여 명세</h3>
+                               <div class="space-y-2">
+                                    <!-- Accordion Items (Simulated) -->
+                                    <div class="border border-gray-200 rounded-xl overflow-hidden hover:border-primary transition-colors cursor-pointer group">
+                                        <div class="bg-gray-50 p-4 flex justify-between items-center group-hover:bg-blue-50 transition-colors">
+                                            <div class="flex items-center gap-4">
+                                                <span class="font-bold text-gray-800">2025.12</span>
+                                                <span class="px-2 py-0.5 bg-blue-100 text-blue-600 text-xs font-bold rounded">급여</span>
+                                            </div>
+                                            <div class="font-bold text-gray-900">₩ 3,000,000</div>
+                                        </div>
+                                    </div>
+                                    <div class="border border-gray-200 rounded-xl overflow-hidden cursor-pointer">
+                                        <div class="bg-white p-4 flex justify-between items-center">
+                                            <div class="flex items-center gap-4">
+                                                <span class="font-bold text-gray-800">2025.11</span>
+                                                <span class="px-2 py-0.5 bg-blue-100 text-blue-600 text-xs font-bold rounded">급여</span>
+                                            </div>
+                                            <div class="font-bold text-gray-500">₩ 3,000,000</div>
+                                        </div>
+                                    </div>
+                               </div>
+                            </div>
+
+                            <!-- Tab 3: Performance -->
+                            <div id="tab-perf" class="tab-content show-scroll">
+                                <div class="mb-8">
+                                    <h3 class="text-lg font-bold text-gray-800 mb-4">장기 목표 (OKR)</h3>
+                                    <div class="bg-white border border-gray-200 rounded-2xl p-5 shadow-sm">
+                                        <div class="flex justify-between items-end mb-2">
+                                            <div class="text-sm font-bold text-gray-700">${mockData.performance.longTerm.title}</div>
+                                            <div class="text-2xl font-black text-primary">${mockData.performance.longTerm.progress}%</div>
+                                        </div>
+                                        <div class="w-full bg-gray-100 rounded-full h-2 overflow-hidden">
+                                            <div class="bg-primary h-full rounded-full" style="width: ${mockData.performance.longTerm.progress}%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div>
+                                    <h3 class="text-lg font-bold text-gray-800 mb-4">주간 업무 리포트</h3>
+                                    <div class="space-y-3">
+                                        ${mockData.performance.weekly.map(task => `
+                                            <div class="bg-white border border-gray-200 rounded-xl p-4 hover:shadow-md transition-shadow">
+                                                <div class="flex justify-between items-center mb-3">
+                                                    <div class="font-bold text-gray-800 text-sm">${task.title}</div>
+                                                    <div class="text-xs font-bold text-blue-600 bg-blue-50 px-2 py-1 rounded">${task.progress}%</div>
+                                                </div>
+                                                <div class="flex gap-1">
+                                                    ${task.days.map((done, idx) => `
+                                                        <div class="flex-1 h-1.5 rounded-full ${done ? 'bg-green-500' : 'bg-gray-200'}"></div>
+                                                    `).join('')}
+                                                </div>
+                                                <div class="flex justify-between mt-1 px-0.5">
+                                                    <span class="text-[10px] text-gray-400">월</span><span class="text-[10px] text-gray-400">화</span><span class="text-[10px] text-gray-400">수</span><span class="text-[10px] text-gray-400">목</span><span class="text-[10px] text-gray-400">금</span>
+                                                </div>
+                                            </div>
+                                        `).join('')}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                if (window.lucide) window.lucide.createIcons({ root: contentSlot });
+                modal.open();
+                console.log("Modal opened for", emp.name);
+            } else {
+                console.error("Modal content slot not found. Ensure UiModal is rendered.");
+            }
+        };
+
+        // Tab Switch Logic
+        window.switchTab = (btn, targetId) => {
+            const container = btn.closest('.right-panel');
+            // Buttons
+            container.querySelectorAll('.modal-tab-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Content
+            container.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+            document.getElementById(targetId).classList.add('active');
+        };
+
+        // Init
+        renderAnchorTabs();
+        renderKanban();
+
+    </script>
+</body>
+
+</html>

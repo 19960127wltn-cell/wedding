@@ -1,0 +1,229 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@font-face {
+  font-family: 'LocalSansSerif';
+  src: url('/sans-serif/SansSerifBookFLF.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LocalSansSerif';
+  src: url('/sans-serif/SansSerifFLF.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LocalSansSerif';
+  src: url('/sans-serif/SansSerifFLF-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LocalSansSerif';
+  src: url('/sans-serif/SansSerifFLF-Demibold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'LocalSansSerif';
+  src: url('/sans-serif/SansSerifBldFLF.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Weddingday';
+  src: url('/weddingday-font/WeddingdayPersonalUseRegular-1Gvo0.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #ffffff;
+  --foreground: #1a1a1a;
+  --card: #ffffff;
+  --card-foreground: #1a1a1a;
+  --popover: #ffffff;
+  --popover-foreground: #1a1a1a;
+  
+  /* Luxurious Gold Palette */
+  --primary: #B8A77E;
+  --primary-foreground: #ffffff;
+  --primary-hover: #a1936f;
+  --secondary: #f0e7d6;
+  --secondary-foreground: #6b7280;
+  --muted: #fbf8f2;
+  --muted-foreground: #8a8a8a;
+  --accent: #e0d0b0;
+  --accent-foreground: #5a4b2a;
+  --destructive: #cc5555;
+  --border: #d4c7b2;
+  --input: #ece3d3;
+  --ring: #c7b89d;
+
+  --gnb-background: #2A241F;
+  
+  --chart-1: #B8A77E;
+  --chart-2: #8a8a8a;
+  --chart-3: #e0d0b0;
+  --chart-4: #f0e7d6;
+  --chart-5: #5a4b2a;
+
+  --sidebar: #fbf8f2;
+  --sidebar-foreground: #2d2d2d;
+  --sidebar-primary: #B8A77E;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e0d0b0;
+  --sidebar-accent-foreground: #5a4b2a;
+  --sidebar-border: #d4c7b2;
+  --sidebar-ring: #c7b89d;
+
+  --primary-black: #1a1a1a;
+  --accent-gold: #b19470;
+  --kakao-yellow: #FEE500;
+  --bg-light: #f9f9f9;
+}
+
+.dark {
+  --background: #1a1a1a;
+  --foreground: #fcf6e9;
+  --card: #2d2d2d;
+  --card-foreground: #fcf6e9;
+  --popover: #2d2d2d;
+  --popover-foreground: #fcf6e9;
+
+  --primary: #c2a77e;
+  --primary-foreground: #1a1a1a;
+  --primary-hover: #b89c6f;
+  --secondary: #3b3b3b;
+  --secondary-foreground: #fcf6e9;
+  --muted: #2d2d2d;
+  --muted-foreground: #a0a0a0;
+  --accent: #7a6e5a;
+  --accent-foreground: #fcf6e9;
+  --destructive: #e53e3e;
+  --border: #5a5a5a;
+  --input: #3b3b3b;
+  --ring: #c2a77e;
+  
+  --gnb-background: #9a8b64;
+
+  --chart-1: #c2a77e;
+  --chart-2: #a0a0a0;
+  --chart-3: #7a6e5a;
+  --chart-4: #3b3b3b;
+  --chart-5: #fcf6e9;
+
+  --sidebar: #2d2d2d;
+  --sidebar-foreground: #fcf6e9;
+  --sidebar-primary: #c2a77e;
+  --sidebar-primary-foreground: #1a1a1a;
+  --sidebar-accent: #7a6e5a;
+  --sidebar-accent-foreground: #fcf6e9;
+  --sidebar-border: #5a5a5a;
+  --sidebar-ring: #c2a77e;
+}
+
+@theme inline {
+  --font-josefin-sans: 'LocalSansSerif', "Pretendard Variable", Pretendard, sans-serif;
+  --font-birthstone: 'Birthstone', cursive;
+  --font-mj: 'Prata', 'Playfair Display', serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-gnb-background: var(--gnb-background);
+}
+
+@layer base {
+  * {
+    @apply border-[var(--color-border)];
+  }
+
+  body {
+    font-family: var(--font-josefin-sans);
+    font-size: 16px;
+    line-height: 1.6;
+    letter-spacing: 0em;
+    @apply bg-background text-foreground;
+  }
+  .font-mj {
+    font-family: var(--font-mj);
+  }
+  .font-mj2 {
+    font-family: 'Nanum Myeongjo', serif;
+  }
+  .font-sans {
+    font-family: var(--font-josefin-sans);
+  }
+  .font-handwriting { /* Added utility class for handwriting font */
+    font-family: var(--font-birthstone);
+  }
+  .font-gnb {
+    font-family: 'Prata', serif;
+  }
+
+  .bg-gnb-custom {
+    background-color: var(--gnb-background);
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes premiumReveal {
+    from {
+      opacity: 0;
+      transform: translateY(15px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-premiumReveal {
+    animation: premiumReveal 1s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+  }
+
+  .animate-fadeInUp {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes writing {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+}

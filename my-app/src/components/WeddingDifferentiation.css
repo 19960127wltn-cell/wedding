@@ -1,0 +1,331 @@
+/* WeddingDifferentiation.css - Enhanced Luxury Design */
+
+.diff-section {
+    padding: 0 0 120px 0; /* Removed top padding */
+    background: transparent;
+    margin-top: 0;
+    margin-bottom: 0;
+
+}
+
+.benefits-title {
+    margin-bottom: 50px; /* Reduced from 100px to 50px */
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.benefits-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.benefits-divider {
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary);
+    border-radius: 2px;
+    margin-top: 16px;
+}
+
+@media (min-width: 1280px) {
+    .benefits-divider {
+        display: none;
+    }
+}
+
+/* Base Item Layout */
+.diff-item {
+    display: flex;
+    flex-direction: column;
+    gap: 80px; /* Increased from 60px for more spacing on mobile */
+    margin-bottom: 180px;
+    align-items: center;
+}
+
+.diff-item:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 1024px) {
+    .diff-item {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 100px;
+    }
+    .diff-item.reverse {
+        flex-direction: row-reverse;
+    }
+    
+    /* Align text container down so the floating number aligns with the image top */
+    .diff-info {
+        margin-top: 65px;
+    }
+}
+
+/* Visual Section */
+.diff-visual-container {
+    flex: 1.2;
+    width: 100%;
+    position: relative;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.diff-visual-container.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.diff-visual {
+    position: relative;
+    aspect-ratio: 16/12; /* Increased vertical height */
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 20px 20px 60px rgba(0,0,0,0.08);
+}
+
+.diff-visual::before {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border: 1px solid rgba(0,0,0,0.05);
+    border-radius: 24px; /* Ensure border/shadow overlay matches parent radius */
+    z-index: 10;
+    pointer-events: none;
+}
+
+.diff-visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,0.02) 100%);
+    pointer-events: none;
+}
+
+
+/* Decorative Number */
+.diff-number {
+    position: absolute;
+    top: -65px; /* Moved slightly up */
+    left: 0; /* Aligned with text */
+    font-family: serif; /* Changed to standard serif to ensure numbers render correctly */
+    font-size: 64px; /* Reduced to 80% of original 80px */
+    color: var(--primary);
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: -1; /* Behind text */
+    line-height: 1;
+}
+
+.diff-info {
+    flex: 1;
+    min-width: 0; /* Prevents flex from expanding beyond container */
+    width: 100%; /* Ensures it fills the flex basis */
+}
+
+.diff-title, .diff-main-desc {
+    position: relative;
+    z-index: 1;
+}
+
+.diff-info-header {
+    position: relative; /* Context for absolute positioning of number */
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.diff-info-header.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.diff-subtitle {
+    font-family: 'Weddingday';
+    font-size: 32px;
+    color: var(--primary);
+    display: block;
+    margin-bottom: 12px;
+    line-height: 1;
+}
+
+.diff-title {
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1.3;
+    margin-bottom: 12px;
+    white-space: pre-line;
+    font-family: var(--font-serif);
+}
+
+.diff-main-desc {
+    font-size: 18px;
+    color: var(--secondary-foreground);
+    line-height: 1.8;
+    word-break: keep-all;
+    max-width: 500px;
+    font-family: var(--font-serif);
+}
+
+.text-highlight {
+    position: relative;
+    display: inline-block;
+}
+
+.text-highlight::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0px; /* Positioned closer to the text */
+    height: 1.5px; /* Slightly thicker for the gloss effect to be visible */
+    background: linear-gradient(90deg, 
+        rgba(212, 175, 55, 0.2), 
+        var(--primary) 50%, 
+        rgba(212, 175, 55, 0.2)
+    );
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 1.2s cubic-bezier(0.65, 0, 0.35, 1) 1s; /* Smoother, slightly delayed animation */
+    filter: blur(0.5px); /* Add a subtle glow */
+}
+
+.item-active .text-highlight::after {
+    transform: scaleX(1);
+}
+
+/* Points Grid */
+.diff-points-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Force single column that fills available width */
+    gap: 24px;
+    margin-top: 40px;
+    width: 100%;
+}
+
+.diff-point-card {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.4); /* Increased transparency */
+    backdrop-filter: blur(12px); /* Blur for glossy feel */
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px; /* Slightly more rounded */
+    border: 1px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
+        box-shadow:
+            0 4px 6px -1px rgba(0, 0, 0, 0.02),
+            0 10px 30px rgba(0, 0, 0, 0.1),
+            inset 0 0 20px rgba(255, 255, 255, 0.5); /* Inner glow */    transition: opacity 0.8s ease, transform 0.8s ease;
+    align-items: center; /* Center icon vertically */
+    opacity: 0;
+    transform: translateY(20px);
+    height: 100%; /* Ensure equal height if in a grid that stretches */
+}
+
+
+.diff-points-grid.visible .diff-point-card {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.diff-point-icon {
+    width: 44px;
+    height: 44px;
+    /* Background removed for cleaner look */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary); /* Changed to primary color for visibility */
+    flex-shrink: 0;
+    /* Removed margin-top for center alignment */
+}
+
+.diff-point-text {
+    flex: 1;
+    min-width: 0; /* Crucial for text wrapping in flex item */
+    word-break: break-word; /* Ensure extremely long words/paths wrap */
+}
+
+.diff-point-icon svg {
+    /* Multi-layered glow for a shinier, glossier look */
+    filter: 
+        drop-shadow(0 0 2px rgba(255, 255, 255, 0.9)) /* White core for shine */
+        drop-shadow(0 0 6px rgba(212, 175, 55, 0.8))  /* Strong gold glow */
+        drop-shadow(0 0 12px rgba(212, 175, 55, 0.4)); /* Ambient diffuse glow */
+    opacity: 1;
+}
+
+.diff-point-title {
+    font-size: 17px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--foreground);
+    font-family: var(--font-serif);
+}
+
+.diff-point-desc {
+    font-size: 14px;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    word-break: keep-all;
+    font-family: var(--font-serif);
+}
+
+/* Responsive Tweak */
+@media (max-width: 768px) {
+    .diff-section {
+        padding: 40px 0;
+    }
+    .diff-.diff-title-line {
+        font-size: 28px;
+    }
+    .diff-item {
+        margin-bottom: 100px;
+    }
+    .diff-point-card {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 500px) {
+  .benefits-title .diff-title-line {
+    font-size: 22px; /* Adjusted to a fixed pixel value */
+    line-height: 1.2;
+  }
+
+  .diff-number {
+    font-size: 28px; /* Adjusted to 28px */
+    top: -30px; /* Adjusted to move it down slightly more */
+  }
+
+  .diff-point-title {
+    font-size: 16px; /* Adjusted to 30px */
+  }
+  .diff-title {
+    font-size: 22px;
+  }
+
+  .diff-main-desc {
+    font-size: 16px;
+  }
+  .diff-point-desc {
+    font-size: 14px;
+  }
+
+  /* .diff-point-desc font-size removed to keep PC size */
+  /* font-size: 10px; / 4px smaller than original 14px */
+
+
+  .diff-info-header {
+    margin-top: 40px; /* Added margin to push text down */
+  }
+
+  .diff-item {
+    gap: 30px; /* Reduced gap for mobile resolutions */
+  }
+
+}

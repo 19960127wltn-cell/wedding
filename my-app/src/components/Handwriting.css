@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'RollandScript';
+  src: url('/rolland-script-font/Rolland Script Font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+    --bg-color: #1a1a1a;     /* 다크 배경 */
+    --gold-color: #B8A77E;   /* 요청하신 금빛 컬러 */
+}
+
+/* 텍스트 스타일: 아웃라인 없이 채워진 금빛 */
+.drawing-text {
+    font-family: 'RollandScript', 'Weddingday', 'Birthstone', cursive;
+    font-size: 150px;
+    letter-spacing: 0.05em;
+    text-anchor: middle;
+    stroke: none; /* Removed for cleaner look */
+}
+
+/* Glossy sweep animation */
+.glossy-overlay {
+    animation: gloss-sweep 5s infinite linear;
+}
+
+@keyframes gloss-sweep {
+    0% { transform: translateX(-10%); opacity: 0; }
+    40% { opacity: 1; }
+    60% { opacity: 1; }
+    100% { transform: translateX(10%); opacity: 0; }
+}
+
+/* 하단 텍스트 서서히 등장 */
+.sub-text {
+    font-family: sans-serif;
+    color: var(--gold-color);
+    text-align: center;
+    letter-spacing: 0.5em;
+    font-size: 12px;
+    margin-top: 20px;
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 5s; /* Delay after drawing animation */
+}
+
+@keyframes fadeIn {
+    to { opacity: 0.6; }
+}
