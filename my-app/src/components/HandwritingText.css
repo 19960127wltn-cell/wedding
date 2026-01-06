@@ -3,20 +3,23 @@
         stroke-dashoffset: 1500;
         fill: rgba(242, 211, 136, 0);
     }
+
     70% {
         stroke-dashoffset: 0;
         fill: rgba(242, 211, 136, 0);
     }
+
     100% {
         stroke-dashoffset: 0;
-        fill: rgba(242, 211, 136, 1);
+        fill: #f2d388;
         stroke-width: 0.2;
     }
 }
 
 .drawing-line {
     fill: rgba(242, 211, 136, 0);
-    stroke: #F2D388; /* --gold-light from example */
+    stroke: #cfc6af;
+    /* --gold-light from example */
     stroke-width: 1.5;
     stroke-linecap: round;
     stroke-linejoin: round;

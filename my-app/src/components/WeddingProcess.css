@@ -11,113 +11,201 @@
   padding: 120px 0;
   position: relative;
   background-color: var(--bg);
+  overflow: hidden;
+}
+
+/* --- SVG & Paths --- */
+.process-svg {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.background-path {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1.5;
+  stroke-opacity: 0.08;
+  stroke-linecap: butt;
+}
+
+.active-path {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 2;
+  stroke-opacity: 0.2;
+  stroke-linecap: butt;
 }
 
 /* --- Desktop Styles --- */
 .process-section-desktop {
-  overflow-x: hidden;
+  padding: 160px 0;
 }
 
-.road-container-desktop {
-  position: relative;
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 20px;
+.desktop-line-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.steps-container-desktop {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  height: 200px;
-}
-
-.step-content-desktop {
-    margin-top: 15px;
-    font-family: var(--font-serif); /* Ensure desktop step content is serif */
-}
-
-.step-node-desktop {
-  opacity: 1;
-  transform: translateY(0);
-  transition: opacity 0.7s ease, transform 0.7s ease;
-  z-index: 2;
+  align-items: flex-start;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 24px;
   position: relative;
-  width: 140px;
+  z-index: 2;
+}
+
+.step-item-desktop {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  width: 160px;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
+.icon-circle-desktop {
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  border: 1px solid rgba(177, 157, 135, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 24px;
+  box-shadow: 0 10px 30px rgba(177, 157, 135, 0.03);
+  transition: transform 0.3s ease;
+}
+
+.icon-circle-desktop svg {
+  width: 30px;
+  height: 30px;
+  stroke: var(--primary);
+  stroke-width: 1.2;
+}
+
+.step-badge-desktop {
+  background: var(--primary);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 14px;
+  font-family: var(--font-sans);
+}
+
+.step-title-desktop {
+  font-size: 20px;
+  font-weight: 700;
+  color: #3d3d3d;
+  margin: 6px 0;
+  letter-spacing: -0.5px;
+  font-family: 'Nanum Myeongjo', serif;
+  word-break: keep-all;
+}
+
+.step-desc-desktop {
+  font-size: 14px;
+  color: #999;
+  line-height: 1.6;
+  font-weight: 300;
+  font-family: 'Nanum Myeongjo', serif;
+}
 
 /* --- Mobile Styles --- */
 .process-section-mobile {
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    margin: 0 auto;
-    padding: 40px 0 0 0;
-    overflow: hidden; /* Added to contain the curve within the section */
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 60px 0;
 }
 
 .mobile-line-container {
-    position: absolute;
-    top: 0; left: 50%;
-    transform: translateX(-50%);
-    width: 100%; height: 100%;
-    z-index: 1;
-    pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
 }
 
-/* 1. 배경 가이드 라인: 거의 보이지 않을 정도로 미세하게 (10%) */
-#background-step-path {
-    fill: none;
-    stroke: var(--primary);
-    stroke-width: 1.5;
-    stroke-opacity: 0.08;
-    stroke-linecap: butt; /* Added for pointed ends */
+.steps-container-mobile {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  padding: 40px 24px 0 24px;
 }
 
-/* 2. 애니메이션 메인 선: 요청하신 20% 투명도 */
-#active-step-path {
-    fill: none;
-    stroke: var(--primary);
-    stroke-width: 2;
-    stroke-opacity: 0.2; /* 20% 농도 */
-    filter: url(#glow);
-    stroke-linecap: butt; /* Added for pointed ends */
-}
-
-/* 3. 흐르는 빛: 선이 매우 연하므로 하이라이트가 길을 안내하는 역할을 합니다 */
-#sheen-path {
-    fill: none;
-    stroke-width: 2.5;
-    filter: url(#glow);
-    stroke-linecap: butt; /* Added for pointed ends */
-}
-
-/* Step Item 스타일 */
 .step-item-mobile {
-    position: relative;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-bottom: 100px; /* Adjusted to 100px */
-    opacity: 0;
-    transform: translateY(30px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 .icon-circle-mobile {
-    width: 74px; height: 74px;
-    background: #fff;
-    border: 1px solid rgba(177, 157, 135, 0.1);
-    border-radius: 50%;
-    display: flex; justify-content: center; align-items: center;
-    margin-bottom: 20px;
-    box-shadow: 0 10px 30px rgba(177, 157, 135, 0.03);
+  width: 74px;
+  height: 74px;
+  background: #fff;
+  border: 1px solid rgba(177, 157, 135, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 30px rgba(177, 157, 135, 0.03);
 }
 
-.icon-circle-mobile svg { width: 26px; height: 26px; stroke: var(--primary); stroke-width: 1.1; }
-.step-badge-mobile { background: var(--primary); color: #fff; padding: 4px 14px; border-radius: 20px; font-size: 10px; font-weight: 800; letter-spacing: 0.5px; margin-bottom: 12px; font-family: var(--font-sans); }
-.step-title-mobile { font-size: 22px; font-weight: 700; color: #3d3d3d; margin: 4px 0; letter-spacing: -0.5px; font-family: var(--font-serif); }
-.step-desc-mobile { font-size: 15px; color: #999; line-height: 1.7; font-weight: 300; font-family: var(--font-serif); }
+.icon-circle-mobile svg {
+  width: 26px;
+  height: 26px;
+  stroke: var(--primary);
+  stroke-width: 1.1;
+}
+
+.step-badge-mobile {
+  background: var(--primary);
+  color: #fff;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+  font-family: var(--font-sans);
+}
+
+.step-title-mobile {
+  font-size: 22px;
+  font-weight: 700;
+  color: #3d3d3d;
+  margin: 4px 0;
+  letter-spacing: -0.5px;
+  font-family: 'Nanum Myeongjo', serif;
+}
+
+.step-desc-mobile {
+  font-size: 15px;
+  color: #999;
+  line-height: 1.7;
+  font-weight: 300;
+  font-family: 'Nanum Myeongjo', serif;
+}

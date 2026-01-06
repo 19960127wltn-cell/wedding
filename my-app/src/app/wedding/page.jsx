@@ -20,24 +20,23 @@ export default function WeddingPage() {
       <WeddingHero />
 
       {/* 2. Tab Area */}
-      <section className="bg-background backdrop-blur-sm shadow-sm sticky top-14 z-20">
+      <section className="bg-background backdrop-blur-sm shadow-sm sticky top-14 z-20 pt-2 md:pt-0">
         <div className="max-w-7xl mx-auto flex justify-center">
           {tabs.map(tab => (
             <button
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-2.5 px-6 md:px-8 text-sm lg:text-lg font-gnb font-semibold tracking-wide transition-colors duration-300 ${
-                activeTab === tab.id
-                  ? 'border-b-2 border-primary text-primary'
-                  : 'text-muted-foreground hover:text-primary'
-              }`}
+              className={`py-2.5 px-6 md:px-8 text-md lg:text-lg font-gnb font-semibold tracking-wide transition-colors duration-300 ${activeTab === tab.id
+                ? 'border-b-2 border-primary text-primary'
+                : 'text-muted-foreground hover:text-primary'
+                }`}
             >
               {tab.label}
             </button>
           ))}
         </div>
       </section>
-      
+
       {/* 3. Content Area */}
       <main className="max-w-7xl mx-auto w-full pt-0 pb-8 md:pb-12">
         {activeTab === 'service' && <WeddingServiceContent />}

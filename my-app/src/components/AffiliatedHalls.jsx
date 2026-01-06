@@ -76,14 +76,14 @@ const AffiliatedHalls = () => {
   return (
     <section className="affiliated-halls-section">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <h2 
+        <h2
           ref={headerRef}
           className={`benefits-title text-3xl md:text-4xl font-bold text-left leading-relaxed ${headerVisible ? 'visible' : ''}`}
         >
           <span className="text-primary block text-[32px] font-normal mb-2" style={{ fontFamily: 'Weddingday' }}>
             Partner
           </span>
-          <span className="text-3xl md:text-4xl font-gnb font-black block">
+          <span className="text-3xl md:text-4xl font-mj2 font-black block">
             제휴 웨딩홀
           </span>
           <div className="benefits-divider"></div>

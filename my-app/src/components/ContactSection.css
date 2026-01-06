@@ -11,6 +11,7 @@
     margin-bottom: 50px;
     color: var(--primary-black);
     line-height: 1.4;
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 .branch-grid {
@@ -33,19 +34,26 @@
     transform: translateY(-8px);
     border-color: var(--accent-gold);
     background: white;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.05);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
 }
 
 .pin-icon {
-    width: 44px; height: 44px;
+    width: 44px;
+    height: 44px;
     background: white;
     border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin: 0 auto 20px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-.pin-icon svg { width: 22px; height: 22px; fill: var(--primary); }
+.pin-icon svg {
+    width: 22px;
+    height: 22px;
+    fill: var(--primary);
+}
 
 .branch-name {
     display: block;
@@ -53,6 +61,7 @@
     font-weight: 700;
     margin-bottom: 8px;
     color: var(--primary-black);
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 .branch-desc {
@@ -60,7 +69,9 @@
     color: #777;
     margin-bottom: 25px;
     line-height: 1.5;
-    min-height: 42px; /* 줄바꿈 시 높이 통일 */
+    min-height: 42px;
+    /* 줄바꿈 시 높이 통일 */
+    font-family: 'Nanum Myeongjo', serif;
 }
 
 .open-modal-btn {
@@ -74,19 +85,31 @@
     font-weight: 600;
     cursor: pointer;
     transition: background 0.2s;
-    font-family: var(--font-serif); /* Added for serif font */
+    font-family: var(--font-serif);
+    /* Added for serif font */
 }
 
-.open-modal-btn:hover { background-color: var(--primary-hover); }
+.open-modal-btn:hover {
+    background-color: var(--primary-hover);
+}
 
 /* 하단 안내 문구 */
 .info-footer {
+    font-family: 'Nanum Myeongjo', serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
     font-size: 15px;
     color: #999;
     margin-top: 0;
     padding: 20px;
     border-top: 1px dashed #eee;
-    display: inline-block;
+}
+
+.info-icon {
+    color: #ccc;
+    flex-shrink: 0;
 }
 
 .text-primary-color {
@@ -95,78 +118,111 @@
 
 /* 모달 스타일 */
 .modal-overlay {
-    display: flex; 
-    position: fixed; 
-    top:0; 
-    left:0; 
-    width:100%; 
-    height:100%;
-    background: rgba(0,0,0,0.7); 
-    z-index: 1000; 
-    justify-content: center; 
-    align-items: center; 
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
     backdrop-filter: blur(4px);
 }
+
 .modal-content {
-    background: #fff; 
-    width: 90%; 
-    max-width: 380px; 
-    padding: 40px 30px; 
-    border-radius: 24px; 
-    position: relative; 
+    background: #fff;
+    width: 90%;
+    max-width: 380px;
+    padding: 40px 30px;
+    border-radius: 24px;
+    position: relative;
     text-align: center;
     animation: modalPop 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
-@keyframes modalPop { 
-    from { opacity: 0; transform: scale(0.95); } 
-    to { opacity: 1; transform: scale(1); } 
-}
-.selected-branch-title { 
-    font-size: 20px; 
-    font-weight: 700; 
-    margin-bottom: 30px; 
-    font-family: var(--font-serif); /* Added for serif font */
-}
-.modal-contact-group { 
-    display: flex; 
-    flex-direction: column; 
-    gap: 12px; 
-}
-.contact-link { 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    gap: 10px; 
-    padding: 18px; 
-    border-radius: 16px; 
-    text-decoration: none; 
-    font-weight: 600; 
-    font-family: var(--font-serif); /* Added for serif font */
-}
-.link-kakao { 
-    background: var(--kakao-yellow); 
-    color: #3c1e1e; 
-}
-.link-phone { 
-    background: var(--primary); 
-    color: var(--primary-foreground);
-}
-.close-modal { 
-    position: absolute; 
-    top: 15px; 
-    right: 15px; 
-    background: none; 
-    border: none; 
-    font-size: 28px; 
-    cursor: pointer; 
-    color: #ccc; 
+
+@keyframes modalPop {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
-@media (max-width: 768px) { .branch-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 480px) { .branch-grid { grid-template-columns: 1fr; } }
+.selected-branch-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    font-family: var(--font-serif);
+    /* Added for serif font */
+}
+
+.modal-contact-group {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 18px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: 600;
+    font-family: var(--font-serif);
+    /* Added for serif font */
+}
+
+.link-kakao {
+    background: var(--kakao-yellow);
+    color: #3c1e1e;
+}
+
+.link-phone {
+    background: var(--primary);
+    color: var(--primary-foreground);
+}
+
+.close-modal {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: #ccc;
+}
+
+@media (max-width: 768px) {
+    .branch-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .branch-grid {
+        grid-template-columns: 1fr;
+    }
+}
 
 @media (max-width: 500px) {
     .section-title {
         font-size: 22px;
+    }
+
+    .info-footer {
+        font-size: 13px;
+        white-space: nowrap;
+        padding: 15px 10px;
+        gap: 4px;
     }
 }

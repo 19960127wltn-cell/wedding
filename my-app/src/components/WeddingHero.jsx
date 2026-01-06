@@ -18,15 +18,15 @@ const WeddingHero = () => {
         />
         <div className="wedding-hero-overlay"></div>
       </div>
-      
+
       <div className="wedding-hero-content max-w-7xl mx-auto px-4 md:px-8">
         <div className="wedding-hero-text-wrapper">
           <h1 className="wedding-hero-title opacity-0 animate-[fadeInDown_1.2s_ease-out_forwards]">
             Wedding
           </h1>
-          
+
           <div className="wedding-hero-divider opacity-0 animate-[scaleIn_1s_ease-out_0.5s_forwards]"></div>
-          
+
           <StaggeredTextReveal
             phrases={[
               "깊게 남을 그날의 감동과,",
@@ -38,7 +38,7 @@ const WeddingHero = () => {
           />
         </div>
       </div>
-      
+
       <div className="wedding-hero-scroll-indicator">
         <div className="scroll-lane">
           <div className="scroll-dot"></div>

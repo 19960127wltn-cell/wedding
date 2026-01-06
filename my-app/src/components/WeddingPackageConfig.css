@@ -2,30 +2,39 @@
 
 .package-config-section {
     padding-top: 80px;
-    padding-bottom: 120px;
-    background-color: var(--secondary); /* Added background color */
+    padding-bottom: 0px;
+    background-color: transparent;
 }
 
-/* Inherit benefits-title styles from WeddingBenefits/Differentiation */
-/* No specific styles needed here, as it uses existing classes */
+.package-items-container {
+    background-color: var(--bg);
+    padding: 80px 0 120px 0;
+}
 
 .package-items-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Default 2 columns for mobile */
-    gap: 20px; /* Adjust gap */
-    margin-top: 40px;
+    grid-template-columns: repeat(2, 1fr);
+    /* Default 2 columns for mobile */
+    gap: 20px;
+    /* Adjust gap */
 }
 
-@media (min-width: 768px) { /* Tablet and up */
+@media (min-width: 768px) {
+
+    /* Tablet and up */
     .package-items-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 columns for tablet */
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 columns for tablet */
         gap: 25px;
     }
 }
 
-@media (min-width: 1024px) { /* Desktop */
+@media (min-width: 1024px) {
+
+    /* Desktop */
     .package-items-grid {
-        grid-template-columns: repeat(4, 1fr); /* 4 columns for desktop */
+        grid-template-columns: repeat(4, 1fr);
+        /* 4 columns for desktop */
         gap: 30px;
     }
 }
@@ -35,15 +44,21 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 8px; /* Space between icon and text */
-    padding: 15px; /* Keep padding for spacing */
-    text-align: center; /* Center the text as well */
+    gap: 8px;
+    /* Space between icon and text */
+    padding: 15px;
+    /* Keep padding for spacing */
+    text-align: center;
+    /* Center the text as well */
 }
 
 .package-item-icon {
-    flex-shrink: 0; /* Prevent icon from shrinking */
-    color: var(--primary); /* Icon color */
-    display: flex; /* For centering SVG */
+    flex-shrink: 0;
+    /* Prevent icon from shrinking */
+    color: var(--primary);
+    /* Icon color */
+    display: flex;
+    /* For centering SVG */
     align-items: center;
     justify-content: center;
     width: 48px;
@@ -54,20 +69,23 @@
 }
 
 .package-item-icon svg {
-    width: 20px; /* Icon size */
+    width: 20px;
+    /* Icon size */
     height: 20px;
-    stroke-width: 1.8; /* Make stroke a bit bolder */
+    stroke-width: 1.8;
+    /* Make stroke a bit bolder */
 }
 
 .package-item-text {
     font-size: 15px;
     color: var(--text-main);
     line-height: 1.4;
-    font-family: var(--font-serif); /* Consistent with other content text */
+    font-family: 'Nanum Myeongjo', serif;
+    /* Consistent with other content text */
 }
 
 @media (min-width: 500px) {
-  .package-item-text .mobile-only-break {
-    display: none;
-  }
+    .package-item-text .mobile-only-break {
+        display: none;
+    }
 }

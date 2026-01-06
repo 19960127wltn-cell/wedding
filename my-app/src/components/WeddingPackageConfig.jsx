@@ -75,11 +75,12 @@ const WeddingPackageConfig = () => {
 
   return (
     <section className="package-config-section">
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      {/* 1. Title Area - No Background */}
+      <div className="max-w-7xl mx-auto px-4 md:px-8 pb-10">
         <h2
           ref={headerRef}
           className={`benefits-title text-3xl md:text-4xl font-bold text-left leading-relaxed ${headerVisible ? 'visible' : ''}`}
-          style={{ marginBottom: '35px' }}
+          style={{ marginBottom: '0' }}
         >
           <span className="text-primary block text-[32px] font-normal mb-2" style={{ fontFamily: 'Weddingday' }}>
             Option
@@ -89,23 +90,28 @@ const WeddingPackageConfig = () => {
           </span>
           <div className="benefits-divider"></div>
         </h2>
+      </div>
 
-        <div className="package-items-grid">
-          {packageItems.map((item, index) => (
-            <div key={index} className="package-item">
-              <div className="package-item-icon">
-                <item.icon size={24} strokeWidth={1.5} />
+      {/* 2. Content Area - With Background */}
+      <div className="package-items-container">
+        <div className="max-w-7xl mx-auto px-4 md:px-8">
+          <div className="package-items-grid">
+            {packageItems.map((item, index) => (
+              <div key={index} className="package-item">
+                <div className="package-item-icon">
+                  <item.icon size={24} strokeWidth={1.5} />
+                </div>
+                <p className="package-item-text">
+                  {item.text.split('\n').map((line, i, arr) => (
+                    <React.Fragment key={i}>
+                      <MixedFontText text={line} />
+                      {i < arr.length - 1 && <br className="mobile-only-break" />}
+                    </React.Fragment>
+                  ))}
+                </p>
               </div>
-              <p className="package-item-text">
-                {item.text.split('\n').map((line, i, arr) => (
-                  <React.Fragment key={i}>
-                    <MixedFontText text={line} />
-                    {i < arr.length - 1 && <br className="mobile-only-break" />}
-                  </React.Fragment>
-                ))}
-              </p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

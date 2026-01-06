@@ -16,7 +16,7 @@ const navLinks = [
 
 const MobileMenu = ({ isOpen, pathname, setIsOpen }) => {
   if (!isOpen) return null;
-  
+
   return (
     <div className="absolute top-full left-0 w-full bg-[var(--gnb-background)]/70 backdrop-blur-sm flex flex-col items-center py-4 space-y-4 shadow-lg">
       {navLinks.map((link) => (
@@ -24,9 +24,8 @@ const MobileMenu = ({ isOpen, pathname, setIsOpen }) => {
           key={link.href}
           href={link.href}
           passHref
-          className={`text-lg font-gnb transition-colors duration-300 ${
-            pathname === link.href ? 'text-primary' : 'text-white hover:text-primary-hover'
-          }`}
+          className={`text-lg font-gnb font-regular transition-colors duration-300 ${pathname === link.href ? 'text-primary' : 'text-white hover:text-primary-hover'
+            }`}
           onClick={() => setIsOpen(false)}
         >
           {link.label}
@@ -80,9 +79,8 @@ export default function GNB() {
                 key={link.href}
                 href={link.href}
                 passHref
-                className={`text-lg font-gnb transition-colors duration-300 ${
-                  pathname === link.href ? 'text-primary' : 'hover:text-primary-hover'
-                }`}
+                className={`text-lg font-gnb transition-colors duration-300 ${pathname === link.href ? 'text-primary' : 'hover:text-primary-hover'
+                  }`}
               >
                 {link.label}
               </Link>
@@ -97,7 +95,7 @@ export default function GNB() {
     <nav className="fixed w-full top-0 left-0 z-50 bg-gnb-custom shadow-sm py-3 px-6 md:px-12 flex justify-between items-center text-white h-14">
       {/* Mobile Centered Title */}
       <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
-        <span className="text-sm font-gnb font-semibold">VUE PHOTOBUTH</span>
+        <span className="text-sm font-gnb font-regular">VUE PHOTOBUTH</span>
       </div>
 
       {/* Logo/Brand Name (Desktop Only) */}
@@ -114,9 +112,8 @@ export default function GNB() {
             key={link.href}
             href={link.href}
             passHref
-            className={`text-lg font-gnb transition-colors duration-300 ${
-              pathname === link.href ? 'text-primary' : 'hover:text-primary-hover'
-            }`}
+            className={`text-lg font-gnb transition-colors duration-300 ${pathname === link.href ? 'text-primary' : 'hover:text-primary-hover'
+              }`}
           >
             {link.label}
           </Link>

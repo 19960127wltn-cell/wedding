@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { Info } from 'lucide-react';
 import './ContactSection.css';
 
 const branches = [
@@ -9,7 +10,7 @@ const branches = [
     { name: '부산 지점', desc: '경상 · 영남권 지역', phone: '051-123-4567', kakao: '#' }
 ];
 
-const pinSvg = <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>;
+const pinSvg = <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" /></svg>;
 
 const ContactSection = () => {
     const [modalOpen, setModalOpen] = React.useState(false);
@@ -28,8 +29,8 @@ const ContactSection = () => {
 
     return (
         <section className="branch-section">
-            <h2 className="section-title">전국 <span className="font-sans text-primary-color">4</span><span className="text-primary-color">개 지점</span>에서<br/>동일한 프리미엄 서비스를<br/>만나보세요</h2>
-            
+            <h2 className="section-title">전국 <span className="font-mj2 text-primary-color">4</span><span className="text-primary-color">개 지점</span>에서<br />동일한 프리미엄 서비스를<br />만나보세요</h2>
+
             <div className="branch-grid">
                 {branches.map((b, index) => (
                     <div className="branch-card" key={index}>
@@ -42,7 +43,8 @@ const ContactSection = () => {
             </div>
 
             <p className="info-footer">
-                * 기재되지 않은 지역의 예식은 <strong>서울 본점</strong>을 통해 문의해주세요.
+                <Info size={16} className="info-icon" />
+                기재되지 않은 지역의 예식은 <strong>서울 본점</strong>을 통해 문의해주세요.
             </p>
 
             {modalOpen && selectedBranch && (

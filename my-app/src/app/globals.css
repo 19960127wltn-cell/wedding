@@ -58,7 +58,7 @@
   --card-foreground: #1a1a1a;
   --popover: #ffffff;
   --popover-foreground: #1a1a1a;
-  
+
   /* Luxurious Gold Palette */
   --primary: #B8A77E;
   --primary-foreground: #ffffff;
@@ -75,7 +75,7 @@
   --ring: #c7b89d;
 
   --gnb-background: #2A241F;
-  
+
   --chart-1: #B8A77E;
   --chart-2: #8a8a8a;
   --chart-3: #e0d0b0;
@@ -118,7 +118,7 @@
   --border: #5a5a5a;
   --input: #3b3b3b;
   --ring: #c2a77e;
-  
+
   --gnb-background: #9a8b64;
 
   --chart-1: #c2a77e;
@@ -170,20 +170,31 @@
     font-size: 16px;
     line-height: 1.6;
     letter-spacing: 0em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
     @apply bg-background text-foreground;
   }
+
   .font-mj {
     font-family: var(--font-mj);
   }
+
   .font-mj2 {
     font-family: 'Nanum Myeongjo', serif;
+    font-weight: 400;
+    text-rendering: optimizeLegibility;
   }
+
   .font-sans {
     font-family: var(--font-josefin-sans);
   }
-  .font-handwriting { /* Added utility class for handwriting font */
+
+  .font-handwriting {
+    /* Added utility class for handwriting font */
     font-family: var(--font-birthstone);
   }
+
   .font-gnb {
     font-family: 'Prata', serif;
   }
@@ -197,6 +208,7 @@
       opacity: 0;
       transform: translateY(20px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -208,6 +220,7 @@
       opacity: 0;
       transform: translateY(15px);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -223,7 +236,12 @@
   }
 
   @keyframes writing {
-    from { width: 0; }
-    to { width: 100%; }
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 100%;
+    }
   }
 }
