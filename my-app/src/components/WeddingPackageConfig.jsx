@@ -102,12 +102,17 @@ const WeddingPackageConfig = () => {
                   <item.icon size={24} strokeWidth={1.5} />
                 </div>
                 <p className="package-item-text">
-                  {item.text.split('\n').map((line, i, arr) => (
-                    <React.Fragment key={i}>
-                      <MixedFontText text={line} />
-                      {i < arr.length - 1 && <br className="mobile-only-break" />}
-                    </React.Fragment>
-                  ))}
+                  {item.text.split('\n').map((line, i, arr) => {
+                    const isSubtext = line.trim().startsWith('(') && line.trim().endsWith(')');
+                    return (
+                      <React.Fragment key={i}>
+                        <span className={isSubtext ? "package-item-subtext" : ""}>
+                          <MixedFontText text={line} />
+                        </span>
+                        {i < arr.length - 1 && <br className="mobile-only-break" />}
+                      </React.Fragment>
+                    );
+                  })}
                 </p>
               </div>
             ))}

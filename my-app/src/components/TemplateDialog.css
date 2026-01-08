@@ -1,0 +1,198 @@
+.template-dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(12px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.template-dialog-full-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.template-dialog-close-fixed {
+    position: fixed;
+    top: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 10001;
+    transition: all 0.3s ease;
+}
+
+.template-dialog-close-fixed:hover {
+    background: white;
+    color: black;
+    transform: rotate(90deg);
+}
+
+.template-dialog-scroll-area {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* IE and Edge */
+}
+
+.template-dialog-scroll-area::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari, Opera */
+}
+
+.template-dialog-full-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 80px 20px 140px;
+    /* Increased bottom padding for footer button */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.template-dialog-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(15px);
+    display: flex;
+    justify-content: center;
+    z-index: 10002;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.template-select-button {
+    background: var(--primary);
+    color: white;
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16px 80px;
+    border-radius: 50px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(var(--primary-rgb), 0.4);
+    transition: all 0.3s ease;
+}
+
+.template-select-button:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(var(--primary-rgb), 0.6);
+    filter: brightness(1.1);
+}
+
+.template-detail-header {
+    text-align: center;
+    margin-bottom: 60px;
+    color: white;
+}
+
+.template-detail-no {
+    font-size: 14px;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    margin-bottom: 8px;
+}
+
+.template-detail-title {
+    font-size: 32px;
+    font-weight: 800;
+}
+
+.template-detail-images {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    /* Space between the two detail images */
+}
+
+.detail-image-wrapper {
+    width: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.detail-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@media (max-width: 768px) {
+    .template-dialog-full-content {
+        padding: 60px 15px 120px;
+    }
+
+    .template-dialog-close-fixed {
+        top: 20px;
+        right: 20px;
+        width: 44px;
+        height: 44px;
+    }
+
+    .template-detail-title {
+        font-size: 24px;
+    }
+
+    .template-detail-images {
+        gap: 20px;
+    }
+
+    .template-select-button {
+        padding: 14px 40px;
+        width: 100%;
+        max-width: 300px;
+        font-size: 16px;
+    }
+
+    .template-dialog-footer {
+        padding: 20px;
+    }
+}

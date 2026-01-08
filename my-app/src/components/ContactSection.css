@@ -30,11 +30,13 @@
     transition: all 0.3s ease;
 }
 
-.branch-card:hover {
-    transform: translateY(-8px);
-    border-color: var(--accent-gold);
-    background: white;
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+@media (hover: hover) {
+    .branch-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--accent-gold);
+        background: white;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+    }
 }
 
 .pin-icon {
@@ -89,8 +91,10 @@
     /* Added for serif font */
 }
 
-.open-modal-btn:hover {
-    background-color: var(--primary-hover);
+@media (hover: hover) {
+    .open-modal-btn:hover {
+        background-color: var(--primary-hover);
+    }
 }
 
 /* 하단 안내 문구 */

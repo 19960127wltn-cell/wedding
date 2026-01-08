@@ -109,12 +109,16 @@
     pointer-events: none;
 }
 
+.object-top-10 {
+    object-position: center 10% !important;
+}
+
 
 /* Decorative Number */
 .diff-number {
     position: absolute;
-    top: -65px;
-    /* Moved slightly up */
+    top: -68px;
+    /* Moved slightly up to increase gap with title */
     left: 0;
     /* Aligned with text */
     font-family: serif;
@@ -126,7 +130,7 @@
     pointer-events: none;
     z-index: -1;
     /* Behind text */
-    line-height: 1;
+    line-height: 0.5;
 }
 
 .diff-info {

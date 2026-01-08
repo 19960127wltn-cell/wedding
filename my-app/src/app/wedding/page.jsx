@@ -39,11 +39,14 @@ export default function WeddingPage() {
 
       {/* 3. Content Area */}
       <main className="max-w-7xl mx-auto w-full pt-0 pb-8 md:pb-12">
-        {activeTab === 'service' && <WeddingServiceContent />}
+        {activeTab === 'service' && (
+          <>
+            <WeddingServiceContent />
+            <ContactSection />
+          </>
+        )}
         {activeTab === 'template' && <WeddingTemplateContent />}
       </main>
-
-      <ContactSection />
     </div>
   );
 }

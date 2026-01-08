@@ -15,7 +15,7 @@ import {
 } from 'lucide-react';
 import './WeddingDifferentiation.css';
 
-const DiffItem = ({ title, description, points, image, reverse, index }) => {
+const DiffItem = ({ title, description, points, image, reverse, index, imageClassName }) => {
   const [isVisible, setIsVisible] = useState(false);
   const [showImage, setShowImage] = useState(false);
   const [showHeader, setShowHeader] = useState(false);
@@ -58,7 +58,7 @@ const DiffItem = ({ title, description, points, image, reverse, index }) => {
             src={image}
             alt={title}
             fill
-            className="object-cover"
+            className={`object-cover ${imageClassName || ''}`}
           />
           <div className="diff-visual-overlay"></div>
         </div>
@@ -153,7 +153,8 @@ const WeddingDifferentiation = () => {
           desc: "식장의 분위기와 조명 색온도에 최적화된 후보정 프로세스를 적용해요"
         }
       ],
-      image: "/images/hero-wedding-01.png"
+      image: "/images/bright.png",
+      imageClassName: "object-top-10"
     },
     {
       title: "예식의 품격을 완성하는,\n2인 전담 매니저",
@@ -204,7 +205,7 @@ const WeddingDifferentiation = () => {
           desc: "소중한 추억에 먼지가 쌓이지 않도록, 고급스러운 전용 보관함에 담아 안전하고 품격있게 전달드려요"
         }
       ],
-      image: "/images/hero-wedding-02.png"
+      image: "/images/gift.png"
     }
   ];
 

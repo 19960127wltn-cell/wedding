@@ -101,8 +101,10 @@
     transition: transform 0.8s ease;
 }
 
-.benefit-card:hover .benefit-image-wrapper {
-    transform: scale(1.05);
+@media (hover: hover) {
+    .benefit-card:hover .benefit-image-wrapper {
+        transform: scale(1.05);
+    }
 }
 
 .benefit-image-wrapper::after {

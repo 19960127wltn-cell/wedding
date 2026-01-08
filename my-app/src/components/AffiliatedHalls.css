@@ -1,5 +1,6 @@
 .affiliated-halls-section {
-  padding: 40px 0;
+  padding: 0px 0 40px;
+  /* Removed top padding */
   margin-bottom: 0;
 }
 
@@ -10,7 +11,8 @@
 .logos-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 40px 80px; /* Vertical and horizontal gap */
+  gap: 40px 80px;
+  /* Vertical and horizontal gap */
   align-items: center;
   justify-items: center;
 }
@@ -32,13 +34,17 @@
   cursor: pointer;
 }
 
-.logo-item:hover {
-  filter: grayscale(0%) opacity(1);
+@media (hover: hover) {
+  .logo-item:hover {
+    filter: grayscale(0%) opacity(1);
+  }
 }
 
 @media (max-width: 499px) {
   .logos-grid {
-    grid-template-columns: repeat(2, 1fr); /* Exactly 2 columns, each taking equal space */
-    gap: 20px; /* Adjust gap for smaller screens */
+    grid-template-columns: repeat(2, 1fr);
+    /* Exactly 2 columns, each taking equal space */
+    gap: 20px;
+    /* Adjust gap for smaller screens */
   }
 }

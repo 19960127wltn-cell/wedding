@@ -4,6 +4,7 @@ import FadeInOnScroll from './FadeInOnScroll';
 import WeddingBenefits from './WeddingBenefits';
 import WeddingDifferentiation from './WeddingDifferentiation';
 import AffiliatedHalls from './AffiliatedHalls';
+import WeddingReview from './WeddingReview';
 import WeddingProcess from './WeddingProcess';
 import ContactDialog from './ContactDialog';
 import WeddingPackageConfig from './WeddingPackageConfig'; // Import WeddingPackageConfig
@@ -11,6 +12,7 @@ import './WeddingProcess.css';
 import './WeddingDifferentiation.css';
 import './ContactDialog.css';
 import './WeddingPackageConfig.css'; // Import WeddingPackageConfig.css
+import './WeddingReview.css';
 
 
 const WeddingServiceContent = () => {
@@ -43,24 +45,27 @@ const WeddingServiceContent = () => {
     <div className="space-y-20 md:space-y-28">
       <WeddingBenefits />
       <WeddingDifferentiation />
-      <AffiliatedHalls />
-      
+      <div>
+        <WeddingReview />
+        <AffiliatedHalls />
+      </div>
+
       {/* Process Section */}
       <div className="max-w-7xl mx-auto px-4 md:px-8">
-        <h2 
-            ref={processHeaderRef}
-            className={`benefits-title text-3xl md:text-4xl font-bold text-left leading-relaxed ${processHeaderVisible ? 'visible' : ''}`}
-            style={{ marginBottom: '35px' }}
+        <h2
+          ref={processHeaderRef}
+          className={`benefits-title text-3xl md:text-4xl font-bold text-left leading-relaxed ${processHeaderVisible ? 'visible' : ''}`}
+          style={{ marginBottom: '35px' }}
         >
-            <span className="text-primary block text-[32px] font-normal mb-2" style={{ fontFamily: 'Weddingday' }}>
-                Process
-            </span>
-            <span className="text-3xl md:text-4xl font-mj2 font-black block">
-                <span className={`diff-title-line ${processLine1Visible ? 'visible' : ''}`}>모든 여정을 완벽하게,</span>
-                <br />
-                <span className={`diff-title-line ${processLine2Visible ? 'visible' : ''}`}>VUE가 동행해요</span>
-            </span>
-            <div className="benefits-divider"></div>
+          <span className="text-primary block text-[32px] font-normal mb-2" style={{ fontFamily: 'Weddingday' }}>
+            Process
+          </span>
+          <span className="text-3xl md:text-4xl font-mj2 font-black block">
+            <span className={`diff-title-line ${processLine1Visible ? 'visible' : ''}`}>모든 여정을 완벽하게,</span>
+            <br />
+            <span className={`diff-title-line ${processLine2Visible ? 'visible' : ''}`}>VUE가 동행해요</span>
+          </span>
+          <div className="benefits-divider"></div>
         </h2>
         <WeddingProcess />
       </div>
@@ -70,7 +75,7 @@ const WeddingServiceContent = () => {
 
 
 
-      <ContactDialog 
+      <ContactDialog
         isOpen={isContactDialogOpen}
         onClose={() => setContactDialogOpen(false)}
       />

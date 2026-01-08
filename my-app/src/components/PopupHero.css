@@ -1,0 +1,208 @@
+/* PopupHero.css - Matching the luxury style of WeddingHero */
+
+.popup-hero {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background: #000;
+}
+
+@media (min-width: 1280px) {
+    .popup-hero {
+        height: 80vh;
+    }
+}
+
+.popup-hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.popup-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.5) 0%,
+            rgba(0, 0, 0, 0.3) 60%,
+            rgba(0, 0, 0, 0.6) 100%);
+    z-index: 1;
+}
+
+.popup-hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    text-align: center;
+    color: white;
+}
+
+.popup-hero-text-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.popup-hero-title {
+    font-family: 'Weddingday', var(--font-serif);
+    font-size: 50px;
+    /* Slightly smaller than 'Wedding' to fit '&' */
+    margin-bottom: 20px;
+    letter-spacing: 0.1em;
+    color: #fff;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.font-prata-divider {
+    font-family: 'Prata', serif;
+    font-weight: 400;
+    opacity: 0.8;
+    margin: 0 0.15em;
+}
+
+@media (min-width: 768px) {
+    .popup-hero-title {
+        font-size: 100px;
+    }
+}
+
+@media (min-width: 1280px) {
+    .popup-hero-title {
+        font-size: 130px;
+        margin-bottom: 30px;
+    }
+}
+
+.popup-hero-divider {
+    width: 1px;
+    height: 60px;
+    background: rgba(255, 255, 255, 0.4);
+    margin: 20px 0 40px;
+}
+
+@media (min-width: 1280px) {
+    .popup-hero-divider {
+        display: none;
+    }
+}
+
+.popup-hero-description {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+    font-family: var(--font-serif);
+    font-size: 18px !important;
+    line-height: 1.8 !important;
+}
+
+@media (min-width: 768px) {
+    .popup-hero-description {
+        font-size: 24px !important;
+    }
+}
+
+@media (min-width: 1280px) {
+    .popup-hero-description span {
+        margin-bottom: 0.8em !important;
+    }
+
+    .popup-hero-description span:last-child {
+        margin-bottom: 0 !important;
+    }
+}
+
+/* Animations */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scaleY(0);
+        transform-origin: top;
+    }
+
+    to {
+        opacity: 1;
+        transform: scaleY(1);
+        transform-origin: top;
+    }
+}
+
+/* Scroll Indicator */
+.popup-hero-scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    opacity: 0;
+    animation: fadeIn 1s ease-out 2s forwards;
+}
+
+@media (min-width: 1280px) {
+    .popup-hero-scroll-indicator {
+        display: none;
+    }
+}
+
+.scroll-lane {
+    width: 2px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+    position: relative;
+    border-radius: 1px;
+}
+
+.scroll-dot {
+    width: 2px;
+    height: 15px;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: scrollMove 2s infinite ease-in-out;
+}
+
+@keyframes scrollMove {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(35px);
+        opacity: 0;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

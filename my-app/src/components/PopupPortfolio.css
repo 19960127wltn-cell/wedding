@@ -1,0 +1,116 @@
+/* PopupPortfolio.css - Corporate Reference Style */
+
+.portfolio-section {
+    padding: 100px 0;
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px 40px;
+}
+
+.portfolio-box {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.06);
+    transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.portfolio-img-wrap {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+}
+
+.portfolio-img {
+    object-fit: cover;
+    transition: transform 1s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.portfolio-box:hover .portfolio-img {
+    transform: scale(1.08);
+}
+
+.portfolio-tag-overlay {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    background: var(--primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 8px;
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    z-index: 2;
+}
+
+.portfolio-info {
+    padding: 40px;
+}
+
+.portfolio-tit-sub {
+    font-size: 1.6rem;
+    font-weight: 800;
+    margin-bottom: 15px;
+    color: var(--foreground);
+}
+
+.portfolio-desc-text {
+    font-size: 1.05rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+    margin-bottom: 30px;
+    word-break: keep-all;
+}
+
+.review-quote-box {
+    background: #f8f9fa;
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+    border-left: 4px solid var(--primary);
+}
+
+.quote-text {
+    font-style: italic;
+    font-size: 1rem;
+    color: var(--secondary-foreground);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.reviewer-name {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--primary);
+    font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .portfolio-info {
+        padding: 35px 25px;
+    }
+
+    .portfolio-tit-sub {
+        font-size: 1.4rem;
+    }
+
+    .portfolio-img-wrap {
+        height: 240px;
+    }
+}

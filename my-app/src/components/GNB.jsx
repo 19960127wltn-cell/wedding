@@ -41,8 +41,10 @@ export default function GNB() {
   const router = useRouter();
 
   const isWeddingPage = pathname === '/wedding';
+  const isPopupPage = pathname === '/popup-event';
+  const pageLabel = isWeddingPage ? 'Wedding' : (isPopupPage ? 'Popup/Event' : '');
 
-  if (isWeddingPage) {
+  if (isWeddingPage || isPopupPage) {
     return (
       <nav className="fixed w-full top-0 left-0 z-50 bg-gnb-custom shadow-sm flex items-center text-white h-14">
         {/* Mobile & Tablet View (< 1280px) */}
@@ -53,7 +55,7 @@ export default function GNB() {
             </button>
           </div>
           <div className="absolute left-1/2 -translate-x-1/2">
-            <h1 className="text-md font-semibold font-gnb">Wedding</h1>
+            <h1 className="text-md font-semibold font-gnb">{pageLabel}</h1>
           </div>
           <div className="flex items-center">
             <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
