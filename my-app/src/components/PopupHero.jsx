@@ -10,7 +10,7 @@ const PopupHero = () => {
         <section className="popup-hero">
             <div className="popup-hero-bg">
                 <Image
-                    src="/images/bright.png"
+                    src="/images/promo-event1.png"
                     alt="Popup & Event Hero Background"
                     fill
                     priority
