@@ -1,75 +1,39 @@
 [
   {
-    "id": 1767875083364,
-    "name": "ㅈㅈ",
-    "phone": "010",
-    "date": "2026-01-08T21:24",
-    "memo": "ㅎㅎ",
-    "agreed": true,
+    "id": 1768492139138,
+    "customerName": "11",
+    "weddingDate": "2025-12-31",
+    "groomNameEn": "22",
+    "brideNameEn": "33",
     "templateName": "Wedding Template 01",
-    "submittedAt": "2026-01-08T12:24:43.364Z"
+    "submittedAt": "2026. 1. 16. 오전 12:48:59"
   },
   {
-    "id": 1767877050127,
-    "name": "지수",
-    "phone": "01075965558",
-    "memo": "헤헤",
-    "agreed": true,
-    "templateName": "Wedding Template 02",
-    "submittedAt": "2026-01-08T12:57:30.127Z"
+    "id": 1768492202209,
+    "customerName": "정지수",
+    "weddingDate": "2026-01-30",
+    "groomNameEn": "juns jisu",
+    "brideNameEn": "jung jisu",
+    "templateName": "Wedding Template 04",
+    "submittedAt": "2026. 1. 16. 오전 12:50:02"
   },
   {
-    "id": 1768205213992,
-    "name": "test",
-    "phone": "01011445",
-    "memo": "하이",
-    "agreed": true,
-    "templateName": "Wedding Template 01",
-    "submittedAt": "2026-01-12T08:06:53.992Z"
+    "id": 1768492264026,
+    "customerName": "정정정",
+    "weddingDate": "2026-02-26",
+    "groomNameEn": "123",
+    "brideNameEn": "123",
+    "templateName": "Wedding Template 08",
+    "submittedAt": "2026. 1. 16. 오전 12:51:04"
   },
   {
-    "id": 1768205463866,
-    "name": "ㅎㅇ",
-    "phone": "ㅎㅇ",
-    "memo": "123123",
-    "agreed": true,
-    "templateName": "Wedding Template 01",
-    "submittedAt": "2026-01-12T08:11:03.866Z"
-  },
-  {
-    "id": 1768205617696,
-    "name": "안녕",
-    "phone": "123123123",
-    "memo": "123123",
-    "agreed": true,
-    "templateName": "Wedding Template 02",
-    "submittedAt": "2026-01-12T08:13:37.696Z"
-  },
-  {
-    "id": 1768205682530,
-    "name": "ㅎ1",
-    "phone": "ㅎ1",
-    "memo": "123",
-    "agreed": true,
+    "id": 1768492538879,
+    "customerName": "ㅋㅋㅋ",
+    "weddingDate": "2026-01-16",
+    "branch": "대전",
+    "groomNameEn": "ㅋㅋㅋ",
+    "brideNameEn": "ㅋㅋㅋ",
     "templateName": "Wedding Template 03",
-    "submittedAt": "2026-01-12T08:14:42.530Z"
-  },
-  {
-    "id": 1768205834398,
-    "name": "123123123",
-    "phone": "123123123",
-    "memo": "123123",
-    "agreed": true,
-    "templateName": "Wedding Template 02",
-    "submittedAt": "2026-01-12T08:17:14.398Z"
-  },
-  {
-    "id": 1768205965774,
-    "name": "ㅋㅋㅋ",
-    "phone": "ㅋㅋㅋ",
-    "memo": "ㅋㅋㅋ",
-    "agreed": true,
-    "templateName": "Wedding Template 02",
-    "submittedAt": "2026-01-12T08:19:25.774Z"
+    "submittedAt": "2026. 1. 16. 오전 12:55:38"
   }
 ]

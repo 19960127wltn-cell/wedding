@@ -102,6 +102,35 @@
     color: #666;
 }
 
+.branch-chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.branch-chip {
+    padding: 8px 16px;
+    border-radius: 100px;
+    border: 1px solid #eee;
+    background: #f9f9f9;
+    font-size: 14px;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.branch-chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+}
+
+.branch-chip.active {
+    background: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+
 .form-submit-button {
     margin-top: 10px;
     background: var(--primary);

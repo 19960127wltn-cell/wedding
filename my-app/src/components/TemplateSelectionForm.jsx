@@ -6,9 +6,10 @@ import './TemplateSelectionForm.css';
 const TemplateSelectionForm = ({ isOpen, onClose, templateName }) => {
     const [formData, setFormData] = useState({
         name: '',
-        phone: '',
-        memo: '',
-        agreed: false
+        weddingDate: '',
+        groomNameEn: '',
+        brideNameEn: '',
+        branch: '서울'
     });
     const [isSubmitted, setIsSubmitted] = useState(false);
     const [isLoading, setIsLoading] = useState(false);
@@ -31,13 +32,13 @@ const TemplateSelectionForm = ({ isOpen, onClose, templateName }) => {
             return;
         }
 
-        if (!formData.phone.trim()) {
-            showToast('연락처를 입력해주세요.');
+        if (!formData.weddingDate) {
+            showToast('예식 일자를 선택해주세요.');
             return;
         }
 
-        if (!formData.agreed) {
-            showToast('개인정보 처리방침에 동의해주세요.');
+        if (!formData.groomNameEn.trim() || !formData.brideNameEn.trim()) {
+            showToast('신랑/신부 영문 성함을 입력해주세요.');
             return;
         }
 
@@ -88,11 +89,27 @@ const TemplateSelectionForm = ({ isOpen, onClose, templateName }) => {
                 </button>
 
                 <div className="form-header">
-                    <h3 className="form-title font-mj2">템플릿 선택 신청</h3>
-                    <p className="form-subtitle">선택하신 템플릿: <span className="text-primary font-bold">{templateName}</span></p>
+                    <h3 className="form-title font-mj2">템플릿 선택</h3>
+                    <p className="form-subtitle">템플릿명: <span className="text-primary font-bold">{templateName}</span></p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="selection-form" noValidate>
+                    <div className="form-group">
+                        <label>지점 선택</label>
+                        <div className="branch-chips">
+                            {['서울', '대전', '광주', '부산'].map((city) => (
+                                <button
+                                    key={city}
+                                    type="button"
+                                    className={`branch-chip ${formData.branch === city ? 'active' : ''}`}
+                                    onClick={() => setFormData({ ...formData, branch: city })}
+                                >
+                                    {city}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
                     <div className="form-group">
                         <label>예약자 성함</label>
                         <input
@@ -104,41 +121,36 @@ const TemplateSelectionForm = ({ isOpen, onClose, templateName }) => {
                     </div>
 
                     <div className="form-group">
-                        <label>예약자 번호</label>
+                        <label>예식 일자</label>
                         <input
-                            type="tel"
-                            placeholder="연락처를 입력해주세요"
-                            value={formData.phone}
-                            onChange={e => setFormData({ ...formData, phone: e.target.value })}
+                            type="date"
+                            value={formData.weddingDate}
+                            onChange={e => setFormData({ ...formData, weddingDate: e.target.value })}
                         />
                     </div>
 
-
-
                     <div className="form-group">
-                        <label>메모</label>
-                        <textarea
-                            placeholder="추가 요청사항이 있다면 입력해주세요"
-                            rows="3"
-                            value={formData.memo}
-                            onChange={e => setFormData({ ...formData, memo: e.target.value })}
-                        ></textarea>
+                        <label>신랑 영문 성함</label>
+                        <input
+                            type="text"
+                            placeholder="예시)Hong Gildong"
+                            value={formData.groomNameEn}
+                            onChange={e => setFormData({ ...formData, groomNameEn: e.target.value })}
+                        />
                     </div>
 
-                    <div className="form-agreement">
-                        <label className="checkbox-container">
-                            <input
-                                type="checkbox"
-                                checked={formData.agreed}
-                                onChange={e => setFormData({ ...formData, agreed: e.target.checked })}
-                            />
-                            <span className="checkmark"></span>
-                            <span className="agreement-text">개인정보 처리방침에 동의합니다</span>
-                        </label>
+                    <div className="form-group">
+                        <label>신부 영문 성함</label>
+                        <input
+                            type="text"
+                            placeholder="예시)Hong Gildong"
+                            value={formData.brideNameEn}
+                            onChange={e => setFormData({ ...formData, brideNameEn: e.target.value })}
+                        />
                     </div>
 
                     <button type="submit" className="form-submit-button font-mj2" disabled={isLoading}>
-                        {isLoading ? '신청 중...' : '신청 완료하기'}
+                        {isLoading ? '신청 중...' : '선택 완료'}
                     </button>
                 </form>
             </div>

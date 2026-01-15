@@ -1,8 +1,7 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import {
-  Smartphone,
   ShieldCheck,
   Award,
   HandHelping,
@@ -10,6 +9,11 @@ import {
   UserCheck,
   FileBarChart,
   X,
+  ArrowRight,
+  Plus,
+  MessageCircle,
+  PhoneCall,
+  Mail
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import "./PopupService.css";
@@ -49,8 +53,97 @@ const brandLogos = [
   "10_nonghyup.png",
 ];
 
+const qualityFeatures = [
+  {
+    id: "q1",
+    title: "스튜디오급 광학 시스템",
+    desc: "고성능 DSLR과 정교한 조명 세팅으로 어떤 장소에서도 무결점 결과물을 만듭니다. 화사함과 깊이감을 동시에 잡는 VUE만의 노하우입니다.",
+    image: "/images/popup/DSLR.png"
+  },
+  {
+    id: "q2",
+    title: "10초 완성 프리미엄 인화",
+    desc: "대규모 인원도 대기 없이 즐길 수 있는 초고속 시스템과 선명한 프리미엄 인화지를 사용합니다.",
+    image: "/images/popup/print1.png"
+  },
+  {
+    id: "q3",
+    title: "스마트 QR 디지털 솔루션",
+    desc: "QR코드를 통해 촬영본 파일(사진/GIF)을 즉시 스마트폰으로 전송합니다. 간편한 SNS 공유를 유도하여 기업의 마케팅 확산 효과를 극대화합니다.",
+    image: "/images/popup/QR.png"
+  }
+];
+
+const referenceCategories = [
+  {
+    id: 'corp',
+    title: '기업 행사',
+    subtitle: 'CORPORATE EVENTS',
+    count: '48 Cases',
+    image: '/images/event01.png',
+    desc: '삼성, 현대, SK 등 국내 주요 대기업의 사내 행사 및 연말 파티를 완벽하게 수행했습니다.'
+  },
+  {
+    id: 'popup',
+    title: '팝업 스토어',
+    subtitle: 'POP-UP STORES',
+    count: '32 Projects',
+    image: '/images/popup01.png',
+    desc: '브랜드의 아이덴티티를 체험할 수 있는 감각적인 포토부스 솔루션을 제공합니다.'
+  },
+  {
+    id: 'public',
+    title: '공공기관',
+    subtitle: 'PUBLIC & GOV',
+    count: '25 Projects',
+    image: '/images/hall01.png',
+    desc: '시민들이 참여하는 공공 축제와 행사에 안정적이고 즐거운 경험을 더합니다.'
+  },
+  {
+    id: 'school',
+    title: '대학교/학교',
+    subtitle: 'CAMPUS & SCHOOL',
+    count: '50+ Events',
+    image: '/images/event02.png',
+    desc: '축제와 입학/졸업식 등 학교 행사에서 학생들의 소중한 추억을 남깁니다.'
+  }
+];
+
 const PopupServiceContent = () => {
   const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
+  const [selectedRef, setSelectedRef] = useState(null);
+  const [activeQualityIndex, setActiveQualityIndex] = useState(0);
+  const qualitySectionRef = useRef(null);
+
+  // Quality Sticky Scroll Observer
+  useEffect(() => {
+    const section = qualitySectionRef.current;
+    if (!section) return;
+
+    const options = {
+      root: null,
+      rootMargin: "-45% 0px -45% 0px", // Trigger when element is near center of viewport
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = Number(entry.target.getAttribute("data-index"));
+          if (!isNaN(index)) {
+            setActiveQualityIndex(index);
+          }
+        }
+      });
+    }, options);
+
+    const textItems = section.querySelectorAll(".quality-text-item");
+    textItems.forEach((item) => observer.observe(item));
+
+    return () => {
+      textItems.forEach((item) => observer.unobserve(item));
+    };
+  }, []);
 
   // Scroll Animation Observer
   useEffect(() => {
@@ -103,7 +196,7 @@ const PopupServiceContent = () => {
               <h3>직접 운영의 원칙</h3>
               <div className="promise-divider"></div>
               <p>
-                전문 교육을 받은 전담 매니저가 상주하여, 행사의 시작과 끝을 완벽히 책임집니다. 
+                전문 교육을 받은 전담 매니저가 상주하여, 행사의 시작과 끝을 완벽히 책임집니다.
               </p>
               <div className="border-trace-container">
                 <svg className="border-trace-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -156,9 +249,9 @@ const PopupServiceContent = () => {
                 {[...brandLogos, ...brandLogos].map((logo, index) => (
                   <div key={index} className="logo-item">
                     <div className="brand-logo-wrap">
-                      <Image 
-                        src={`/images/brand/${logo}`} 
-                        alt="Brand Logo" 
+                      <Image
+                        src={`/images/brand/${logo}`}
+                        alt="Brand Logo"
                         width={180}
                         height={60}
                         className="brand-logo-img"
@@ -169,7 +262,7 @@ const PopupServiceContent = () => {
               </div>
             </div>
             <div className="brand-view-all-wrap animate-on-scroll">
-              <button 
+              <button
                 className="brand-view-all-btn"
                 onClick={() => setIsBrandModalOpen(true)}
               >
@@ -196,9 +289,9 @@ const PopupServiceContent = () => {
                     {brandLogos.map((logo, index) => (
                       <div key={index} className="brand-modal-item">
                         <div className="modal-logo-wrap">
-                          <Image 
-                            src={`/images/brand/${logo}`} 
-                            alt="Brand Logo" 
+                          <Image
+                            src={`/images/brand/${logo}`}
+                            alt="Brand Logo"
                             fill
                             className="modal-logo-img balance-logo"
                           />
@@ -231,10 +324,10 @@ const PopupServiceContent = () => {
               <div className="appeal-cross-visual slide-from-left">
                 <div className="appeal-cross-card aspect-[16/10]">
                   <Image
-                    src="/images/bright.png"
+                    src="/images/popup/obje.png"
                     alt="Minimal Design"
                     fill
-                    className="object-cover"
+                    className="object-cover obje-image-pos"
                   />
                   <div className="appeal-card-overlay"></div>
                 </div>
@@ -261,7 +354,7 @@ const PopupServiceContent = () => {
               <div className="appeal-cross-visual slide-from-left">
                 <div className="appeal-cross-card aspect-[16/10]">
                   <Image
-                    src="/images/hero-wedding.png"
+                    src="/images/popup/join.png"
                     alt="Social Tool"
                     fill
                     className="object-cover"
@@ -291,7 +384,7 @@ const PopupServiceContent = () => {
               <div className="appeal-cross-visual slide-from-left">
                 <div className="appeal-cross-card aspect-[16/10]">
                   <Image
-                    src="/images/bright.png"
+                    src="/images/popup/end.png"
                     alt="Brand Experience"
                     fill
                     className="object-cover"
@@ -319,119 +412,95 @@ const PopupServiceContent = () => {
         </div>
       </section>
 
-      {/* 3. High-End Quality Section */}
-      <section className="section-quality px-6 md:px-8">
+      {/* 3. High-End Quality Section (Sticky Scroll Design) */}
+      <section className="section-quality" ref={qualitySectionRef}>
         <div className="popup-content-inner">
-          <div className="quality-header-wrap mb-20 text-center animate-on-scroll">
+          <div className="quality-header-wrap mb-10 text-center animate-on-scroll">
             <span className="section-label">High-End Quality</span>
             <h2 className="section-tit">
-              VUE만의 고성능 기술로 완성하는 기업 행사 퀄리티
+              VUE만의 고성능 기술로
+              <br />
+              완성하는 기업 행사 퀄리티
             </h2>
           </div>
 
-          <div className="quality-row-container">
-            <div className="quality-feature-row animate-on-scroll">
-              <div className="feature-visual">
-                <Image
-                  src="/images/bright.png"
-                  alt="Optics Tech"
-                  fill
-                  className="object-cover rounded-3xl"
-                />
-              </div>
-              <div className="feature-content">
-
-                <h4>스튜디오급 광학 시스템</h4>
-                <p>
-                  고성능 DSLR과 정교한 조명 세팅으로 어떤 장소에서도 무결점 결과물을 만듭니다.
-                  화사함과 깊이감을 동시에 잡는 VUE만의 노하우입니다.
-                </p>
-              </div>
-            </div>
-
-            <div className="quality-feature-row animate-on-scroll">
-              <div className="feature-visual">
-                <Image
-                  src="/images/hero-wedding.png"
-                  alt="Printing Tech"
-                  fill
-                  className="object-cover rounded-3xl"
-                />
-              </div>
-              <div className="feature-content">
-
-                <h4>10초 완성 프리미엄 인화</h4>
-                <p>
-                  대규모 인원도 대기 없이 즐길 수 있는
-                  초고속 시스템과 선명한 프리미엄 인화지를 사용합니다.
-                </p>
+          <div className="quality-sticky-container">
+            {/* Sticky Visual Area (Left/Top) */}
+            <div className="quality-sticky-visual">
+              <div className="quality-visual-frame">
+                {qualityFeatures.map((feature, index) => (
+                  <div
+                    key={`visual-${feature.id}`}
+                    className={`quality-visual-item ${activeQualityIndex === index ? "active" : ""
+                      }`}
+                  >
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      className="object-cover"
+                      priority={index === 0}
+                    />
+                    <div className="quality-visual-overlay"></div>
+                  </div>
+                ))}
               </div>
             </div>
 
-            <div className="quality-feature-row animate-on-scroll">
-              <div className="feature-visual">
-                <Image
-                  src="/images/bright.png"
-                  alt="Digital Tech"
-                  fill
-                  className="object-cover rounded-3xl"
-                />
-              </div>
-              <div className="feature-content">
-                <div className="feature-icon-box">
-                  <Smartphone size={32} strokeWidth={1.2} />
+            {/* Scrolling Text Area (Right/Bottom) */}
+            <div className="quality-scroll-content">
+              {qualityFeatures.map((feature, index) => (
+                <div
+                  key={`text-${feature.id}`}
+                  className={`quality-text-item ${activeQualityIndex === index ? "active" : ""
+                    }`}
+                  data-index={index}
+                >
+                  <div className="quality-text-inner">
+                    <span className="quality-num">0{index + 1}</span>
+                    <h3 className="quality-tit font-mj2">{feature.title}</h3>
+                    <p className="quality-desc font-mj2">{feature.desc}</p>
+                  </div>
                 </div>
-                <h4>스마트 QR 디지털 솔루션</h4>
-                <p>
-                  QR코드를 통해 촬영본 파일(사진/GIF)을 즉시 스마트폰으로
-                  전송합니다. 간편한 SNS 공유를 유도하여 기업의 마케팅 확산
-                  효과를 극대화합니다.
-                </p>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* 4. References & Reviews */}
-      <section className="section-references px-6 md:px-8">
+      {/* 4. References & Reviews (Refactored Grid) */}
+      <section className="section-references">
         <div className="popup-content-inner">
-          <div className="portfolio-header text-center mb-16 animate-on-scroll">
-            <span className="section-label">References</span>
+          <div className="text-center mb-20 animate-on-scroll">
+            <span className="section-label">Our References</span>
             <h2 className="section-tit">
-              수많은 기업이 선택한 이유,
-              <br />
-              실제 사례로 증명합니다.
+              수많은 기업이 선택한 이유,<br />실제 사례로 증명합니다.
             </h2>
           </div>
 
-          <div className="portfolio-grid mb-24">
-            {portfolioItems.map((item, index) => (
+          <div className="reference-grid-wrapper">
+            {referenceCategories.map((item) => (
               <div
                 key={item.id}
-                className="portfolio-box animate-on-scroll"
-                style={{ transitionDelay: `${index * 0.1}s` }}
+                className="reference-card animate-on-scroll"
+                onClick={() => setSelectedRef(item)}
               >
-                <div className="portfolio-img-wrap">
+                <div className="ref-card-bg">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="portfolio-img"
+                    className="object-cover transition-transform duration-700 hover:scale-110"
                   />
-                  <div className="portfolio-tag-overlay font-gnb">
-                    {item.category}
-                  </div>
+                  <div className="ref-overlay"></div>
                 </div>
-                <div className="portfolio-info">
-                  <h4 className="portfolio-tit-sub font-mj2">{item.title}</h4>
-                  <p className="portfolio-desc-text font-mj2">{item.desc}</p>
-                  <div className="review-quote-box">
-                    <p className="quote-text font-mj2">&ldquo;{item.review}&rdquo;</p>
-                    <span className="reviewer-name font-mj2">
-                      - {item.reviewer}
-                    </span>
-                  </div>
+                <div className="ref-card-content">
+                  <span className="ref-subtitle font-mj2">{item.subtitle}</span>
+                  <h3 className="ref-title font-mj2">{item.title}</h3>
+                </div>
+                <div className="ref-hover-indicator">
+                  <span>VIEW REFERENCE</span>
+                  <Plus size={20} />
                 </div>
               </div>
             ))}
@@ -440,6 +509,57 @@ const PopupServiceContent = () => {
         </div>
       </section>
 
+      {/* Reference Detail Modal */}
+      {selectedRef && (
+        <div className="ref-dialog-overlay" onClick={() => setSelectedRef(null)}>
+          <div className="ref-dialog-container" onClick={(e) => e.stopPropagation()}>
+
+            {/* Close Button */}
+            <button
+              className="ref-dialog-close"
+              onClick={() => setSelectedRef(null)}
+            >
+              <X size={24} />
+            </button>
+
+            {/* Left: Info */}
+            <div className="ref-dialog-info">
+              <span className="ref-dialog-subtitle">{selectedRef.subtitle}</span>
+              <h3 className="ref-dialog-title">
+                {selectedRef.title}
+              </h3>
+              <p className="ref-dialog-desc">
+                {selectedRef.desc}
+                <br /><br />
+                VUE는 해당 분야의 깊은 이해를 바탕으로 최적의 포토부스 경험을 설계합니다.
+              </p>
+            </div>
+
+            {/* Right: Gallery Grid with ScrollArea */}
+            <div className="ref-dialog-gallery">
+              <ScrollArea className="h-full">
+                <div className="ref-gallery-grid">
+                  <div className="ref-gallery-item tall">
+                    <Image src="/images/popup/reference/ref_01.png" alt="gallery 01" fill className="object-cover" />
+                  </div>
+                  <div className="ref-gallery-item wide">
+                    <Image src="/images/popup/reference/ref_02.png" alt="gallery 02" fill className="object-cover" />
+                  </div>
+                  <div className="ref-gallery-item tall">
+                    <Image src="/images/popup/reference/ref_03.png" alt="gallery 03" fill className="object-cover" />
+                  </div>
+                  <div className="ref-gallery-item wide">
+                    <Image src="/images/popup/reference/ref_04.png" alt="gallery 04" fill className="object-cover" />
+                  </div>
+                  <div className="ref-gallery-item wide">
+                    <Image src="/images/popup/reference/ref_05.png" alt="gallery 05" fill className="object-cover" />
+                  </div>
+                </div>
+              </ScrollArea>
+            </div>
+          </div>
+        </div>
+      )}
       {/* 5. Systematic Process */}
       <section className="section-process px-6 md:px-8">
         <div className="popup-content-inner">
@@ -452,15 +572,18 @@ const PopupServiceContent = () => {
           <div className="process-line">
             <div className="process-node animate-on-scroll">
               <div className="node-dot">
-                <PenTool size={24} strokeWidth={1.5} />
+                <PenTool size={32} strokeWidth={1.2} />
               </div>
               <div className="node-content">
                 <span className="node-step">STEP 01</span>
                 <h4>맞춤형 컨설팅 및 디자인</h4>
-                <p>
-                  행사 성격에 맞춘 인화지 템플릿과 기기 UI를 전담 디자이너가 직접
-                  제작합니다.
+                <p className="node-desc">
+                  행사 성격에 맞춘 인화지 템플릿과 기기 UI를 전담 디자이너가 직접 제작합니다.
                 </p>
+                <div className="node-badge">
+                  <ShieldCheck size={16} />
+                  <span>사전 리스크 검증 완료</span>
+                </div>
               </div>
             </div>
             <div
@@ -468,15 +591,18 @@ const PopupServiceContent = () => {
               style={{ transitionDelay: "0.1s" }}
             >
               <div className="node-dot">
-                <UserCheck size={24} strokeWidth={1.5} />
+                <UserCheck size={32} strokeWidth={1.2} />
               </div>
               <div className="node-content">
                 <span className="node-step">STEP 02</span>
                 <h4>전문 인력 현장 상주</h4>
-                <p>
-                  사전 도착 및 세팅은 물론, 행사 내내 내빈 안내와 기기 상태를 밀착
-                  케어합니다.
+                <p className="node-desc">
+                  사전 도착 및 세팅은 물론, 행사 내내 내빈 안내와 기기 상태를 밀착 케어합니다.
                 </p>
+                <div className="node-badge">
+                  <ShieldCheck size={16} />
+                  <span>현장 매니저 1:1 케어</span>
+                </div>
               </div>
             </div>
             <div
@@ -484,50 +610,76 @@ const PopupServiceContent = () => {
               style={{ transitionDelay: "0.2s" }}
             >
               <div className="node-dot">
-                <FileBarChart size={24} strokeWidth={1.5} />
+                <FileBarChart size={32} strokeWidth={1.2} />
               </div>
               <div className="node-content">
                 <span className="node-step">STEP 03</span>
                 <h4>사후 데이터 및 리포트</h4>
-                <p>
-                  원본 파일 전달과 함께 마케팅 성과 측정을 위한 행사 참여 데이터를
-                  정리해 드립니다.
+                <p className="node-desc">
+                  원본 파일 전달과 함께 마케팅 성과 측정을 위한 행사 참여 데이터를 정리해 드립니다.
                 </p>
+                <div className="node-badge">
+                  <ShieldCheck size={16} />
+                  <span>데이터 성과 리포트 제공</span>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 6. CTA Section */}
-      <section className="section-cta px-6 md:px-8">
+      {/* 6. Premium Concierge CTA Section */}
+      <section className="section-cta-premium animate-on-scroll">
+        <div className="cta-premium-bg"></div>
         <div className="popup-content-inner">
-          <div className="popup-cta animate-on-scroll">
-            <div className="cta-glow"></div>
-            <span className="cta-badge">
-              시즌 예약 문의 급증 - 잔여 일정 확인 필수
-            </span>
-            <h2 className="cta-tit">
-              귀사의 소중한 행사,
-              <br />
-              실패 없는 파트너와 시작하세요.
+          <div className="cta-premium-header">
+            <span className="section-label">Contact Us</span>
+            <h2 className="cta-premium-tit">
+              완벽한 행사를 위해,<br />
+              VUE가 컨설팅해 드립니다.
             </h2>
-            <p className="cta-desc">
-              지금 문의 주시면 행사 맞춤형 큐레이션 안을 24시간 내 전달
-              드립니다.
-            </p>
-            <button
-              className="cta-btn font-mj2"
-              onClick={() =>
-                window.scrollTo({
-                  top: document.body.scrollHeight,
-                  behavior: "smooth",
-                })
-              }
-            >
-              간편 견적 문의하기
-            </button>
+            <p className="cta-premium-desc">언제든 문의해주세요</p>
           </div>
+
+          <div className="cta-contact-grid">
+            {/* option 1: Phone */}
+            <a href="tel:010-7596-5558" className="contact-card">
+              <div className="contact-icon">
+                <PhoneCall size={32} strokeWidth={1.5} />
+              </div>
+              <div className="contact-info">
+                <h3>유선 상담</h3>
+                <p>010. 7596. 5558</p>
+              </div>
+              <ArrowRight className="card-arrow" />
+            </a>
+
+            {/* option 2: Kakao */}
+            <a href="https://pf.kakao.com/_nSxcvG" target="_blank" rel="noopener noreferrer" className="contact-card highlight">
+              <div className="contact-icon">
+                <MessageCircle size={32} strokeWidth={1.5} />
+              </div>
+              <div className="contact-info">
+                <h3>카카오톡 문의</h3>
+                <p>실시간 채팅 상담</p>
+              </div>
+              <ArrowRight className="card-arrow" />
+            </a>
+
+            {/* option 3: Proposal */}
+            <a href="mailto:official.vue.kr@gmail.com" className="contact-card">
+              <div className="contact-icon">
+                <Mail size={32} strokeWidth={1.5} />
+              </div>
+              <div className="contact-info">
+                <h3>제안서 요청</h3>
+                <p>official.vue.kr@gmail.com</p>
+              </div>
+              <ArrowRight className="card-arrow" />
+            </a>
+          </div>
+
+          <p className="cta-premium-footer">상담 가능 시간: 24/7 상시 운영</p>
         </div>
       </section>
     </div>

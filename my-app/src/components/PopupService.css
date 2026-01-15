@@ -1,3 +1,9 @@
+/* Global Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  /* Removed scroll-snap-type to prevent scroll trapping */
+}
+
 /* PopupService.css - Ultimate Premium Light Rhythm Theme */
 
 .popup-service-wrapper {
@@ -137,12 +143,18 @@
 .appeal-cross-card {
   position: relative;
   width: 100%;
-  border-radius: 20px; /* Slight rounding restored */
+  border-radius: 20px;
+  /* Slight rounding restored */
   overflow: hidden;
   background: #1a1a1a;
-  border: none; /* Removed border */
+  border: none;
+  /* Removed border */
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
   transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.obje-image-pos {
+  object-position: center 35%;
 }
 
 .appeal-cross-card:hover {
@@ -168,19 +180,26 @@
   background: rgba(26, 26, 26, 0.8);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
-  padding: 60px;
-  border-radius: 20px; /* Slight rounding restored */
+  padding: 40px 40px 0 40px;
+  border-radius: 20px;
+  /* Slight rounding restored */
   border: 1px solid rgba(255, 255, 255, 0.05);
   box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  height: 350px; /* Adjusted height */
+  height: 350px;
+  /* Adjusted height */
+  transform: translateZ(0);
+  -webkit-transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .appeal-cross-num {
   font-family: "Nanum Myeongjo", serif;
-  font-size: 1.5rem; /* 24px */
+  font-size: 1.5rem;
+  /* 24px */
   color: var(--primary);
   opacity: 0.8;
   margin-bottom: 20px;
@@ -191,7 +210,7 @@
   font-size: 2.2rem;
   font-weight: 800;
   color: #ffffff;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   line-height: 1.3;
   font-family: "Nanum Myeongjo", serif;
   word-break: keep-all;
@@ -202,7 +221,7 @@
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   word-break: keep-all;
   letter-spacing: -0.01em;
 }
@@ -213,13 +232,15 @@
 .slide-from-left {
   opacity: 0;
   transform: translateX(-100px);
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
 .slide-from-right {
   opacity: 0;
   transform: translateX(100px);
-  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: opacity 1.2s cubic-bezier(0.22, 1, 0.36, 1), transform 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
 }
 
 .trigger-animation.is-visible .slide-from-left,
@@ -239,7 +260,8 @@
   padding: 160px 24px;
   position: relative;
   overflow: hidden;
-  text-align: center; /* Center-align Identity title/label */
+  text-align: center;
+  /* Center-align Identity title/label */
 }
 
 .promise-section .section-tit {
@@ -258,11 +280,9 @@
   right: -5%;
   width: 40%;
   height: 40%;
-  background: radial-gradient(
-    circle,
-    rgba(184, 167, 126, 0.05) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle,
+      rgba(184, 167, 126, 0.05) 0%,
+      transparent 70%);
   pointer-events: none;
 }
 
@@ -276,38 +296,36 @@
 .promise-item {
   position: relative;
   padding: 85px 45px 65px;
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(255, 255, 255, 0.06);
+  /* Subtle white transparent bg */
   border-radius: 44px;
-  backdrop-filter: blur(20px); /* Stronger blur for glass feel */
-  -webkit-backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
+  /* Restored subtle blur */
+  -webkit-backdrop-filter: blur(10px);
   transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   height: 100%;
-  box-shadow: 
-    0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06),
-    inset 0 0 20px rgba(255, 255, 255, 0.02); /* Subtle inner glow */
-  overflow: hidden; /* Back to hidden to clip everything to the 44px radius */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .promise-item::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 44px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);
-  pointer-events: none;
-  opacity: 0.5;
+  display: none;
 }
 
 
 
 @keyframes border-draw {
-  0% { stroke-dashoffset: 400; }
-  100% { stroke-dashoffset: 0; }
+  0% {
+    stroke-dashoffset: 400;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 .promise-item.animate-on-scroll {
@@ -322,12 +340,14 @@
 
 .promise-grid.is-visible .promise-item:nth-child(2) .border-rect {
   animation: border-draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: 2.3s; /* 1.3s base + 1s offset */
+  animation-delay: 2.3s;
+  /* 1.3s base + 1s offset */
 }
 
 .promise-grid.is-visible .promise-item:nth-child(3) .border-rect {
   animation: border-draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  animation-delay: 3.1s; /* 1.3s base + 1.8s offset */
+  animation-delay: 3.1s;
+  /* 1.3s base + 1.8s offset */
 }
 
 /* Hover effect removed as per request */
@@ -340,6 +360,7 @@
   z-index: 2;
   opacity: 0.9;
 }
+
 /* Icon hover scale removed */
 
 .promise-item h3 {
@@ -349,7 +370,7 @@
   font-weight: 700;
   font-family: "Nanum Myeongjo", serif;
   letter-spacing: -0.01em;
-  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 2;
 }
 
@@ -365,10 +386,12 @@
   font-size: 1.05rem;
   color: #64748b;
   line-height: 1.9;
+  font-family: "Nanum Myeongjo", serif;
   word-break: keep-all;
   margin-top: auto;
   transition: color 0.8s ease;
 }
+
 /* Extra CSS for border trace */
 .border-trace-container {
   position: absolute;
@@ -378,7 +401,8 @@
   bottom: 1px;
   pointer-events: none;
   z-index: 10;
-  border-radius: 43px; /* Slightly smaller than 44px to fit inside perfectly */
+  border-radius: 43px;
+  /* Slightly smaller than 44px to fit inside perfectly */
 }
 
 .border-trace-svg {
@@ -390,20 +414,26 @@
   fill: none;
   stroke: var(--primary);
   stroke-width: 1px;
-  stroke-dasharray: 1500; /* Increased to ensure total length coverage */
+  stroke-dasharray: 1500;
+  /* Increased to ensure total length coverage */
   stroke-dashoffset: 1500;
   stroke-linecap: square;
   vector-effect: non-scaling-stroke;
 }
 
 @keyframes border-draw {
-  0% { stroke-dashoffset: 1500; }
-  100% { stroke-dashoffset: 0; }
+  0% {
+    stroke-dashoffset: 1500;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+  }
 }
 
 
 
-/* Integrated Identity Logo Rolling */
+/* Integrated Identity Logo Rolling - Fixed for Default Color */
 .identity-logo-rolling {
   margin-top: 100px;
   padding-top: 10px;
@@ -456,6 +486,7 @@
   padding: 0 50px;
   height: 60px;
   opacity: 1;
+  /* Always full opacity */
   transition: none;
 }
 
@@ -463,7 +494,8 @@
 
 .brand-logo-wrap {
   position: relative;
-  width: 180px; /* Consistent width for all logos */
+  width: 180px;
+  /* Consistent width for all logos */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -473,13 +505,26 @@
 .brand-logo-img {
   width: 100% !important;
   height: auto !important;
-  max-height: 60px; /* Keep them within the strip height */
+  max-height: 60px;
+  /* Keep them within the strip height */
   object-fit: contain;
+  filter: none !important;
+  /* Forces original colors */
+}
+
+/* Hover effects removed */
+.logo-item:hover {
+  transform: none !important;
 }
 
 @keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Brand View All Button */
@@ -497,14 +542,16 @@
   padding: 8px 12px;
   cursor: pointer;
   position: relative;
-  transition: none; /* Removed interaction */
+  transition: none;
+  /* Removed interaction */
 }
 
 /* Brand Modal Dialog (Synced with Template Dialog Tone) */
 .brand-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(255, 255, 255, 0.1); /* Light overlay */
+  background: rgba(255, 255, 255, 0.1);
+  /* Light overlay */
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   z-index: 10000;
@@ -627,8 +674,13 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes slideUp {
@@ -636,6 +688,7 @@
     opacity: 0;
     transform: translateY(40px) scale(0.98);
   }
+
   to {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -653,141 +706,303 @@
   }
 
   .brand-modal-inner {
-    padding: 80px 20px 60px;
+    padding: 100px 20px 60px;
   }
-  
+
   .brand-modal-close {
     position: fixed;
     top: 20px;
     right: 20px;
     width: 44px;
     height: 44px;
+    background: rgba(0, 0, 0, 0.05);
+    z-index: 10005;
+  }
+
+  .brand-modal-header {
+    margin-bottom: 40px;
+  }
+
+  .brand-modal-title {
+    font-size: 1.5rem;
+    margin-top: 10px;
+  }
+
+  .brand-modal-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
 
   .brand-modal-item {
-    height: 100px;
+    height: 90px;
+    border-radius: 16px;
   }
 
   .modal-logo-wrap {
-    width: 120px;
+    width: 100px;
+    height: 35px;
+  }
+}
+
+/* 4. High-End Quality Section (Sticky Scroll) */
+.section-quality {
+  padding: 160px 24px 0;
+  background: linear-gradient(to bottom, #ffffff, #fafaf9);
+}
+
+.quality-sticky-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  position: relative;
+  align-items: flex-start;
+}
+
+/* Left: Sticky Image Area */
+.quality-sticky-visual {
+  position: sticky;
+  top: 15vh;
+  /* Sticky Position */
+  height: 70vh;
+  /* Fixed height viewport */
+  min-height: 500px;
+  max-height: 800px;
+}
+
+.quality-header-wrap {
+  scroll-snap-align: start;
+  scroll-margin-top: 20vh;
+}
+
+.quality-visual-frame {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+}
+
+.quality-visual-item {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1s cubic-bezier(0.23, 1, 0.32, 1), transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
+  transform: scale(1.1);
+  z-index: 1;
+}
+
+.quality-visual-item.active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 2;
+}
+
+.quality-visual-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
+  pointer-events: none;
+}
+
+/* Right: Scrolling Text Area */
+.quality-scroll-content {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20vh;
+  position: relative;
+  background: linear-gradient(to bottom,
+      rgba(184, 167, 126, 0) 0%,
+      rgba(184, 167, 126, 0.08) 15%,
+      rgba(184, 167, 126, 0.08) 85%,
+      rgba(184, 167, 126, 0) 100%);
+  border-left: 1px solid rgba(184, 167, 126, 0.1);
+  border-right: 1px solid rgba(184, 167, 126, 0.1);
+  scroll-snap-type: y mandatory;
+}
+
+.quality-text-item {
+  height: 60vh;
+  /* Each item takes considerable scroll space to allow observation */
+  display: flex;
+  align-items: center;
+  /* Use intersection observer to detect this */
+  opacity: 0.2;
+  transition: opacity 0.6s ease;
+  opacity: 0.2;
+  transition: opacity 0.6s ease;
+  padding: 40px;
+  scroll-snap-align: start;
+  scroll-margin-top: 20vh;
+  scroll-snap-stop: always;
+}
+
+.quality-text-item.active {
+  opacity: 1;
+}
+
+.quality-text-inner {
+  max-width: 450px;
+}
+
+.quality-num {
+  display: block;
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 4rem;
+  color: var(--primary);
+  opacity: 0.3;
+  margin-bottom: 20px;
+}
+
+.quality-text-item.active .quality-num {
+  opacity: 1;
+}
+
+.quality-tit {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0f172a;
+  margin-bottom: 0;
+  font-family: "Nanum Myeongjo", serif;
+  line-height: 1.3;
+  word-break: keep-all;
+}
+
+.quality-desc {
+  font-size: 1.15rem;
+  color: #475569;
+  line-height: 1.8;
+  word-break: keep-all;
+}
+
+/* 5. References & Reviews (New Grid) */
+.section-references {
+  padding: 160px 24px 0;
+  background-color: #f8fafc;
+}
+
+.reference-grid-wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0;
+  margin-bottom: 80px;
+}
+
+.reference-card {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #ffffff;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.ref-card-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+
+.ref-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+
+.reference-card:hover .ref-overlay {
+  opacity: 0.8;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.4) 100%);
+}
+
+.ref-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 40px;
+  z-index: 10;
+  color: white;
+  transform: translateY(0);
+  transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.reference-card:hover .ref-card-content {
+  transform: translateY(-10px);
+}
+
+.ref-subtitle {
+  display: block;
+  font-family: "Prata", serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  /* Prata usually looks better with normal weight */
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+  opacity: 0.8;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.ref-title {
+  font-size: 2.2rem;
+  font-weight: 800;
+  margin-bottom: 12px;
+  line-height: 1.1;
+  color: white;
+}
+
+.ref-count {
+  font-size: 1rem;
+  opacity: 0.7;
+  font-family: var(--font-sans);
+}
+
+.ref-hover-indicator {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 20;
+  /* Default Hover behavior for Desktop */
+  opacity: 0;
+  transform: scale(0.8) rotate(-45deg);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  color: white;
+}
+
+.ref-hover-indicator span {
+  display: none;
+  /* Icon only default */
+}
+
+.reference-card:hover .ref-hover-indicator {
+  opacity: 1;
+  transform: scale(1) rotate(0deg);
+}
+
+/* Mobile: Force indicator visible at bottom-right */
+@media (max-width: 768px) {
+  .ref-hover-indicator {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    top: auto;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
     height: 40px;
   }
 }
 
-/* 4. High-End Quality Section */
-.section-quality {
-  padding: 160px 24px;
-  background: linear-gradient(to bottom, #ffffff, #fafaf9);
-}
 
-.quality-row-container {
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
-}
-
-.quality-feature-row {
-  display: flex;
-  align-items: center;
-  gap: 80px;
-  background-color: rgba(184, 167, 126, 0.08); /* Increased visibility from 0.03 to 0.08 */
-  padding: 60px;
-  border-radius: 60px;
-  border: 1px solid rgba(184, 167, 126, 0.15); /* More defined border */
-  transition: all 0.5s ease;
-  width: 100%;
-}
-
-.quality-feature-row:hover {
-  background-color: rgba(184, 167, 126, 0.12);
-  box-shadow: 0 40px 80px rgba(184, 167, 126, 0.08);
-  transform: translateY(-5px);
-}
-
-.quality-feature-row:nth-child(even) {
-  flex-direction: row-reverse;
-}
-
-.feature-visual {
-  flex: 1.2;
-  position: relative;
-  height: 440px;
-  overflow: hidden;
-  border-radius: 40px;
-  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
-}
-
-.feature-content {
-  flex: 1;
-}
-
-
-
-.feature-content h4 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 24px;
-  font-family: "Nanum Myeongjo", serif;
-}
-
-.feature-content p {
-  font-size: 1.15rem;
-  color: #475569;
-  line-height: 2;
-  word-break: keep-all;
-}
-
-/* 5. References & Reviews */
-.section-references {
-  padding: 160px 24px;
-  background-color: #f8fafc;
-}
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 60px 40px;
-}
-
-.portfolio-box {
-  background: #ffffff;
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  border-radius: 50px;
-  overflow: hidden;
-  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.04);
-  transition: transform 0.5s ease;
-}
-
-.portfolio-box:hover {
-  transform: translateY(-10px);
-}
-
-.portfolio-img-wrap {
-  position: relative;
-  height: 380px;
-  overflow: hidden;
-}
-
-.portfolio-info {
-  padding: 60px 50px;
-}
-
-.portfolio-tit-sub {
-  font-size: 2rem;
-  font-weight: 800;
-  margin-bottom: 20px;
-  color: #0f172a;
-  font-family: "Nanum Myeongjo", serif;
-}
-
-.portfolio-desc-text {
-  font-size: 1.15rem;
-  color: #64748b;
-  line-height: 1.8;
-  margin-bottom: 40px;
-  word-break: keep-all;
-}
 
 .review-quote-box {
   background: #f1f5f9;
@@ -808,159 +1023,253 @@
   line-height: 1;
 }
 
-/* 6. Process Section */
+/* 6. Process Section - Systematic Roadmap */
 .section-process {
   padding: 160px 24px;
   background-color: #fafaf9;
+  position: relative;
+  overflow: hidden;
 }
 
 .process-line {
-  position: relative;
-  padding-left: 140px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
   margin-top: 80px;
+  position: relative;
 }
 
+/* Horizontal Connector Line for PC */
 .process-line::before {
   content: "";
   position: absolute;
-  left: 64px;
-  top: 0;
-  width: 1px;
-  height: 100%;
-  background: linear-gradient(
-    to bottom,
-    var(--primary) 0%,
-    rgba(184, 167, 126, 0.1) 100%
-  );
+  top: 40px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right,
+      rgba(var(--primary-rgb), 0) 0%,
+      rgba(var(--primary-rgb), 0.2) 15%,
+      rgba(var(--primary-rgb), 0.2) 85%,
+      rgba(var(--primary-rgb), 0) 100%);
+  z-index: 1;
 }
 
 .process-node {
   position: relative;
-  padding-bottom: 100px;
   display: flex;
-  align-items: flex-start;
-  gap: 40px;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  z-index: 2;
 }
 
 .node-dot {
-  position: absolute;
-  left: -140px;
-  width: 128px;
-  height: 128px;
+  width: 80px;
+  height: 80px;
   background: #ffffff;
-  border-radius: 40px;
+  border-radius: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--primary);
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
-  z-index: 2;
-  transition: all 0.5s ease;
+  border: 1px solid rgba(184, 167, 126, 0.1);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  margin-bottom: 40px;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  position: relative;
 }
 
+/* Status Pulse Indicator Removed */
+
 .process-node:hover .node-dot {
-  transform: scale(1.1) rotate(-5deg);
+  transform: translateY(-10px);
   background: var(--primary);
   color: white;
+  border-color: var(--primary);
+  box-shadow: 0 20px 40px rgba(184, 167, 126, 0.2);
 }
 
 .node-step {
-  display: block;
-  font-family: "Weddingday", sans-serif;
-  font-size: 1.4rem;
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(184, 167, 126, 0.1);
   color: var(--primary);
-  margin-bottom: 12px;
-  opacity: 0.8;
+  font-family: "Prata", serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  letter-spacing: 0.05em;
 }
 
 .process-node h4 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 800;
   margin-bottom: 20px;
   color: #0f172a;
   font-family: "Nanum Myeongjo", serif;
+  word-break: keep-all;
+}
+
+.node-desc {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #64748b;
+  word-break: keep-all;
+}
+
+.node-badge {
+  margin-top: 24px;
+  font-size: 0.85rem;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.node-badge svg {
+  color: #10b981;
 }
 
 
 
 /* CTA Section */
-.section-cta {
-  padding: 120px 24px;
-  background-color: #ffffff;
+/* 6. Premium Concierge CTA Section */
+.section-cta-premium {
+  position: relative;
+  padding: 160px 24px;
+  background: #0f1012;
+  overflow: hidden;
 }
 
-.popup-cta {
-  background: radial-gradient(circle at top right, #24344d, #1e293b, #161e2b);
-  padding: 160px 40px;
+.cta-premium-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 70% 30%, rgba(184, 167, 126, 0.05) 0%, transparent 50%),
+    radial-gradient(circle at 20% 80%, rgba(184, 167, 126, 0.03) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.cta-premium-header {
   text-align: center;
-  border-radius: 60px;
+  margin-bottom: 40px;
+}
+
+.cta-premium-tit {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #fff;
+  font-family: "Nanum Myeongjo", serif;
+  line-height: 1.3;
+  margin: 30px 0 20px;
+}
+
+.cta-premium-desc {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: "Nanum Myeongjo", serif;
+}
+
+.cta-contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 32px;
+  text-decoration: none;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
   position: relative;
   overflow: hidden;
 }
 
-.cta-glow {
-  position: absolute;
-  top: -20%;
-  right: -10%;
-  width: 50%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(184, 167, 126, 0.08) 0%, transparent 70%);
-  pointer-events: none;
+.contact-card.highlight {
+  background: rgba(184, 167, 126, 0.08);
+  border-color: rgba(184, 167, 126, 0.2);
 }
 
-.cta-badge {
-  display: inline-block;
-  padding: 12px 28px;
-  background: var(--primary);
-  color: white;
-  font-size: 1rem;
+.contact-icon {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+  transition: all 0.5s;
+}
+
+.contact-info h3 {
+  font-size: 1.2rem;
   font-weight: 700;
-  border-radius: 14px;
-  margin-bottom: 40px;
-  box-shadow: 0 10px 25px rgba(184, 167, 126, 0.3);
+  color: #fff;
+  margin-bottom: 4px;
 }
 
-.cta-tit {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 35px;
-  font-family: "Nanum Myeongjo", serif;
-  color: white;
-  line-height: 1.3;
+.contact-info p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.5);
 }
 
-.cta-desc {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.7);
-  font-family: "Nanum Myeongjo", serif;
-  margin-bottom: 60px;
+.card-arrow {
+  margin-left: auto;
+  color: rgba(255, 255, 255, 0.2);
+  transition: all 0.5s;
 }
 
-.cta-btn {
-  display: inline-block;
-  padding: 28px 100px;
-  background: #ffffff;
-  color: #1e293b;
-  font-weight: 900;
-  font-size: 1.6rem;
-  border-radius: 100px;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+.contact-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-10px);
+  border-color: var(--primary);
 }
 
-.cta-btn:hover {
-  transform: scale(1.05);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+.contact-card.highlight:hover {
   background: var(--primary);
-  color: white;
+}
+
+.contact-card:hover .contact-icon {
+  background: #fff;
+  color: #000;
+}
+
+.contact-card.highlight:hover .contact-info h3,
+.contact-card.highlight:hover .contact-info p,
+.contact-card.highlight:hover .card-arrow {
+  color: #fff;
+}
+
+.contact-card:hover .card-arrow {
+  transform: translateX(5px);
+  color: var(--primary);
+}
+
+.cta-premium-footer {
+  text-align: center;
+  margin-top: 60px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 0.05em;
 }
 
 @media (max-width: 1024px) {
   .quality-feature-row {
     flex-direction: column !important;
     gap: 30px;
-    background-color: rgba(184, 167, 126, 0.09) !important; /* Increased visibility on mobile */
+    background-color: rgba(184, 167, 126, 0.09) !important;
+    /* Increased visibility on mobile */
     padding: 30px;
     border-radius: 40px;
     border: 1px solid rgba(184, 167, 126, 0.15);
@@ -994,15 +1303,18 @@
   }
 
   .section-label {
-    font-size: 1.5rem; /* Adjusted for tablet/mobile */
+    font-size: 1.5rem;
+    /* Adjusted for tablet/mobile */
   }
 }
 
 @media (max-width: 768px) {
+
+
   .section-tit {
     font-size: 24px;
     line-height: 1.35;
-    margin-bottom: 35px;
+    margin-bottom: 0px;
     word-break: keep-all;
   }
 
@@ -1025,6 +1337,10 @@
   .promise-item {
     padding: 60px 30px 40px;
     border-radius: 10px;
+  }
+
+  .promise-item p {
+    font-size: 14px;
   }
 
   .section-appeal {
@@ -1086,13 +1402,16 @@
   .appeal-cross-text {
     padding: 40px 30px;
     border-radius: 20px;
-    height: 300px;
+    height: 280px;
     min-height: auto;
-    aspect-ratio: auto; /* Reset aspect on mobile for content space */
+    aspect-ratio: auto;
+    background: rgba(26, 26, 26, 0.9);
+    /* Reset aspect on mobile for content space */
   }
 
   .appeal-cross-text h3 {
-    font-size: 1.5rem; /* ~70% of desktop 2.2rem */
+    font-size: 1.5rem;
+    /* ~70% of desktop 2.2rem */
   }
 
   .appeal-cross-text p {
@@ -1109,56 +1428,143 @@
     margin-bottom: 25px;
   }
 
-  /* Quality Mobile */
-  .quality-row-container {
-    gap: 30px;
+  /* Quality Mobile Reset - Mini Sticky Implementation */
+  .quality-sticky-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 80vh;
+    overflow-y: auto;
+    scroll-snap-type: y mandatory;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  .quality-feature-row {
-    padding: 24px;
-    gap: 24px;
+  .quality-sticky-container::-webkit-scrollbar {
+    display: none;
   }
 
-  .feature-visual {
-    height: 200px;
+  .quality-sticky-visual {
+    display: block;
+    position: sticky;
+    top: 0;
+    height: 35vh;
+    min-height: 250px;
+    width: 100%;
+    z-index: 10;
+    flex-shrink: 0;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .quality-visual-frame {
     border-radius: 20px;
   }
 
-  .feature-content h4 {
-    font-size: 1.4rem;
-    margin-bottom: 12px;
+  .quality-scroll-content {
+    padding-bottom: 10vh;
+    padding-top: 20px;
+    background: linear-gradient(to bottom,
+        rgba(184, 167, 126, 0) 0%,
+        rgba(184, 167, 126, 0.08) 15%,
+        rgba(184, 167, 126, 0.08) 85%,
+        rgba(184, 167, 126, 0) 100%);
+    border-left: 1px solid rgba(184, 167, 126, 0.1);
+    border-right: 1px solid rgba(184, 167, 126, 0.1);
+    border-top: none;
+    border-bottom: none;
+    scroll-snap-type: y mandatory;
   }
 
-  .feature-content p {
+  .quality-text-item {
+    min-height: 45vh;
+    /* Matches container scroll space */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 30px 20px;
+    opacity: 0.2;
+    transition: all 0.5s ease;
+    background: transparent;
+    border: none;
+    margin-bottom: 0px;
+    scroll-snap-align: start;
+    scroll-margin-top: 35vh;
+    /* Prevents overlapping the sticky image */
+    scroll-snap-stop: always;
+  }
+
+  .quality-text-item.active {
+    opacity: 1 !important;
+    background: transparent;
+    box-shadow: none;
+  }
+
+  .quality-text-inner {
+    max-width: 100%;
+  }
+
+  .quality-num {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    opacity: 1;
+    /* Match parent visibility */
+  }
+
+  .quality-tit {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+  }
+
+  .quality-desc {
     font-size: 0.95rem;
     line-height: 1.6;
   }
 
 
 
-  /* Process Mobile */
+  /* Process Mobile Reset */
   .process-line {
-    padding-left: 20px;
-    margin-top: 40px;
-    border-left: 2px solid rgba(var(--primary-rgb), 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+    padding-left: 0;
+    margin-top: 60px;
   }
 
   .process-line::before {
     display: none;
   }
 
+  .process-node {
+    padding: 0;
+    align-items: flex-start;
+    text-align: left;
+  }
+
   .node-dot {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    margin-bottom: 24px;
+  }
+
+  .node-dot::after {
     display: none;
   }
 
-  .process-node {
-    padding-bottom: 50px;
-    padding-left: 30px;
+  .process-node h4 {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
   }
 
-  .process-node h4 {
-    font-size: 1.5rem;
-    margin-bottom: 12px;
+  .node-desc {
+    font-size: 0.95rem;
+  }
+
+  .node-badge {
+    justify-content: flex-start;
   }
 
   /* Logo & Portfolio Mobile */
@@ -1210,31 +1616,312 @@
     padding: 30px 25px;
   }
 
-  /* CTA Mobile */
-  .popup-cta {
-    padding: 80px 24px;
-    border-radius: 30px;
+  /* Reference Grid Mobile */
+  .reference-grid-wrapper {
+    grid-template-columns: 1fr;
+    gap: 0;
   }
 
-  .cta-tit {
+  .reference-card {
+    aspect-ratio: 4 / 3;
+    /* Taller on mobile for visibility */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .ref-card-content {
+    padding: 30px 24px;
+  }
+
+  .ref-title {
     font-size: 1.8rem;
   }
 
-  .cta-btn {
-    padding: 20px 0;
-    width: 100%;
+  /* CTA Mobile */
+  .section-cta-premium {
+    padding: 80px 24px;
+  }
+
+  .cta-premium-tit {
+    font-size: 24px;
+    margin: 20px 0 15px;
+  }
+
+  .cta-premium-desc {
     font-size: 1.1rem;
+  }
+
+  .cta-contact-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .contact-card {
+    padding: 24px;
+    gap: 16px;
+    border-radius: 24px;
+  }
+
+  .contact-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .contact-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .contact-info p {
+    font-size: 0.9rem;
+  }
+
+  .cta-premium-footer {
+    margin-top: 40px;
   }
 
   .promise-section,
   .section-appeal,
-  .section-quality,
-  .section-references,
   .section-process {
     padding: 80px 24px;
+  }
+
+  .section-quality {
+    padding: 80px 24px 0;
+  }
+
+  .section-references {
+    padding: 80px 24px 0;
   }
 
   .mobile-br {
     display: block;
   }
+}
+
+/* Reference Detail Dialog Styles */
+.ref-dialog-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.ref-dialog-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 1400px;
+  background: #ffffff;
+  display: flex;
+  flex-direction: row;
+  animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+}
+
+.ref-dialog-close {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10002;
+  transition: all 0.3s ease;
+}
+
+.ref-dialog-close:hover {
+  background: rgba(0, 0, 0, 0.9);
+  transform: rotate(90deg);
+}
+
+.ref-dialog-info {
+  width: 35%;
+  height: 100%;
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: #fff;
+  overflow-y: auto;
+}
+
+.ref-dialog-gallery {
+  width: 65%;
+  height: 100%;
+  background: #f8fafc;
+  padding: 40px;
+  overflow-y: auto;
+}
+
+.ref-dialog-subtitle {
+  font-family: "Prata", serif;
+  font-size: 1rem;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.ref-dialog-title {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #0f172a;
+  margin-bottom: 40px;
+  word-break: keep-all;
+}
+
+.ref-dialog-desc {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: #475569;
+  word-break: keep-all;
+}
+
+.ref-gallery-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ref-gallery-item {
+  position: relative;
+  background: #e2e8f0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.ref-gallery-item.tall {
+  aspect-ratio: 4/5;
+}
+
+.ref-gallery-item.wide {
+  aspect-ratio: 16/10;
+}
+
+.ref-gallery-item.square {
+  aspect-ratio: 1/1;
+}
+
+@media (max-width: 1024px) {
+  .ref-dialog-container {
+    flex-direction: column;
+  }
+
+  .ref-dialog-info {
+    width: 100%;
+    height: auto;
+    padding: 60px 40px;
+  }
+
+  .ref-dialog-gallery {
+    width: 100%;
+    height: auto;
+    background: #fff;
+    padding: 20px;
+  }
+
+  .ref-dialog-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .ref-dialog-overlay {
+    padding: 20px;
+  }
+
+  .ref-dialog-container {
+    height: auto;
+    max-height: 94vh;
+    border-radius: 30px;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    /* Entire container scrolls on mobile */
+  }
+
+  .ref-dialog-close {
+    position: fixed;
+    /* Keep close button fixed relative to viewport or nearest non-static */
+    top: 40px;
+    right: 40px;
+    width: 44px;
+    height: 44px;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 10005;
+  }
+
+  .ref-dialog-info {
+    padding: 100px 24px 30px;
+    /* Base mobile padding */
+    padding-top: 40px !important;
+    overflow-y: visible;
+    /* Disable internal scroll */
+    height: auto;
+  }
+
+  .ref-dialog-title {
+    font-size: 35px !important;
+    margin-bottom: 20px;
+    line-height: 1.3;
+  }
+
+  .ref-dialog-desc {
+    font-size: 16px !important;
+    line-height: 1.6;
+  }
+
+  .ref-dialog-gallery {
+    padding: 0 24px 40px;
+    overflow-y: visible;
+    /* Disable internal scroll */
+    height: auto;
+  }
+
+  /* Disable ScrollArea specific styles on mobile to let container handle it */
+  .ref-dialog-gallery [data-slot="scroll-area-viewport"] {
+    overflow: visible !important;
+  }
+}
+
+/* Custom Scrollbar for Ref Dialog */
+.ref-dialog-info::-webkit-scrollbar,
+.ref-dialog-gallery::-webkit-scrollbar {
+  width: 4px;
+}
+
+.ref-dialog-info::-webkit-scrollbar-thumb,
+.ref-dialog-gallery::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.ref-dialog-info::-webkit-scrollbar-thumb:hover,
+.ref-dialog-gallery::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary);
+}
+
+/* Radix ScrollArea Thumb Customization */
+.ref-dialog-gallery [data-slot="scroll-area-thumb"] {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  width: 4px !important;
+}
+
+.ref-dialog-gallery [data-slot="scroll-area-thumb"]:hover {
+  background-color: var(--primary) !important;
 }
