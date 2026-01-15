@@ -10,7 +10,7 @@ const PopupHero = () => {
         <section className="popup-hero">
             <div className="popup-hero-bg">
                 <Image
-                    src="/images/promo-event1.png"
+                    src="/images/event01.png"
                     alt="Popup & Event Hero Background"
                     fill
                     priority
@@ -19,7 +19,7 @@ const PopupHero = () => {
                 <div className="popup-hero-overlay"></div>
             </div>
 
-            <div className="popup-hero-content max-w-7xl mx-auto px-4 md:px-8">
+            <div className="popup-hero-content max-w-7xl mx-auto px-6 md:px-8">
                 <div className="popup-hero-text-wrapper">
                     <h1 className="popup-hero-title opacity-0 animate-[fadeInDown_1.2s_ease-out_forwards]">
                         Popup <span className="font-mj2">/</span> Event
@@ -30,7 +30,7 @@ const PopupHero = () => {
                     <StaggeredTextReveal
                         phrases={[
                             "정성을 다해 준비하신 행사가",
-                            "모두에게 소중한 기억으로 남을 수 있도록,",
+                            "소중한 기억으로 남을 수 있도록,",
                             "진심이 담긴 특별한 경험을 선사합니다."
                         ]}
                         className="popup-hero-description"

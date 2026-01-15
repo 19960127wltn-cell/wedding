@@ -332,9 +332,13 @@
 }
 
 @media (max-width: 500px) {
+    .benefits-title {
+        font-size: 22px !important;
+        line-height: 1.2;
+    }
+
     .benefits-title .diff-title-line {
-        font-size: 22px;
-        /* Adjusted to a fixed pixel value */
+        font-size: 22px !important;
         line-height: 1.2;
     }
 

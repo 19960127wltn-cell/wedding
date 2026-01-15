@@ -50,7 +50,7 @@ const WeddingReview = () => {
 
     return (
         <section className="wedding-review-section">
-            <div className="max-w-7xl mx-auto px-4 md:px-8">
+            <div className="max-w-7xl mx-auto px-6 md:px-8">
                 <h2
                     ref={headerRef}
                     className={`benefits-title text-3xl md:text-4xl font-bold text-left leading-relaxed ${headerVisible ? 'visible' : ''}`}
@@ -87,7 +87,7 @@ const WeddingReview = () => {
                                     />
                                     <div className="review-overlay">
                                         <div className="review-overlay-content">
-                                            <p className="review-title-text font-mj2">"{review.title}"</p>
+                                            <p className="review-title-text font-mj2">{`"${review.title}"`}</p>
                                             <span className="review-detail-link font-mj2">리뷰 상세 &gt;</span>
                                         </div>
                                     </div>

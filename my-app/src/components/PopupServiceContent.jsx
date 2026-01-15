@@ -1,12 +1,7 @@
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import {
-  Layout,
-  Users,
-  Share2,
-  Aperture,
-  Printer,
   Smartphone,
   ShieldCheck,
   Award,
@@ -14,7 +9,9 @@ import {
   PenTool,
   UserCheck,
   FileBarChart,
+  X,
 } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import "./PopupService.css";
 
 const portfolioItems = [
@@ -40,13 +37,27 @@ const portfolioItems = [
   },
 ];
 
+const brandLogos = [
+  "01_samsung.png",
+  "02_hyundai_motor.png",
+  "03_sk.png",
+  "04_lotte.png",
+  "05_posco.png",
+  "07_hanwha.png",
+  "08_gs.png",
+  "09_hyundai_heavy.png",
+  "10_nonghyup.png",
+];
+
 const PopupServiceContent = () => {
+  const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
+
   // Scroll Animation Observer
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "0px",
-      threshold: 0.15,
+      rootMargin: "0px 0px -10% 0px", /* Trigger when 10% from the bottom of viewport */
+      threshold: 0.05, /* Low threshold for earlier triggering */
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -57,7 +68,7 @@ const PopupServiceContent = () => {
       });
     }, observerOptions);
 
-    const animatedElements = document.querySelectorAll(".animate-on-scroll");
+    const animatedElements = document.querySelectorAll(".animate-on-scroll, .trigger-animation");
     animatedElements.forEach((el) => observer.observe(el));
 
     return () => {
@@ -70,20 +81,22 @@ const PopupServiceContent = () => {
 
 
       {/* 1. Our Identity */}
-      <section className="promise-section px-4 md:px-8 animate-on-scroll">
+      <section className="promise-section px-6 md:px-8">
         <div className="popup-content-inner">
-          <span
-            className="section-label"
-          >
-            Our Identity
-          </span>
-          <h2 className="section-tit">
-            VUE PHOTOBOOTH는
-            <br />
-            <em>타협하지 않는 전문성</em>으로 운영합니다.
-          </h2>
-          <div className="promise-grid">
-            <div className="promise-item animate-on-scroll">
+          <div className="animate-on-scroll">
+            <span
+              className="section-label"
+            >
+              Our Identity
+            </span>
+            <h2 className="section-tit">
+              VUE PHOTOBOOTH는
+              <br />
+              타협하지 않는 전문성으로 운영합니다.
+            </h2>
+          </div>
+          <div className="promise-grid animate-on-scroll" style={{ transitionDelay: "0.5s" }}>
+            <div className="promise-item">
               <div className="promise-icon-box">
                 <ShieldCheck size={40} strokeWidth={1.2} />
               </div>
@@ -92,12 +105,14 @@ const PopupServiceContent = () => {
               <p>
                 전문 교육을 받은 전담 매니저가 상주하여, 행사의 시작과 끝을 완벽히 책임집니다. 
               </p>
-              <span className="promise-number">01</span>
+              <div className="border-trace-container">
+                <svg className="border-trace-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  {/* Inline rect: x=0.5, y=0.5, width=99, height=99 ensures stroke 1.5px stays inside */}
+                  <rect x="0.5" y="0.5" width="99" height="99" rx="14" ry="11" className="border-rect" />
+                </svg>
+              </div>
             </div>
-            <div
-              className="promise-item animate-on-scroll"
-              style={{ animationDelay: "0.2s" }}
-            >
+            <div className="promise-item">
               <div className="promise-icon-box">
                 <Award size={40} strokeWidth={1.2} />
               </div>
@@ -106,12 +121,14 @@ const PopupServiceContent = () => {
               <p>
                 단순 설치를 넘어, 기업 행사의 비즈니스 에티켓을 준수하여 정중하게 응대합니다.
               </p>
-              <span className="promise-number">02</span>
+              <div className="border-trace-container">
+                <svg className="border-trace-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  {/* Inline rect: x=0.5, y=0.5, width=99, height=99 ensures stroke 1.5px stays inside */}
+                  <rect x="0.5" y="0.5" width="99" height="99" rx="14" ry="11" className="border-rect" />
+                </svg>
+              </div>
             </div>
-            <div
-              className="promise-item animate-on-scroll"
-              style={{ animationDelay: "0.4s" }}
-            >
+            <div className="promise-item">
               <div className="promise-icon-box">
                 <HandHelping size={40} strokeWidth={1.2} />
               </div>
@@ -120,35 +137,195 @@ const PopupServiceContent = () => {
               <p>
                 보이지 않는 현장의 변수까지 세심하게 체크하여 안정적인 행사 진행을 약속합니다.
               </p>
-              <span className="promise-number">03</span>
+              <div className="border-trace-container">
+                <svg className="border-trace-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  {/* Inline rect: x=0.5, y=0.5, width=99, height=99 ensures stroke 1.5px stays inside */}
+                  <rect x="0.5" y="0.5" width="99" height="99" rx="14" ry="11" className="border-rect" />
+                </svg>
+              </div>
             </div>
           </div>
 
           {/* Brand Social Proof - Logo Rolling */}
           <div className="identity-logo-rolling animate-on-scroll">
             <p className="identity-logo-label">
-              수많은 경험으로, <em>성공을 입증합니다.</em>
+              수많은 경험으로,<br className="mobile-br" /> <em>성공을 입증합니다.</em>
             </p>
-            <div className="logo-trail">
-              {Array.from({ length: 16 }).map((_, index) => (
-                <div key={index} className="logo-item">
-                  <span className="font-gnb text-2xl font-black italic tracking-tighter">
-                    BRAND PARTNER
-                  </span>
+            <div className="logo-rolling-container">
+              <div className="logo-trail">
+                {[...brandLogos, ...brandLogos].map((logo, index) => (
+                  <div key={index} className="logo-item">
+                    <div className="brand-logo-wrap">
+                      <Image 
+                        src={`/images/brand/${logo}`} 
+                        alt="Brand Logo" 
+                        width={180}
+                        height={60}
+                        className="brand-logo-img"
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="brand-view-all-wrap animate-on-scroll">
+              <button 
+                className="brand-view-all-btn"
+                onClick={() => setIsBrandModalOpen(true)}
+              >
+                전체보기
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Brand Full List Dialog */}
+        {isBrandModalOpen && (
+          <div className="brand-modal-overlay" onClick={() => setIsBrandModalOpen(false)}>
+            <div className="brand-modal-content" onClick={(e) => e.stopPropagation()}>
+              <button className="brand-modal-close" onClick={() => setIsBrandModalOpen(false)}>
+                <X size={24} />
+              </button>
+              <ScrollArea className="brand-modal-scroll-area">
+                <div className="brand-modal-inner">
+                  <div className="brand-modal-header">
+                    <span className="section-label">Our Partners</span>
+                    <h3 className="brand-modal-title">수많은 기업이 증명하는 VUE의 가치</h3>
+                  </div>
+                  <div className="brand-modal-grid">
+                    {brandLogos.map((logo, index) => (
+                      <div key={index} className="brand-modal-item">
+                        <div className="modal-logo-wrap">
+                          <Image 
+                            src={`/images/brand/${logo}`} 
+                            alt="Brand Logo" 
+                            fill
+                            className="modal-logo-img balance-logo"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              ))}
+              </ScrollArea>
+            </div>
+          </div>
+        )}
+      </section>
+
+      {/* 2. Service Appeal */}
+      <section className="section-appeal">
+        <div className="popup-content-inner">
+          <div className="appeal-header text-center mb-12 animate-on-scroll">
+            <span className="section-label">Service Value</span>
+            <h2 className="section-tit">
+              단순한 설치를 넘어,
+              <br />
+              현장의 분위기를 설계합니다.
+            </h2>
+          </div>
+
+          <div className="appeal-cross-container">
+            {/* Appeal 01 - Cross Left/Right */}
+            <div className="appeal-cross-row trigger-animation">
+              <div className="appeal-cross-visual slide-from-left">
+                <div className="appeal-cross-card aspect-[16/10]">
+                  <Image
+                    src="/images/bright.png"
+                    alt="Minimal Design"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="appeal-card-overlay"></div>
+                </div>
+              </div>
+              <div className="appeal-cross-content slide-from-right">
+                <div className="appeal-cross-text">
+                  <div className="appeal-cross-num">01</div>
+                  <h3>
+                    공간의 가치를 높이는
+                    <br />
+                    오브제 디자인
+                  </h3>
+                  <p>
+                    어떤 행사장 인테리어와도 조화롭게 어우러지는 기기 디자인으로
+                    <br className="desktop-br" />
+                    공간의 첫인상을 전문적이고 세련되게 바꿉니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Appeal 02 - Cross Layout (Standardized alignment) */}
+            <div className="appeal-cross-row trigger-animation">
+              <div className="appeal-cross-visual slide-from-left">
+                <div className="appeal-cross-card aspect-[16/10]">
+                  <Image
+                    src="/images/hero-wedding.png"
+                    alt="Social Tool"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="appeal-card-overlay"></div>
+                </div>
+              </div>
+              <div className="appeal-cross-content slide-from-right">
+                <div className="appeal-cross-text">
+                  <div className="appeal-cross-num">02</div>
+                  <h3>
+                    보기만 하는 행사에서,
+                    <br />
+                    참여하고 싶은 경험으로
+                  </h3>
+                  <p>
+                    참여자들이 자연스럽게 소통하고 즐길 수 있는 접점을 만듭니다.
+                    <br className="desktop-br" />
+                    현장의 에너지를 끌어올리는 가장 확실한 마케팅입니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Appeal 03 - Cross Left/Right */}
+            <div className="appeal-cross-row trigger-animation">
+              <div className="appeal-cross-visual slide-from-left">
+                <div className="appeal-cross-card aspect-[16/10]">
+                  <Image
+                    src="/images/bright.png"
+                    alt="Brand Experience"
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="appeal-card-overlay"></div>
+                </div>
+              </div>
+              <div className="appeal-cross-content slide-from-right">
+                <div className="appeal-cross-text">
+                  <div className="appeal-cross-num">03</div>
+                  <h3>
+                    브랜드 가치의
+                    <br />
+                    지속적인 공유
+                  </h3>
+                  <p>
+                    손에 든 사진 한 장이 행사가 끝난 뒤에도
+                    <br className="desktop-br" />
+                    기업의 긍정적인 이미지를 일상 속에 남깁니다.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. High-End Quality Section */}
-      <section className="section-quality px-4 md:px-8">
+      {/* 3. High-End Quality Section */}
+      <section className="section-quality px-6 md:px-8">
         <div className="popup-content-inner">
           <div className="quality-header-wrap mb-20 text-center animate-on-scroll">
             <span className="section-label">High-End Quality</span>
             <h2 className="section-tit">
-              VUE만의 고성능 기술로 완성하는 <em>기업 행사 퀄리티</em>
+              VUE만의 고성능 기술로 완성하는 기업 행사 퀄리티
             </h2>
           </div>
 
@@ -163,9 +340,7 @@ const PopupServiceContent = () => {
                 />
               </div>
               <div className="feature-content">
-                <div className="feature-icon-box">
-                  <Aperture size={32} strokeWidth={1.2} />
-                </div>
+
                 <h4>스튜디오급 광학 시스템</h4>
                 <p>
                   고성능 DSLR과 정교한 조명 세팅으로 어떤 장소에서도 무결점 결과물을 만듭니다.
@@ -184,9 +359,7 @@ const PopupServiceContent = () => {
                 />
               </div>
               <div className="feature-content">
-                <div className="feature-icon-box">
-                  <Printer size={32} strokeWidth={1.2} />
-                </div>
+
                 <h4>10초 완성 프리미엄 인화</h4>
                 <p>
                   대규모 인원도 대기 없이 즐길 수 있는
@@ -220,125 +393,15 @@ const PopupServiceContent = () => {
         </div>
       </section>
 
-      {/* 3. Service Appeal */}
-      <section className="section-appeal px-4 md:px-8">
-        <div className="popup-content-inner">
-          <div className="appeal-header text-center mb-24 animate-on-scroll">
-            <span className="section-label">Service Value</span>
-            <h2 className="section-tit">
-              단순한 설치를 넘어,
-              <br />
-              현장의 <em>분위기를 설계</em>합니다.
-            </h2>
-          </div>
-
-          <div className="appeal-vertical-container">
-            {/* Appeal 01 */}
-            <div className="appeal-card-item animate-on-scroll">
-              <div className="appeal-premium-card">
-                <div className="appeal-visual-part">
-                  <span className="appeal-num-tag">01</span>
-                  <div className="appeal-img-box">
-                    <Image
-                      src="/images/bright.png"
-                      alt="Minimal Design"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="appeal-text-part">
-                  <div className="appeal-icon-wrap">
-                    <Layout size={32} strokeWidth={1.2} />
-                  </div>
-                  <h3>
-                    공간의 가치를 높이는
-                    <br />
-                    오브제 디자인
-                  </h3>
-                  <p>
-                    어떤 행사장 인테리어와도 조화롭게 어우러지는
-                    VUE만의 기기 디자인으로
-                    공간의 첫인상을 전문적이고 세련되게 바꿉니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Appeal 02 */}
-            <div className="appeal-card-item animate-on-scroll">
-              <div className="appeal-premium-card">
-                <div className="appeal-visual-part">
-                  <span className="appeal-num-tag">02</span>
-                  <div className="appeal-img-box">
-                    <Image
-                      src="/images/hero-wedding.png"
-                      alt="Social Tool"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="appeal-text-part">
-                  <div className="appeal-icon-wrap">
-                    <Users size={32} strokeWidth={1.2} />
-                  </div>
-                  <h3>
-                    보기만 하는 행사에서,
-                    <br />
-                    누구나 참여하고 싶은 경험으로
-                  </h3>
-                  <p>
-                    정적인 행사 분위기를 활기차게 변화시키며, 참여자들이
-                    자연스럽게 소통하고 즐길 수 있는 접점을 만듭니다. 현장의
-                    에너지를 끌어올리는 가장 확실한 마케팅입니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Appeal 03 */}
-            <div className="appeal-card-item animate-on-scroll">
-              <div className="appeal-premium-card">
-                <div className="appeal-visual-part">
-                  <span className="appeal-num-tag">03</span>
-                  <div className="appeal-img-box">
-                    <Image
-                      src="/images/bright.png"
-                      alt="Brand Experience"
-                      fill
-                      className="object-cover"
-                    />
-                  </div>
-                </div>
-                <div className="appeal-text-part">
-                  <div className="appeal-icon-wrap">
-                    <Share2 size={32} strokeWidth={1.2} />
-                  </div>
-                  <h3>
-                    브랜드 가치의
-                    <br />
-                    지속적인 공유
-                  </h3>
-                  <p>
-                  손에 든 사진 한 장이 행사가 끝난 뒤에도 기업의 긍정적인 이미지를 일상 속에 남깁니다.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 4. References & Reviews */}
-      <section className="section-references px-4 md:px-8">
+      <section className="section-references px-6 md:px-8">
         <div className="popup-content-inner">
           <div className="portfolio-header text-center mb-16 animate-on-scroll">
             <span className="section-label">References</span>
             <h2 className="section-tit">
               수많은 기업이 선택한 이유,
               <br />
-              실제 <em>사례로 증명</em>합니다.
+              실제 사례로 증명합니다.
             </h2>
           </div>
 
@@ -378,13 +441,13 @@ const PopupServiceContent = () => {
       </section>
 
       {/* 5. Systematic Process */}
-      <section className="section-process px-4 md:px-8">
+      <section className="section-process px-6 md:px-8">
         <div className="popup-content-inner">
           <span className="section-label">Process</span>
           <h2 className="section-tit">
             전문가의 노하우로
             <br />
-            <em>무결점 행사</em> 운영
+            무결점 행사 운영
           </h2>
           <div className="process-line">
             <div className="process-node animate-on-scroll">
@@ -437,7 +500,7 @@ const PopupServiceContent = () => {
       </section>
 
       {/* 6. CTA Section */}
-      <section className="section-cta px-4 md:px-8">
+      <section className="section-cta px-6 md:px-8">
         <div className="popup-content-inner">
           <div className="popup-cta animate-on-scroll">
             <div className="cta-glow"></div>

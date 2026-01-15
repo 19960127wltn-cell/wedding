@@ -19,7 +19,7 @@ const WeddingHero = () => {
         <div className="wedding-hero-overlay"></div>
       </div>
 
-      <div className="wedding-hero-content max-w-7xl mx-auto px-4 md:px-8">
+      <div className="wedding-hero-content max-w-7xl mx-auto px-6 md:px-8">
         <div className="wedding-hero-text-wrapper">
           <h1 className="wedding-hero-title opacity-0 animate-[fadeInDown_1.2s_ease-out_forwards]">
             Wedding

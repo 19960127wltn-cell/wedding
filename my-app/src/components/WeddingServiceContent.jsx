@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react';
 
-import FadeInOnScroll from './FadeInOnScroll';
+
 import WeddingBenefits from './WeddingBenefits';
 import WeddingDifferentiation from './WeddingDifferentiation';
 import AffiliatedHalls from './AffiliatedHalls';
@@ -51,7 +51,7 @@ const WeddingServiceContent = () => {
       </div>
 
       {/* Process Section */}
-      <div className="max-w-7xl mx-auto px-4 md:px-8">
+      <div className="max-w-7xl mx-auto px-6 md:px-8">
         <h2
           ref={processHeaderRef}
           className={`benefits-title text-3xl md:text-4xl font-bold text-left leading-relaxed ${processHeaderVisible ? 'visible' : ''}`}

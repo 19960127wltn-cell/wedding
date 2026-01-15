@@ -6,6 +6,20 @@
   padding-bottom: 0;
 }
 
+.mobile-br {
+  display: none;
+}
+
+.desktop-br {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .desktop-br {
+    display: none;
+  }
+}
+
 .popup-content-inner {
   max-width: 1000px;
   margin: 0 auto;
@@ -13,12 +27,11 @@
 
 .section-label {
   display: block;
-  font-family: "Weddingday", sans-serif;
-  font-size: 2rem; /* Adjusted to 32px for desktop */
+  font-family: "Prata", sans-serif;
+  font-size: 32px;
   color: var(--primary);
-  letter-spacing: 0.15em;
-  margin-bottom: 20px;
-  transition: color 0.8s ease;
+  margin-bottom: 12px;
+  line-height: 1;
 }
 
 .section-tit {
@@ -94,136 +107,146 @@
 }
 
 /* 2. Service Appeal - Vertical Stack (No overlap) */
+/* 2. Service Appeal - Cross Animated Layout */
 .section-appeal {
   background-color: #fafaf8;
-  padding: 160px 0;
+  padding: 80px 24px 160px 24px;
+  overflow: hidden;
 }
 
-.appeal-vertical-container {
+.appeal-cross-container {
   display: flex;
   flex-direction: column;
-  gap: 100px;
+  gap: 80px;
 }
 
-.appeal-card-item {
+.appeal-cross-row {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  min-height: 700px;
+}
+
+.appeal-cross-visual {
+  width: 70%;
+  align-self: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.appeal-cross-card {
   position: relative;
   width: 100%;
-}
-
-.appeal-premium-card {
-  display: flex;
-  background: #ffffff;
-  border-radius: 50px;
+  border-radius: 20px; /* Slight rounding restored */
   overflow: hidden;
-  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.05);
-  border: 1px solid rgba(0, 0, 0, 0.03);
-  min-height: 520px;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  background: #1a1a1a;
+  border: none; /* Removed border */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
-.appeal-premium-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 50px 120px rgba(0, 0, 0, 0.1);
-  border-color: rgba(184, 167, 126, 0.2);
+.appeal-cross-card:hover {
+  transform: scale(1.02);
 }
 
-.appeal-visual-part {
-  flex: 1.3;
-  position: relative;
-  min-height: 300px;
-  overflow: hidden;
-}
-
-.appeal-premium-card:hover .appeal-img-box img {
-  transform: scale(1.05);
-  transition: transform 1.2s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-.appeal-num-tag {
+.appeal-card-overlay {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  font-family: "Weddingday", sans-serif;
-  font-size: 1.8rem;
-  font-weight: normal;
-  color: white;
-  background: var(--primary);
-  width: 64px;
-  height: 64px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 20px;
-  z-index: 10;
-  box-shadow: 0 10px 30px rgba(184, 167, 126, 0.3);
+  inset: 0;
+  background: linear-gradient(to top right, rgba(255, 255, 255, 0.05), transparent);
+  pointer-events: none;
 }
 
-.appeal-img-box {
+.appeal-cross-content {
+  width: 70%;
+  align-self: flex-end;
+  margin-top: -150px;
   position: relative;
-  width: 100%;
-  height: 100%;
+  z-index: 2;
 }
 
-.appeal-text-part {
-  flex: 1;
-  padding: 80px 60px;
+.appeal-cross-text {
+  background: rgba(26, 26, 26, 0.8);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  padding: 60px;
+  border-radius: 20px; /* Slight rounding restored */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  background: linear-gradient(to right, #ffffff, #fafaf9);
+  justify-content: flex-start;
+  height: 350px; /* Adjusted height */
 }
 
-.appeal-icon-wrap {
-  width: 64px;
-  height: 64px;
-  background: #ffffff;
-  border-radius: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.appeal-cross-num {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 1.5rem; /* 24px */
   color: var(--primary);
-  margin-bottom: 40px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
-  border: 1px solid rgba(0, 0, 0, 0.02);
+  opacity: 0.8;
+  margin-bottom: 20px;
+  font-weight: 700;
 }
 
-.appeal-text-part h3 {
-  font-size: 2.5rem;
+.appeal-cross-text h3 {
+  font-size: 2.2rem;
   font-weight: 800;
-  color: #0f172a;
-  margin-bottom: 30px;
+  color: #ffffff;
+  margin-bottom: 12px;
   line-height: 1.3;
   font-family: "Nanum Myeongjo", serif;
+  word-break: keep-all;
 }
 
-.appeal-text-part p {
-  font-size: 1.15rem;
-  color: #475569;
-  line-height: 2;
+.appeal-cross-text p {
+  font-family: "Nanum Myeongjo", serif;
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.8;
+  margin-bottom: 20px;
   word-break: keep-all;
+  letter-spacing: -0.01em;
+}
+
+
+
+/* --- Animation Classes --- */
+.slide-from-left {
+  opacity: 0;
+  transform: translateX(-100px);
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.slide-from-right {
+  opacity: 0;
+  transform: translateX(100px);
+  transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.trigger-animation.is-visible .slide-from-left,
+.trigger-animation.is-visible .slide-from-right {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.appeal-cross-row .slide-from-right {
+  transition-delay: 0.2s;
 }
 
 /* 3. Our Identity */
 .promise-section {
-  background: #ffffff;
-  color: #1e293b;
-  padding: 160px 0;
+  background: #0f0f0f;
+  color: white;
+  padding: 160px 24px;
   position: relative;
   overflow: hidden;
-  transition: background 1.2s ease, color 0.8s ease;
   text-align: center; /* Center-align Identity title/label */
 }
 
-.promise-section.is-visible {
-  background: radial-gradient(circle at top right, #24344d, #1e293b, #161e2b);
-  color: white;
-}
-
-.promise-section.is-visible .section-tit {
+.promise-section .section-tit {
   color: white !important;
 }
 
-.promise-section.is-visible .section-label {
+.promise-section .section-label {
   color: var(--primary) !important;
   opacity: 1 !important;
 }
@@ -252,93 +275,89 @@
 
 .promise-item {
   position: relative;
-  padding: 80px 45px 60px;
+  padding: 85px 45px 65px;
   background: rgba(255, 255, 255, 0.02);
-  border-radius: 40px;
-  border: 1px solid rgba(184, 167, 126, 0.25);
-  backdrop-filter: blur(10px);
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border-radius: 44px;
+  backdrop-filter: blur(20px); /* Stronger blur for glass feel */
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   height: 100%;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06),
+    inset 0 0 20px rgba(255, 255, 255, 0.02); /* Subtle inner glow */
+  overflow: hidden; /* Back to hidden to clip everything to the 44px radius */
 }
 
-.promise-item::before {
+.promise-item::after {
   content: "";
   position: absolute;
-  top: 0;
-  left: 45px;
-  width: 40px;
-  height: 1px;
-  background: var(--primary);
-  border-radius: 0 0 4px 4px;
+  inset: 0;
+  border-radius: 44px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 50%, rgba(255,255,255,0.02) 100%);
+  pointer-events: none;
+  opacity: 0.5;
 }
 
-@keyframes promise-pop {
-  0% {
-    opacity: 1;
-    transform: translateY(0);
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(184, 167, 126, 0.25);
-    box-shadow: none;
-  }
-  50% {
-    transform: translateY(-15px);
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(184, 167, 126, 0.4);
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-    background: rgba(255, 255, 255, 0.02);
-    border-color: rgba(184, 167, 126, 0.25);
-    box-shadow: none;
-  }
+
+
+@keyframes border-draw {
+  0% { stroke-dashoffset: 400; }
+  100% { stroke-dashoffset: 0; }
 }
 
 .promise-item.animate-on-scroll {
-  opacity: 1; /* Always visible */
+  opacity: 1;
   transform: none;
 }
 
-.promise-item.animate-on-scroll.is-visible {
-  animation: promise-pop 1.4s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+.promise-grid.is-visible .promise-item:nth-child(1) .border-rect {
+  animation: border-draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 1.3s;
 }
 
-.promise-item.is-visible:hover {
-  transform: translateY(-15px) !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(184, 167, 126, 0.3) !important;
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2) !important;
+.promise-grid.is-visible .promise-item:nth-child(2) .border-rect {
+  animation: border-draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 2.3s; /* 1.3s base + 1s offset */
 }
+
+.promise-grid.is-visible .promise-item:nth-child(3) .border-rect {
+  animation: border-draw 2.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation-delay: 3.1s; /* 1.3s base + 1.8s offset */
+}
+
+/* Hover effect removed as per request */
 
 .promise-icon-box {
   margin-bottom: 35px;
   color: var(--primary);
+  transition: all 0.5s ease;
+  position: relative;
+  z-index: 2;
   opacity: 0.9;
-  transition: transform 0.5s ease;
 }
-
-.promise-item:hover .promise-icon-box {
-  transform: scale(1.1) rotate(-5deg);
-  color: #decb9a;
-}
+/* Icon hover scale removed */
 
 .promise-item h3 {
-  color: var(--primary);
+  color: #fff;
   margin-bottom: 16px;
-  font-size: 1.6rem;
+  font-size: 1.65rem;
   font-weight: 700;
   font-family: "Nanum Myeongjo", serif;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  z-index: 2;
 }
 
 .promise-divider {
   width: 30px;
   height: 1px;
   background: var(--primary);
-  margin-bottom: 24px;
+  margin: 0 auto 24px auto;
   opacity: 0.5;
 }
 
@@ -350,37 +369,49 @@
   margin-top: auto;
   transition: color 0.8s ease;
 }
-
-.promise-section.is-visible .promise-item p {
-  color: rgba(255, 255, 255, 0.7);
-}
-
-.promise-number {
+/* Extra CSS for border trace */
+.border-trace-container {
   position: absolute;
-  top: 30px;
-  right: 40px;
-  font-family: "Weddingday", sans-serif;
-  font-size: 2.5rem;
-  color: rgba(184, 167, 126, 0.1);
-  line-height: 1;
+  top: 1px;
+  left: 1px;
+  right: 1px;
+  bottom: 1px;
   pointer-events: none;
-  transition: color 0.5s ease;
+  z-index: 10;
+  border-radius: 43px; /* Slightly smaller than 44px to fit inside perfectly */
 }
 
-.promise-item:hover .promise-number {
-  color: rgba(184, 167, 126, 0.2);
+.border-trace-svg {
+  width: 100%;
+  height: 100%;
 }
+
+.border-rect {
+  fill: none;
+  stroke: var(--primary);
+  stroke-width: 1px;
+  stroke-dasharray: 1500; /* Increased to ensure total length coverage */
+  stroke-dashoffset: 1500;
+  stroke-linecap: square;
+  vector-effect: non-scaling-stroke;
+}
+
+@keyframes border-draw {
+  0% { stroke-dashoffset: 1500; }
+  100% { stroke-dashoffset: 0; }
+}
+
+
 
 /* Integrated Identity Logo Rolling */
 .identity-logo-rolling {
   margin-top: 100px;
-  padding-top: 80px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 10px;
   text-align: center;
 }
 
 .identity-logo-label {
-  color: rgba(255, 255, 255, 0.45);
+  color: rgb(255, 255, 255);
   font-size: 1.875rem;
   font-family: "Nanum Myeongjo", serif;
   margin-bottom: 60px;
@@ -394,6 +425,24 @@
   font-weight: 700;
 }
 
+.logo-rolling-container {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0;
+  padding: 30px 0;
+  overflow: hidden;
+  position: relative;
+  /* Full-width trick ignoring parent padding/max-width */
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+}
+
 .logo-trail {
   display: flex;
   width: max-content;
@@ -401,18 +450,31 @@
 }
 
 .identity-logo-rolling .logo-item {
-  padding: 0 50px;
-  height: 40px;
   display: flex;
   align-items: center;
-  opacity: 0.2;
-  color: white;
-  transition: all 0.5s ease;
+  justify-content: center;
+  padding: 0 50px;
+  height: 60px;
+  opacity: 1;
+  transition: none;
 }
 
-.identity-logo-rolling .logo-item:hover {
-  opacity: 0.6;
-  color: var(--primary);
+
+
+.brand-logo-wrap {
+  position: relative;
+  width: 180px; /* Consistent width for all logos */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.brand-logo-img {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 60px; /* Keep them within the strip height */
+  object-fit: contain;
 }
 
 @keyframes scroll {
@@ -420,9 +482,201 @@
   100% { transform: translateX(-50%); }
 }
 
+/* Brand View All Button */
+.brand-view-all-wrap {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.brand-view-all-btn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 1rem;
+  font-weight: 500;
+  padding: 8px 12px;
+  cursor: pointer;
+  position: relative;
+  transition: none; /* Removed interaction */
+}
+
+/* Brand Modal Dialog (Synced with Template Dialog Tone) */
+.brand-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.1); /* Light overlay */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.brand-modal-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  height: auto;
+  max-height: 80vh;
+  background: #ffffff;
+  border-radius: 40px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  animation: slideUp 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0, 0, 0, 0.1);
+}
+
+.brand-modal-scroll-area {
+  width: 100%;
+  height: 100%;
+}
+
+/* Custom Scrollbar Styling within Radix ScrollArea */
+[data-slot="scroll-area-thumb"] {
+  background-color: rgba(0, 0, 0, 0.1) !important;
+  width: 4px !important;
+}
+
+[data-slot="scroll-area-thumb"]:hover {
+  background-color: var(--primary) !important;
+}
+
+.brand-modal-inner {
+  padding: 80px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brand-modal-close {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  background: rgba(0, 0, 0, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #1e293b;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10001;
+  transition: all 0.3s ease;
+}
+
+.brand-modal-close:hover {
+  background: #1e293b;
+  color: white;
+  transform: rotate(90deg);
+}
+
+.brand-modal-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.brand-modal-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  font-family: "Nanum Myeongjo", serif;
+  margin-top: 16px;
+  word-break: keep-all;
+}
+
+.brand-modal-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  width: 100%;
+}
+
+.brand-modal-item {
+  background: #f8fafc;
+  border-radius: 24px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  transition: all 0.3s ease;
+}
+
+.brand-modal-item:hover {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.03);
+  transform: translateY(-5px);
+}
+
+.modal-logo-wrap {
+  position: relative;
+  width: 150px;
+  height: 50px;
+}
+
+.balance-logo {
+  object-fit: contain;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-modal-content {
+    width: 100%;
+    height: 100%;
+    max-height: 100vh;
+    border-radius: 0;
+    border: none;
+    background: #ffffff;
+  }
+
+  .brand-modal-inner {
+    padding: 80px 20px 60px;
+  }
+  
+  .brand-modal-close {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    width: 44px;
+    height: 44px;
+  }
+
+  .brand-modal-item {
+    height: 100px;
+  }
+
+  .modal-logo-wrap {
+    width: 120px;
+    height: 40px;
+  }
+}
+
 /* 4. High-End Quality Section */
 .section-quality {
-  padding: 160px 0;
+  padding: 160px 24px;
   background: linear-gradient(to bottom, #ffffff, #fafaf9);
 }
 
@@ -436,6 +690,18 @@
   display: flex;
   align-items: center;
   gap: 80px;
+  background-color: rgba(184, 167, 126, 0.08); /* Increased visibility from 0.03 to 0.08 */
+  padding: 60px;
+  border-radius: 60px;
+  border: 1px solid rgba(184, 167, 126, 0.15); /* More defined border */
+  transition: all 0.5s ease;
+  width: 100%;
+}
+
+.quality-feature-row:hover {
+  background-color: rgba(184, 167, 126, 0.12);
+  box-shadow: 0 40px 80px rgba(184, 167, 126, 0.08);
+  transform: translateY(-5px);
 }
 
 .quality-feature-row:nth-child(even) {
@@ -455,18 +721,7 @@
   flex: 1;
 }
 
-.feature-icon-box {
-  width: 72px;
-  height: 72px;
-  background: #ffffff;
-  border-radius: 24px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--primary);
-  margin-bottom: 40px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
-}
+
 
 .feature-content h4 {
   font-size: 2.5rem;
@@ -485,7 +740,7 @@
 
 /* 5. References & Reviews */
 .section-references {
-  padding: 160px 0;
+  padding: 160px 24px;
   background-color: #f8fafc;
 }
 
@@ -555,7 +810,7 @@
 
 /* 6. Process Section */
 .section-process {
-  padding: 160px 0;
+  padding: 160px 24px;
   background-color: #fafaf9;
 }
 
@@ -631,7 +886,7 @@
 
 /* CTA Section */
 .section-cta {
-  padding: 120px 0;
+  padding: 120px 24px;
   background-color: #ffffff;
 }
 
@@ -704,12 +959,19 @@
 @media (max-width: 1024px) {
   .quality-feature-row {
     flex-direction: column !important;
-    gap: 40px;
+    gap: 30px;
+    background-color: rgba(184, 167, 126, 0.09) !important; /* Increased visibility on mobile */
+    padding: 30px;
+    border-radius: 40px;
+    border: 1px solid rgba(184, 167, 126, 0.15);
+    box-shadow: 0 15px 35px rgba(184, 167, 126, 0.05);
   }
 
   .feature-visual {
     width: 100%;
-    height: 300px;
+    height: 240px;
+    flex: none;
+    border-radius: 25px;
   }
 
   .appeal-premium-card {
@@ -738,9 +1000,15 @@
 
 @media (max-width: 768px) {
   .section-tit {
-    font-size: 2rem;
-    line-height: 1.3;
-    margin-bottom: 40px;
+    font-size: 24px;
+    line-height: 1.35;
+    margin-bottom: 35px;
+    word-break: keep-all;
+  }
+
+  .section-label {
+    font-size: 1.35rem;
+    margin-bottom: 12px;
   }
 
   .stat-grid {
@@ -750,71 +1018,123 @@
 
   .promise-grid {
     grid-template-columns: 1fr;
-    margin-top: 40px;
+    gap: 20px;
+    margin-top: 30px;
+  }
+
+  .promise-item {
+    padding: 60px 30px 40px;
+    border-radius: 10px;
+  }
+
+  .section-appeal {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  /* Animation Overrides for Mobile */
+  .slide-from-left {
+    transform: translateX(-30px);
+  }
+
+  .slide-from-right {
+    transform: translateX(30px);
+  }
+
+  .trigger-animation.is-visible .slide-from-left,
+  .trigger-animation.is-visible .slide-from-right {
+    transform: translateX(0);
+    opacity: 1;
   }
 
   /* Service Appeal Mobile */
-  .appeal-vertical-container {
-    gap: 40px;
+  .appeal-cross-container {
+    gap: 80px;
   }
 
-  .appeal-premium-card {
-    flex-direction: column;
-    border-radius: 30px;
+  .appeal-cross-row {
+    flex-direction: column !important;
     min-height: auto;
   }
 
-  .appeal-visual-part {
-    height: 280px;
+  .appeal-cross-history {
+    display: none;
+  }
+
+  .appeal-cross-visual {
     flex: none;
+    width: 300px;
+    align-self: flex-start;
+    margin: 0;
   }
 
-  .appeal-img-box img {
-    border-radius: 30px 30px 0 0 !important;
+  .appeal-cross-card {
+    height: 300px !important;
+    aspect-ratio: auto !important;
   }
 
-  .appeal-text-part {
+  .appeal-cross-content {
+    flex: none;
+    width: 90%;
+    align-self: flex-end;
+    margin-top: -80px;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    padding: 0;
+  }
+
+  .appeal-cross-text {
     padding: 40px 30px;
-    flex: none;
+    border-radius: 20px;
+    height: 300px;
+    min-height: auto;
+    aspect-ratio: auto; /* Reset aspect on mobile for content space */
   }
 
-  .appeal-text-part h3 {
-    font-size: 1.75rem;
+  .appeal-cross-text h3 {
+    font-size: 1.5rem; /* ~70% of desktop 2.2rem */
   }
 
-  .appeal-num-tag {
-    top: 20px;
-    left: 20px;
-    width: 48px;
-    height: 48px;
-    font-size: 1.2rem;
-    border-radius: 12px;
+  .appeal-cross-text p {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .appeal-cross-num {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+
+  .appeal-cross-line {
+    margin-bottom: 25px;
   }
 
   /* Quality Mobile */
   .quality-row-container {
-    gap: 60px;
-  }
-
-  .quality-feature-row {
     gap: 30px;
   }
 
+  .quality-feature-row {
+    padding: 24px;
+    gap: 24px;
+  }
+
   .feature-visual {
-    height: 260px;
-    border-radius: 30px;
+    height: 200px;
+    border-radius: 20px;
   }
 
   .feature-content h4 {
-    font-size: 1.6rem;
+    font-size: 1.4rem;
+    margin-bottom: 12px;
   }
 
-  .feature-icon-box {
-    width: 50px;
-    height: 50px;
-    border-radius: 14px;
-    margin-bottom: 20px;
+  .feature-content p {
+    font-size: 0.95rem;
+    line-height: 1.6;
   }
+
+
 
   /* Process Mobile */
   .process-line {
@@ -842,14 +1162,30 @@
   }
 
   /* Logo & Portfolio Mobile */
-  .logo-rolling-wrapper {
-    padding: 40px 0;
-    border-radius: 20px;
+  .logo-rolling-container {
+    padding: 20px 0;
+    border-radius: 0;
   }
 
-  .logo-item {
+  .identity-logo-label {
+    font-size: 24px;
+    line-height: 1.35;
+    margin-bottom: 35px;
+    letter-spacing: normal;
+    word-break: keep-all;
+  }
+
+  .identity-logo-rolling .logo-item {
     padding: 0 30px;
-    height: 40px;
+    height: 50px;
+  }
+
+  .brand-logo-wrap {
+    width: 140px;
+  }
+
+  .brand-logo-img {
+    max-height: 40px;
   }
 
   .portfolio-grid {
@@ -862,7 +1198,16 @@
   }
 
   .portfolio-info {
-    padding: 30px;
+    padding: 25px;
+  }
+
+  .portfolio-tit-sub {
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+  }
+
+  .review-quote-box {
+    padding: 30px 25px;
   }
 
   /* CTA Mobile */
@@ -886,6 +1231,10 @@
   .section-quality,
   .section-references,
   .section-process {
-    padding: 80px 0;
+    padding: 80px 24px;
+  }
+
+  .mobile-br {
+    display: block;
   }
 }
