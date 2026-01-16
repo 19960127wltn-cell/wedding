@@ -242,7 +242,7 @@ const PopupServiceContent = () => {
           {/* Brand Social Proof - Logo Rolling */}
           <div className="identity-logo-rolling animate-on-scroll">
             <p className="identity-logo-label">
-              수많은 경험으로,<br className="mobile-br" /> <em>성공을 입증합니다.</em>
+              수많은 경험으로 <em>증명합니다.</em>
             </p>
             <div className="logo-rolling-container">
               <div className="logo-trail">
@@ -342,8 +342,7 @@ const PopupServiceContent = () => {
                   </h3>
                   <p>
                     어떤 행사장 인테리어와도 조화롭게 어우러지는 기기 디자인으로
-                    <br className="desktop-br" />
-                    공간의 첫인상을 전문적이고 세련되게 바꿉니다.
+                    <br className="desktop-br" /> 공간의 첫인상을 전문적이고 세련되게 바꿉니다.
                   </p>
                 </div>
               </div>
@@ -372,8 +371,7 @@ const PopupServiceContent = () => {
                   </h3>
                   <p>
                     참여자들이 자연스럽게 소통하고 즐길 수 있는 접점을 만듭니다.
-                    <br className="desktop-br" />
-                    현장의 에너지를 끌어올리는 가장 확실한 마케팅입니다.
+                    <br className="desktop-br" /> 현장의 에너지를 끌어올리는 가장 확실한 마케팅입니다.
                   </p>
                 </div>
               </div>
@@ -402,8 +400,7 @@ const PopupServiceContent = () => {
                   </h3>
                   <p>
                     손에 든 사진 한 장이 행사가 끝난 뒤에도
-                    <br className="desktop-br" />
-                    기업의 긍정적인 이미지를 일상 속에 남깁니다.
+                    <br className="desktop-br" /> 기업의 긍정적인 이미지를 일상 속에 남깁니다.
                   </p>
                 </div>
               </div>
@@ -511,52 +508,48 @@ const PopupServiceContent = () => {
 
       {/* Reference Detail Modal */}
       {selectedRef && (
-        <div className="ref-dialog-overlay" onClick={() => setSelectedRef(null)}>
-          <div className="ref-dialog-container" onClick={(e) => e.stopPropagation()}>
-
-            {/* Close Button */}
-            <button
-              className="ref-dialog-close"
-              onClick={() => setSelectedRef(null)}
-            >
+        <div className="brand-modal-overlay" onClick={() => setSelectedRef(null)}>
+          <div className="brand-modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="brand-modal-close" onClick={() => setSelectedRef(null)}>
               <X size={24} />
             </button>
+            <ScrollArea className="brand-modal-scroll-area">
+              <div className="brand-modal-inner">
+                {/* Header (Info) */}
+                <div className="brand-modal-header !mb-12">
+                  <span className="section-label">{selectedRef.subtitle}</span>
+                  <h3 className="brand-modal-title">
+                    {selectedRef.title}
+                  </h3>
+                  <p className="brand-modal-desc mt-6 text-slate-500 font-mj2 leading-relaxed break-keep max-w-2xl mx-auto">
+                    {selectedRef.desc}
+                    <br /><br />
+                    VUE는 해당 분야의 깊은 이해를 바탕으로 최적의 포토부스 경험을 설계합니다.
+                  </p>
+                </div>
 
-            {/* Left: Info */}
-            <div className="ref-dialog-info">
-              <span className="ref-dialog-subtitle">{selectedRef.subtitle}</span>
-              <h3 className="ref-dialog-title">
-                {selectedRef.title}
-              </h3>
-              <p className="ref-dialog-desc">
-                {selectedRef.desc}
-                <br /><br />
-                VUE는 해당 분야의 깊은 이해를 바탕으로 최적의 포토부스 경험을 설계합니다.
-              </p>
-            </div>
-
-            {/* Right: Gallery Grid with ScrollArea */}
-            <div className="ref-dialog-gallery">
-              <ScrollArea className="h-full">
-                <div className="ref-gallery-grid">
-                  <div className="ref-gallery-item tall">
-                    <Image src="/images/popup/reference/ref_01.png" alt="gallery 01" fill className="object-cover" />
-                  </div>
-                  <div className="ref-gallery-item wide">
-                    <Image src="/images/popup/reference/ref_02.png" alt="gallery 02" fill className="object-cover" />
-                  </div>
-                  <div className="ref-gallery-item tall">
-                    <Image src="/images/popup/reference/ref_03.png" alt="gallery 03" fill className="object-cover" />
-                  </div>
-                  <div className="ref-gallery-item wide">
-                    <Image src="/images/popup/reference/ref_04.png" alt="gallery 04" fill className="object-cover" />
-                  </div>
-                  <div className="ref-gallery-item wide">
-                    <Image src="/images/popup/reference/ref_05.png" alt="gallery 05" fill className="object-cover" />
+                {/* Gallery Grid */}
+                <div className="brand-modal-gallery-grid w-full mt-10">
+                  <div className="ref-gallery-grid">
+                    <div className="ref-gallery-item tall rounded-3xl overflow-hidden shadow-sm">
+                      <Image src="/images/popup/reference/ref_01.png" alt="gallery 01" fill className="object-cover" />
+                    </div>
+                    <div className="ref-gallery-item wide rounded-3xl overflow-hidden shadow-sm">
+                      <Image src="/images/popup/reference/ref_02.png" alt="gallery 02" fill className="object-cover" />
+                    </div>
+                    <div className="ref-gallery-item tall rounded-3xl overflow-hidden shadow-sm">
+                      <Image src="/images/popup/reference/ref_03.png" alt="gallery 03" fill className="object-cover" />
+                    </div>
+                    <div className="ref-gallery-item wide rounded-3xl overflow-hidden shadow-sm">
+                      <Image src="/images/popup/reference/ref_04.png" alt="gallery 04" fill className="object-cover" />
+                    </div>
+                    <div className="ref-gallery-item wide rounded-3xl overflow-hidden shadow-sm">
+                      <Image src="/images/popup/reference/ref_05.png" alt="gallery 05" fill className="object-cover" />
+                    </div>
                   </div>
                 </div>
-              </ScrollArea>
-            </div>
+              </div>
+            </ScrollArea>
           </div>
         </div>
       )}
