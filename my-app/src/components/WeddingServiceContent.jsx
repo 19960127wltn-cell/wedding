@@ -6,6 +6,7 @@ import WeddingDifferentiation from './WeddingDifferentiation';
 import AffiliatedHalls from './AffiliatedHalls';
 import WeddingReview from './WeddingReview';
 import WeddingProcess from './WeddingProcess';
+import WeddingDayProcess from './WeddingDayProcess';
 import ContactDialog from './ContactDialog';
 import WeddingPackageConfig from './WeddingPackageConfig'; // Import WeddingPackageConfig
 import './WeddingProcess.css';
@@ -49,6 +50,8 @@ const WeddingServiceContent = () => {
         <WeddingReview />
         <AffiliatedHalls />
       </div>
+      
+      <WeddingDayProcess />
 
       {/* Process Section */}
       <div className="max-w-7xl mx-auto px-6 md:px-8">

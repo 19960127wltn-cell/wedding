@@ -5,7 +5,6 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import FadeInOnScroll from '../components/FadeInOnScroll';
 import StaggeredTextReveal from '../components/StaggeredTextReveal';
-import ImageCarousel from '../components/ImageCarousel';
 import HandwritingText from '../components/HandwritingText';
 import HomeNotice from '../components/HomeNotice'; // Import HomeNotice
 import { useWindowWidth } from '../hooks/use-window-width'; // Import useWindowWidth hook
@@ -42,13 +41,15 @@ export default function MainPage() {
       <section className="relative w-full h-[calc(100vh-3.5rem)] flex flex-col items-center justify-center text-center overflow-hidden pt-24 md:pt-32">
         {/* Background Image and Dimming */}
         <div className="absolute inset-0 z-0">
-          <ImageCarousel
-            images={[
-              "/images/hero-wedding-02.png",
-              "/images/hero-wedding-01.png",
-              "/images/hero-wedding.png"
-            ]}
-          />
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="/images/main/기기+포스터+신랑신부.mp4" type="video/mp4" />
+          </video>
           {/* Dimming Overlay */}
           <div className={`absolute inset-0 bg-black z-10 transition-opacity duration-500 ${showDimOverlay ? 'opacity-30' : 'opacity-0'}`}></div>
         </div>
@@ -122,10 +123,7 @@ export default function MainPage() {
         </div>
       </section>
 
-      {/* Footer Section */}
-      <footer className="py-8 md:py-12 bg-muted text-muted-foreground text-center">
-        <p className="font-sans text-sm">FOOTER</p>
-      </footer>
+
     </div>
   );
 }

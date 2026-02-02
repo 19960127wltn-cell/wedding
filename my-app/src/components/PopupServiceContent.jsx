@@ -13,7 +13,7 @@ import {
   Plus,
   MessageCircle,
   PhoneCall,
-  Mail
+  Instagram
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import "./PopupService.css";
@@ -659,14 +659,14 @@ const PopupServiceContent = () => {
               <ArrowRight className="card-arrow" />
             </a>
 
-            {/* option 3: Proposal */}
-            <a href="mailto:official.vue.kr@gmail.com" className="contact-card">
+            {/* option 3: Instagram */}
+            <a href="https://www.instagram.com/official.vue" target="_blank" rel="noopener noreferrer" className="contact-card">
               <div className="contact-icon">
-                <Mail size={32} strokeWidth={1.5} />
+                <Instagram size={32} strokeWidth={1.5} />
               </div>
               <div className="contact-info">
-                <h3>제안서 요청</h3>
-                <p>official.vue.kr@gmail.com</p>
+                <h3>인스타그램 문의</h3>
+                <p>@official.vue</p>
               </div>
               <ArrowRight className="card-arrow" />
             </a>

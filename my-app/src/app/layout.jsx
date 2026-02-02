@@ -1,5 +1,6 @@
 import "./globals.css";
-import GNB from '../components/GNB'; // GNB 컴포넌트 임포트
+import GNB from '../components/GNB';
+import Footer from '../components/Footer';
 
 export const metadata = {
   title: "Admin Dashboard",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
       <body className="pt-14" suppressHydrationWarning> {/* GNB 높이만큼 padding-top 추가 */}
         <GNB />
         {children}
+        <Footer />
       </body>
     </html>
   );
