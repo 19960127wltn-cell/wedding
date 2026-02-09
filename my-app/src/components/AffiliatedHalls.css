@@ -10,10 +10,9 @@
 
 .logos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 40px 80px;
-  /* Vertical and horizontal gap */
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  align-items: stretch;
   justify-items: center;
 }
 
@@ -21,6 +20,7 @@
   opacity: 0;
   transform: translateY(20px);
   transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+  width: 100%;
 }
 
 .logo-item-wrapper.visible {
@@ -29,22 +29,78 @@
 }
 
 .logo-item {
-  filter: grayscale(100%) opacity(0.6);
-  transition: filter 0.4s ease, opacity 0.4s ease;
+  background: white;
+  border: 1px solid #f0f0f0;
+  border-radius: 12px;
+  padding: 30px;
+  height: 140px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
   cursor: pointer;
+  overflow: hidden;
+  /* Added to ensure content never pops out */
+  position: relative;
 }
 
 @media (hover: hover) {
   .logo-item:hover {
-    filter: grayscale(0%) opacity(1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(184, 167, 126, 0.15);
+    border-color: rgba(184, 167, 126, 0.3);
   }
 }
 
-@media (max-width: 499px) {
+
+@media (max-width: 768px) {
   .logos-grid {
     grid-template-columns: repeat(2, 1fr);
-    /* Exactly 2 columns, each taking equal space */
-    gap: 20px;
-    /* Adjust gap for smaller screens */
+    gap: 12px;
+  }
+
+  .logo-item {
+    height: 90px;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .logos-grid {
+    gap: 8px;
+  }
+
+  .logo-item {
+    height: 80px;
+    padding: 8px;
+  }
+}
+
+.logo-item img {
+  max-width: 100% !important;
+  max-height: 100% !important;
+  width: auto !important;
+  height: auto !important;
+  object-fit: contain !important;
+}
+
+.black-logo {
+  filter: brightness(0);
+}
+
+.scale-up {
+  transform: scale(1.7);
+  transform-origin: center;
+}
+
+.large-logo-item {
+  padding: 5px !important;
+}
+
+@media (max-width: 768px) {
+  .large-logo-item {
+    padding: 0px !important;
   }
 }

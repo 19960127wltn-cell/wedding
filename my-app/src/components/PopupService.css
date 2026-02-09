@@ -1134,7 +1134,7 @@ html {
 }
 
 .cta-premium-tit {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 800;
   color: #fff;
   font-family: "Nanum Myeongjo", serif;
@@ -1192,11 +1192,13 @@ html {
   font-weight: 700;
   color: #fff;
   margin-bottom: 4px;
+  white-space: nowrap;
 }
 
 .contact-info p {
   font-size: 1rem;
   color: rgba(255, 255, 255, 0.5);
+  white-space: nowrap;
 }
 
 .card-arrow {
@@ -1422,47 +1424,46 @@ html {
   .quality-sticky-visual {
     display: block;
     position: sticky;
-    top: 0;
+    top: 80px;
+    /* Safer clearance for GNB */
     height: 35vh;
     min-height: 250px;
     width: 100%;
     z-index: 10;
     flex-shrink: 0;
+    margin-top: 10px;
+    /* Aesthetic gap from GNB */
     background: #fff;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
   }
 
   .quality-visual-frame {
-    border-radius: 20px;
+    border-radius: 24px;
   }
 
   .quality-scroll-content {
-    padding-bottom: 15vh;
-    padding-top: 24px;
+    padding-bottom: 20vh;
+    padding-top: 40px;
+    margin-top: 20px;
     background: linear-gradient(to bottom,
         rgba(184, 167, 126, 0) 0%,
-        rgba(184, 167, 126, 0.08) 15%,
-        rgba(184, 167, 126, 0.08) 85%,
+        rgba(184, 167, 126, 0.04) 15%,
+        rgba(184, 167, 126, 0.04) 85%,
         rgba(184, 167, 126, 0) 100%);
     border-left: 1px solid rgba(184, 167, 126, 0.1);
     border-right: 1px solid rgba(184, 167, 126, 0.1);
-    border-top: none;
-    border-bottom: none;
   }
 
   .quality-text-item {
-    min-height: 40vh;
+    min-height: 60vh;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 40px 20px;
+    padding: 60px 24px;
     opacity: 0.2;
-    transition: all 0.5s ease;
-    background: transparent;
-    border: none;
-    margin-bottom: 20px;
-    /* Increased spacing and removed snap for natural flow */
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+    margin-bottom: 40px;
   }
 
   .quality-text-item.active {
@@ -1638,10 +1639,12 @@ html {
 
   .contact-info h3 {
     font-size: 1.1rem;
+    white-space: nowrap;
   }
 
   .contact-info p {
     font-size: 0.9rem;
+    white-space: nowrap;
   }
 
   .cta-premium-footer {
@@ -1659,7 +1662,7 @@ html {
   }
 
   .section-references {
-    padding: 80px 24px 0;
+    padding: 80px 0;
   }
 
   .mobile-br {
@@ -1697,5 +1700,132 @@ html {
   .ref-gallery-grid {
     grid-template-columns: 1fr;
     gap: 15px;
+  }
+}
+
+/* 4. References - Horizontal Scroll Gallery */
+.ref-horizontal-scroll-container {
+  overflow-x: auto;
+  padding: 0 max(24px, calc((100% - 1000px) / 2 + 24px)) 60px;
+  cursor: grab;
+  scroll-behavior: smooth;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.ref-horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.ref-horizontal-track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+}
+
+.ref-scroll-item {
+  width: 450px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.ref-scroll-img-box {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  border-radius: 32px;
+  overflow: hidden;
+  background: #f1f5f9;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.ref-scroll-item:hover .ref-scroll-img-box {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.ref-scroll-overlay {
+  position: absolute;
+  inset: 0;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  opacity: 1;
+  transition: all 0.4s ease;
+}
+
+.ref-scroll-category {
+  font-size: 0.8rem;
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.ref-scroll-title {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 800;
+  margin-bottom: 4px;
+}
+
+.ref-scroll-entity {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* View All Trigger - End of Scroll */
+.ref-scroll-all-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 60px;
+  cursor: pointer;
+  height: 100%;
+}
+
+.all-trigger-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  color: var(--primary);
+  font-weight: 700;
+  transition: all 0.4s ease;
+}
+
+.all-trigger-inner span {
+  font-size: 1.1rem;
+  letter-spacing: -0.02em;
+}
+
+.ref-scroll-all-trigger:hover .all-trigger-inner {
+  transform: translateX(10px);
+  color: #000;
+}
+
+
+@media (max-width: 768px) {
+  .ref-scroll-all-trigger {
+    padding: 0 40px;
+  }
+
+  .ref-scroll-item {
+    width: 300px;
+  }
+
+  .ref-horizontal-scroll-container {
+    padding: 0 24px 40px 24px;
+  }
+
+  .ref-scroll-title {
+    font-size: 1.2rem;
+  }
+
+  .ref-scroll-overlay {
+    padding: 24px;
   }
 }

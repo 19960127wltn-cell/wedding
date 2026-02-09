@@ -13,7 +13,8 @@ import {
   Plus,
   MessageCircle,
   PhoneCall,
-  Instagram
+  Instagram,
+  ChevronRight
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import "./PopupService.css";
@@ -41,17 +42,6 @@ const portfolioItems = [
   },
 ];
 
-const brandLogos = [
-  "01_samsung.png",
-  "02_hyundai_motor.png",
-  "03_sk.png",
-  "04_lotte.png",
-  "05_posco.png",
-  "07_hanwha.png",
-  "08_gs.png",
-  "09_hyundai_heavy.png",
-  "10_nonghyup.png",
-];
 
 const qualityFeatures = [
   {
@@ -75,45 +65,59 @@ const qualityFeatures = [
 ];
 
 const referenceCategories = [
-  {
-    id: 'corp',
-    title: '기업 행사',
-    subtitle: 'CORPORATE EVENTS',
-    count: '48 Cases',
-    image: '/images/event01.png',
-    desc: '삼성, 현대, SK 등 국내 주요 대기업의 사내 행사 및 연말 파티를 완벽하게 수행했습니다.'
-  },
-  {
-    id: 'popup',
-    title: '팝업 스토어',
-    subtitle: 'POP-UP STORES',
-    count: '32 Projects',
-    image: '/images/popup01.png',
-    desc: '브랜드의 아이덴티티를 체험할 수 있는 감각적인 포토부스 솔루션을 제공합니다.'
-  },
-  {
-    id: 'public',
-    title: '공공기관',
-    subtitle: 'PUBLIC & GOV',
-    count: '25 Projects',
-    image: '/images/hall01.png',
-    desc: '시민들이 참여하는 공공 축제와 행사에 안정적이고 즐거운 경험을 더합니다.'
-  },
-  {
-    id: 'school',
-    title: '대학교/학교',
-    subtitle: 'CAMPUS & SCHOOL',
-    count: '50+ Events',
-    image: '/images/event02.png',
-    desc: '축제와 입학/졸업식 등 학교 행사에서 학생들의 소중한 추억을 남깁니다.'
-  }
+  { id: 'all', title: '전체' },
+  { id: 'corp', title: '기업 행사' },
+  { id: 'popup', title: '팝업 스토어' },
+  { id: 'public', title: '공공기관/단체' },
+  { id: 'school', title: '대학교/학교' },
+];
+
+const referenceData = [
+  { id: 1, category: 'corp', entity: '애터미', title: '애터미 석세스 아카데미', image: '/popup/애터미1.JPG' },
+  { id: 2, category: 'corp', entity: '애터미', title: 'Atomy Leaders Conference', image: '/popup/애터미2.JPG' },
+  { id: 3, category: 'school', entity: '논산고등학교', title: '논산고 졸업 축제', image: '/popup/논산고0.JPG' },
+  { id: 4, category: 'public', entity: '죽향초등학교', title: '죽향초 별빛 야영 행사', image: '/popup/죽향초0.JPG' },
+  { id: 5, category: 'school', entity: '연세유치원', title: '연세유치원 가을 운동회', image: '/popup/연세유치원0.JPG' },
+  { id: 6, category: 'corp', entity: '애터미', title: '애터미 패밀리 데이', image: '/popup/애터미3.JPG' },
+  { id: 7, category: 'school', entity: '논산고등학교', title: '논산고 체육대회', image: '/popup/논산고1.JPG' },
+  { id: 8, category: 'public', entity: '죽향초등학교', title: '죽향초 학예 발표회', image: '/popup/죽향초1.JPG' },
+  { id: 9, category: 'school', entity: '연세유치원', title: '연세유치원 졸업 캠프', image: '/popup/연세유치원1.JPG' },
+  { id: 10, category: 'corp', entity: '애터미', title: 'Atomy Global Workshop', image: '/popup/애터미4.JPG' },
+  { id: 11, category: 'public', entity: '죽향초등학교', title: '죽향초 입학식 포토존', image: '/popup/죽향초2.JPG' },
+  { id: 12, category: 'school', entity: '연세유치원', title: '연세유치원 입학 축하 파티', image: '/popup/연세유치원2.JPG' },
 ];
 
 const PopupServiceContent = () => {
-  const [isBrandModalOpen, setIsBrandModalOpen] = useState(false);
   const [selectedRef, setSelectedRef] = useState(null);
+  const [isRefModalOpen, setIsRefModalOpen] = useState(false);
+  const [activeRefCategory, setActiveRefCategory] = useState('all');
+  const [activeRefEntity, setActiveRefEntity] = useState('all');
   const [activeQualityIndex, setActiveQualityIndex] = useState(0);
   const qualitySectionRef = useRef(null);
+  const scrollContainerRef = useRef(null);
+
+  // Entities for the active category
+  const currentEntities = activeRefCategory === 'all'
+    ? ['all', ...new Set(referenceData.map(item => item.entity))]
+    : ['all', ...new Set(referenceData.filter(item => item.category === activeRefCategory).map(item => item.entity))];
+
+  const filteredReferences = referenceData.filter(item => {
+    const catMatch = activeRefCategory === 'all' || item.category === activeRefCategory;
+    const entMatch = activeRefEntity === 'all' || item.entity === activeRefEntity;
+    return catMatch && entMatch;
+  });
+
+  // Reset entity when category changes
+  useEffect(() => {
+    setActiveRefEntity('all');
+  }, [activeRefCategory]);
+
+  // Handle Horizontal Scroll with Mouse Wheel (Optional but Nice)
+  const handleWheel = (e) => {
+    if (scrollContainerRef.current) {
+      scrollContainerRef.current.scrollLeft += e.deltaY;
+    }
+  };
 
   // Quality Sticky Scroll Observer
   useEffect(() => {
@@ -239,71 +243,8 @@ const PopupServiceContent = () => {
             </div>
           </div>
 
-          {/* Brand Social Proof - Logo Rolling */}
-          <div className="identity-logo-rolling animate-on-scroll">
-            <p className="identity-logo-label">
-              수많은 경험으로 <em>증명합니다.</em>
-            </p>
-            <div className="logo-rolling-container">
-              <div className="logo-trail">
-                {[...brandLogos, ...brandLogos].map((logo, index) => (
-                  <div key={index} className="logo-item">
-                    <div className="brand-logo-wrap">
-                      <Image
-                        src={`/images/brand/${logo}`}
-                        alt="Brand Logo"
-                        width={180}
-                        height={60}
-                        className="brand-logo-img"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <div className="brand-view-all-wrap animate-on-scroll">
-              <button
-                className="brand-view-all-btn"
-                onClick={() => setIsBrandModalOpen(true)}
-              >
-                전체보기
-              </button>
-            </div>
-          </div>
         </div>
 
-        {/* Brand Full List Dialog */}
-        {isBrandModalOpen && (
-          <div className="brand-modal-overlay" onClick={() => setIsBrandModalOpen(false)}>
-            <div className="brand-modal-content" onClick={(e) => e.stopPropagation()}>
-              <button className="brand-modal-close" onClick={() => setIsBrandModalOpen(false)}>
-                <X size={24} />
-              </button>
-              <ScrollArea className="brand-modal-scroll-area">
-                <div className="brand-modal-inner">
-                  <div className="brand-modal-header">
-                    <span className="section-label">Our Partners</span>
-                    <h3 className="brand-modal-title">수많은 기업이 증명하는 VUE의 가치</h3>
-                  </div>
-                  <div className="brand-modal-grid">
-                    {brandLogos.map((logo, index) => (
-                      <div key={index} className="brand-modal-item">
-                        <div className="modal-logo-wrap">
-                          <Image
-                            src={`/images/brand/${logo}`}
-                            alt="Brand Logo"
-                            fill
-                            className="modal-logo-img balance-logo"
-                          />
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </ScrollArea>
-            </div>
-          </div>
-        )}
       </section>
 
       {/* 2. Service Appeal */}
@@ -465,46 +406,157 @@ const PopupServiceContent = () => {
         </div>
       </section>
 
-      {/* 4. References & Reviews (Refactored Grid) */}
-      <section className="section-references">
+      {/* 4. References (Horizontal Scroll Gallery) */}
+      <section className="section-references relative overflow-hidden">
         <div className="popup-content-inner">
-          <div className="text-center mb-20 animate-on-scroll">
-            <span className="section-label">Our References</span>
-            <h2 className="section-tit">
-              수많은 기업이 선택한 이유,<br />실제 사례로 증명합니다.
-            </h2>
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 px-6 animate-on-scroll">
+            <div>
+              <span className="section-label">Our References</span>
+              <h2 className="section-tit !mb-0">
+                수많은 기업이 선택한 이유,<br />실제 사례로 증명합니다.
+              </h2>
+            </div>
+            <button
+              className="mt-4 md:mt-0 flex items-center gap-1 text-primary group font-bold tracking-tight"
+              onClick={() => setIsRefModalOpen(true)}
+            >
+              <span className="text-sm md:text-base">ALL VIEW</span>
+              <ChevronRight size={20} className="transition-transform group-hover:translate-x-1" />
+            </button>
           </div>
+        </div>
 
-          <div className="reference-grid-wrapper">
-            {referenceCategories.map((item) => (
+        {/* Horizontal Scroll Area */}
+        <div
+          className="ref-horizontal-scroll-container scrollbar-hide"
+          ref={scrollContainerRef}
+          onWheel={handleWheel}
+        >
+          <div className="ref-horizontal-track">
+            {referenceData.slice(0, 10).map((item, idx) => (
               <div
                 key={item.id}
-                className="reference-card animate-on-scroll"
+                className="ref-scroll-item animate-on-scroll"
+                style={{ transitionDelay: `${idx * 0.1}s` }}
                 onClick={() => setSelectedRef(item)}
               >
-                <div className="ref-card-bg">
+                <div className="ref-scroll-img-box">
                   <Image
                     src={item.image}
                     alt={item.title}
                     fill
-                    className="object-cover transition-transform duration-700 hover:scale-110"
+                    className="object-cover"
                   />
-                  <div className="ref-overlay"></div>
-                </div>
-                <div className="ref-card-content">
-                  <span className="ref-subtitle font-mj2">{item.subtitle}</span>
-                  <h3 className="ref-title font-mj2">{item.title}</h3>
-                </div>
-                <div className="ref-hover-indicator">
-                  <span>VIEW REFERENCE</span>
-                  <Plus size={20} />
+                  <div className="ref-scroll-overlay">
+                    <span className="ref-scroll-category font-mj2">{referenceCategories.find(c => c.id === item.category)?.title}</span>
+                    <h4 className="ref-scroll-title font-mj2">{item.title}</h4>
+                    <p className="ref-scroll-entity">{item.entity}</p>
+                  </div>
                 </div>
               </div>
             ))}
-          </div>
 
+          </div>
+        </div>
+
+        {/* Centered View All Button */}
+        <div className="hidden md:flex justify-center mt-12 pb-10 animate-on-scroll">
+          <button
+            className="flex flex-col items-center gap-3 text-primary hover:text-slate-900 transition-all group"
+            onClick={() => setIsRefModalOpen(true)}
+          >
+            <div className="w-14 h-14 rounded-full border border-primary/30 flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-500 shadow-sm">
+              <Plus size={28} strokeWidth={1.5} />
+            </div>
+            <span className="text-base font-medium tracking-wide">전체보기</span>
+          </button>
         </div>
       </section>
+
+      {/* Full Support Reference Modal */}
+      {isRefModalOpen && (
+        <div className="brand-modal-overlay" onClick={() => setIsRefModalOpen(false)}>
+          <div className="brand-modal-content max-w-[1200px] h-[90vh]" onClick={(e) => e.stopPropagation()}>
+            <button className="brand-modal-close" onClick={() => setIsRefModalOpen(false)}>
+              <X size={24} />
+            </button>
+            <ScrollArea className="brand-modal-scroll-area">
+              <div className="brand-modal-inner !p-0">
+                {/* Modal Header & Filters */}
+                <div className="px-10 pt-12 text-center">
+                  <span className="section-label !text-sm tracking-widest uppercase">Portfolio</span>
+                  <h3 className="brand-modal-title !mt-2 !text-3xl">VUE 레퍼런스 보드</h3>
+                </div>
+
+                {/* Sticky Filters Area */}
+                <div className="sticky top-0 z-20 bg-white/90 backdrop-blur-xl px-10 py-8 border-b border-muted/30">
+
+                  {/* Category Tabs */}
+                  <div className="flex flex-wrap justify-center gap-2 mb-8">
+                    {referenceCategories.map((cat) => (
+                      <button
+                        key={cat.id}
+                        onClick={() => setActiveRefCategory(cat.id)}
+                        className={`px-6 py-2.5 rounded-full text-sm font-medium transition-all ${activeRefCategory === cat.id
+                          ? 'bg-primary text-white shadow-xl shadow-primary/20'
+                          : 'bg-muted/50 text-muted-foreground hover:bg-muted'
+                          }`}
+                      >
+                        {cat.title}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Entity Filter Chips (Secondary) */}
+                  <div className="flex flex-wrap justify-center gap-1.5 border-t border-muted/30 pt-6">
+                    {currentEntities.map((ent) => (
+                      <button
+                        key={ent}
+                        onClick={() => setActiveRefEntity(ent)}
+                        className={`px-4 py-1.5 rounded-xl text-xs font-semibold transition-all border ${activeRefEntity === ent
+                          ? 'bg-foreground text-background border-foreground'
+                          : 'bg-transparent text-muted-foreground border-muted/50 hover:border-foreground/30'
+                          }`}
+                      >
+                        {ent === 'all' ? '전체 기업/단체' : ent}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Filtered Grid Results */}
+                <div className="p-10">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    {filteredReferences.map((item) => (
+                      <div key={item.id} className="group relative bg-[#f1f5f9] rounded-3xl overflow-hidden aspect-[3/4] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500" onClick={() => setSelectedRef(item)}>
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover transition-transform duration-700 group-hover:scale-110"
+                        />
+                        <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/80 via-black/40 to-transparent translate-y-2 group-hover:translate-y-0 transition-transform">
+                          <span className="text-[10px] text-primary font-bold uppercase tracking-wider">
+                            {referenceCategories.find(c => c.id === item.category)?.title}
+                          </span>
+                          <h4 className="text-white text-lg font-mj2 mt-1">{item.title}</h4>
+                          <p className="text-white/60 text-xs mt-0.5">{item.entity}</p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {filteredReferences.length === 0 && (
+                    <div className="py-20 text-center text-muted-foreground font-mj2">
+                      해당 조건의 레퍼런스가 아직 없습니다.
+                    </div>
+                  )}
+                </div>
+              </div>
+            </ScrollArea>
+          </div>
+        </div>
+      )}
 
       {/* Reference Detail Modal */}
       {selectedRef && (
@@ -517,34 +569,44 @@ const PopupServiceContent = () => {
               <div className="brand-modal-inner">
                 {/* Header (Info) */}
                 <div className="brand-modal-header !mb-12">
-                  <span className="section-label">{selectedRef.subtitle}</span>
+                  <span className="section-label">
+                    {referenceCategories.find(c => c.id === selectedRef.category)?.title}
+                  </span>
                   <h3 className="brand-modal-title">
                     {selectedRef.title}
                   </h3>
                   <p className="brand-modal-desc mt-6 text-slate-500 font-mj2 leading-relaxed break-keep max-w-2xl mx-auto">
-                    {selectedRef.desc}
-                    <br /><br />
-                    VUE는 해당 분야의 깊은 이해를 바탕으로 최적의 포토부스 경험을 설계합니다.
+                    {selectedRef.entity}와 함께한 VUE의 프리미엄 포토부스 프로젝트입니다.
+                    공간의 특성과 브랜드의 아이덴티티를 고려한 맞춤형 솔루션을 통해 차별화된 경험을 제공했습니다.
                   </p>
                 </div>
 
-                {/* Gallery Grid */}
-                <div className="brand-modal-gallery-grid w-full mt-10">
-                  <div className="ref-gallery-grid">
-                    <div className="ref-gallery-item tall rounded-3xl overflow-hidden shadow-sm">
-                      <Image src="/images/popup/reference/ref_01.png" alt="gallery 01" fill className="object-cover" />
+                {/* Main Selected Image & Gallery */}
+                <div className="brand-modal-gallery-grid w-full mt-10 pb-20">
+                  <div className="flex flex-col items-center gap-10">
+                    <div className="relative w-full max-w-4xl aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+                      <Image
+                        src={selectedRef.image}
+                        alt={selectedRef.title}
+                        fill
+                        className="object-cover"
+                      />
                     </div>
-                    <div className="ref-gallery-item wide rounded-3xl overflow-hidden shadow-sm">
-                      <Image src="/images/popup/reference/ref_02.png" alt="gallery 02" fill className="object-cover" />
-                    </div>
-                    <div className="ref-gallery-item tall rounded-3xl overflow-hidden shadow-sm">
-                      <Image src="/images/popup/reference/ref_03.png" alt="gallery 03" fill className="object-cover" />
-                    </div>
-                    <div className="ref-gallery-item wide rounded-3xl overflow-hidden shadow-sm">
-                      <Image src="/images/popup/reference/ref_04.png" alt="gallery 04" fill className="object-cover" />
-                    </div>
-                    <div className="ref-gallery-item wide rounded-3xl overflow-hidden shadow-sm">
-                      <Image src="/images/popup/reference/ref_05.png" alt="gallery 05" fill className="object-cover" />
+
+                    {/* Additional Gallery Images */}
+                    <div className="grid grid-cols-2 gap-4 w-full max-w-4xl">
+                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted/20">
+                        <Image src={selectedRef.image} alt="Gallery 1" fill className="object-cover opacity-90 transition-opacity hover:opacity-100" />
+                      </div>
+                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted/20">
+                        <Image src={selectedRef.image.replace(/(\d+)\./, (m, p1) => `${(parseInt(p1) % 4) + 1}.`)} alt="Gallery 2" fill className="object-cover opacity-90 transition-opacity hover:opacity-100" />
+                      </div>
+                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted/20">
+                        <Image src={selectedRef.image} alt="Gallery 3" fill className="object-cover opacity-90 transition-opacity hover:opacity-100 scale-x-[-1]" />
+                      </div>
+                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted/20">
+                        <Image src={selectedRef.image.replace(/(\d+)\./, (m, p1) => `${(parseInt(p1) % 4) + 2}.`)} alt="Gallery 4" fill className="object-cover opacity-90 transition-opacity hover:opacity-100" />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -631,7 +693,6 @@ const PopupServiceContent = () => {
               완벽한 행사를 위해,<br />
               VUE가 컨설팅해 드립니다.
             </h2>
-            <p className="cta-premium-desc">언제든 문의해주세요</p>
           </div>
 
           <div className="cta-contact-grid">
@@ -671,8 +732,6 @@ const PopupServiceContent = () => {
               <ArrowRight className="card-arrow" />
             </a>
           </div>
-
-          <p className="cta-premium-footer">상담 가능 시간: 24/7 상시 운영</p>
         </div>
       </section>
     </div>

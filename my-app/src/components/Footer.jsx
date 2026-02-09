@@ -21,17 +21,17 @@ export default function Footer() {
                 </li>
                 <li className="flex items-center space-x-3 text-zinc-400">
                   <Mail size={16} className="text-primary/70" />
-                  <span className="text-sm font-mj2">contact@vuephotobooth.com</span>
+                  <span className="text-sm font-mj2">contact@vuephotobuth.com</span>
                 </li>
                 <li className="flex items-start space-x-3 text-zinc-400">
                   <MessageCircle size={16} className="text-primary/70 mt-1" />
                   <div className="text-sm font-mj2">
-                    <p>카카오톡 채널: VUE PHOTOBOOTH</p>
+                    <p>카카오톡 채널: VUE PHOTOBUTH</p>
                     <p className="text-[11px] mt-1 text-zinc-500">평일 10:00 - 18:00 (주말 휴무)</p>
                   </div>
                 </li>
               </ul>
-              
+
               {/* Social Icons in Contact area */}
               <div className="flex space-x-3 pt-2">
                 <Link href="https://instagram.com" target="_blank" className="p-2.5 bg-zinc-800/50 rounded-full hover:bg-primary hover:text-white transition-all duration-300 group">
@@ -40,7 +40,7 @@ export default function Footer() {
                 <Link href="#" className="p-2.5 bg-zinc-800/50 rounded-full hover:bg-primary hover:text-white transition-all duration-300 group">
                   <MessageCircle size={18} className="text-zinc-400 group-hover:text-white" />
                 </Link>
-                <Link href="mailto:contact@vuephotobooth.com" className="p-2.5 bg-zinc-800/50 rounded-full hover:bg-primary hover:text-white transition-all duration-300 group">
+                <Link href="mailto:contact@vuephotobuth.com" className="p-2.5 bg-zinc-800/50 rounded-full hover:bg-primary hover:text-white transition-all duration-300 group">
                   <Mail size={18} className="text-zinc-400 group-hover:text-white" />
                 </Link>
               </div>
@@ -52,7 +52,7 @@ export default function Footer() {
             <h4 className="font-gnb text-lg text-primary tracking-widest uppercase">Information</h4>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2 text-[11px] text-zinc-500 leading-relaxed font-mj2">
               <div className="space-y-2">
-                <p><span className="text-zinc-400">상호명:</span> 뷰 포토부스 (VUE PHOTOBOOTH)</p>
+                <p><span className="text-zinc-400">상호명:</span> 뷰 포토부스 (VUE PHOTOBUTH)</p>
                 <p><span className="text-zinc-400">대표자:</span> 홍길동</p>
                 <p><span className="text-zinc-400">주소:</span> 서울특별시 강남구 테헤란로 123, 4층</p>
               </div>
@@ -67,7 +67,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 text-center">
           <p className="text-[10px] text-zinc-600 font-sans tracking-wider uppercase">
-            &copy; {currentYear} VUE PHOTOBOOTH. ALL RIGHTS RESERVED.
+            &copy; {currentYear} VUE PHOTOBUTH. ALL RIGHTS RESERVED.
           </p>
         </div>
       </div>

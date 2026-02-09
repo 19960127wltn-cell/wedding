@@ -4,12 +4,14 @@ import Image from 'next/image';
 import './AffiliatedHalls.css';
 
 const partnerLogos = [
-  { name: 'Hall 01', src: '/images/hall01.png' },
-  { name: 'Hall 02', src: '/images/hall02.png' },
-  { name: 'Hall 03', src: '/images/hall03.png' },
-  { name: 'Hall 04', src: '/images/hall04.png' },
-  { name: 'Hall 05', src: '/images/hall05.png' },
-  { name: 'Hall 01', src: '/images/hall01.png' }, // Repeat to fill up to 6 for now
+  { name: '광역무역센터컨벤션', src: '/logo/광역무역센터컨벤션.png' },
+  { name: '그랜드힐컨벤션', src: '/logo/그랜드힐컨벤션.png' },
+  { name: '로카우스', src: '/logo/로카우스.png' },
+  { name: '분당더메리든', src: '/logo/분당더메리든.png' },
+  { name: '서초화이트베일', src: '/logo/서초화이트베일.png' },
+  { name: '아이벡스컨벤션', src: '/logo/아이벡스컨벤션.png' },
+  { name: '해군호텔', src: '/logo/해군호텔.png' },
+  { name: '뷰포토부스', src: '/logo/la-logo-w.png' },
 ];
 
 const AffiliatedHalls = () => {
@@ -92,12 +94,16 @@ const AffiliatedHalls = () => {
           <div className="logos-grid">
             {partnerLogos.map((logo, index) => (
               <div key={index} className={`logo-item-wrapper ${revealedLogos[index] ? 'visible' : ''}`}>
-                <div className="logo-item">
+                <div className={`logo-item ${(logo.name === '분당더메리든' || logo.name === '아이벡스컨벤션') ? 'large-logo-item' : ''}`}>
                   <Image
                     src={logo.src}
                     alt={logo.name}
                     width={150}
                     height={80}
+                    className={`
+                      ${(logo.name === '아이벡스컨벤션' || logo.name === '뷰포토부스') ? 'black-logo' : ''}
+                      ${(logo.name === '분당더메리든' || logo.name === '아이벡스컨벤션') ? 'scale-up' : ''}
+                    `.trim()}
                     style={{ objectFit: 'contain' }}
                   />
                 </div>

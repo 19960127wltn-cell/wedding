@@ -69,7 +69,7 @@ export default function WeddingDayProcess() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
           {dayProcessSteps.map((step, index) => (
-            <FadeInOnScroll key={index} className={`delay-${(index + 1) * 100}`}>
+            <FadeInOnScroll key={index} className={`delay-${(index + 1) * 50}`}>
               <div className="group bg-white rounded-3xl p-4 shadow-[0_4px_20px_rgba(0,0,0,0.03)] transition-all duration-500 hover:shadow-[0_20px_40px_rgba(0,0,0,0.08)] hover:-translate-y-2 border border-zinc-100/50">
                 <div className="relative aspect-square overflow-hidden rounded-2xl mb-5">
                   <Image

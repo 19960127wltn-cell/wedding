@@ -101,7 +101,7 @@ const WeddingProcess = () => {
       },
     });
 
-    const totalDuration = 5;
+    const totalDuration = 3.5;
 
     tl.to(activePath, { strokeDashoffset: 0, duration: totalDuration, ease: "power2.inOut" }, 0);
 
@@ -110,7 +110,7 @@ const WeddingProcess = () => {
         opacity: 1,
         y: 0,
         x: 0,
-        duration: 1,
+        duration: 0.8,
         ease: "power2.out",
       }, (i / steps.length) * totalDuration);
     });

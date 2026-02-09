@@ -10,8 +10,6 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/wedding', label: 'Wedding' },
   { href: '/popup-event', label: 'Popup/Event' },
-  { href: '/review', label: 'Review' },
-  { href: '/contact', label: 'Contact' },
 ];
 
 const MobileMenu = ({ isOpen, pathname, setIsOpen }) => {
@@ -55,7 +53,7 @@ export default function GNB() {
             </button>
           </div>
           <div className="absolute left-1/2 -translate-x-1/2">
-            <h1 className="text-md font-semibold font-gnb">{pageLabel}</h1>
+            <h1 className="text-md font-gnb">{pageLabel}</h1>
           </div>
           <div className="flex items-center">
             <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
@@ -67,10 +65,13 @@ export default function GNB() {
 
         {/* Desktop View (>= 1280px) */}
         <div className="hidden xl:flex items-center justify-between w-full px-12 h-full">
-          {/* Logo */}
+          {/* Logo + Text */}
           <div className="flex items-center">
-            <Link href="/" passHref className="relative w-32 h-10">
-              <Image src="/images/logo.png" alt="VUE PHOTOBOOTH Logo" fill className="object-contain" />
+            <Link href="/" passHref className="flex items-center gap-1">
+              <div className="relative w-16 h-16">
+                <Image src="/images/logo.png" alt="VUE PHOTOBUTH Logo" fill className="object-contain" />
+              </div>
+              <span className="text-xl font-gnb tracking-tight">VUE PHOTOBUTH</span>
             </Link>
           </div>
 
@@ -95,16 +96,28 @@ export default function GNB() {
 
   return (
     <nav className="fixed w-full top-0 left-0 z-50 bg-gnb-custom shadow-sm py-3 px-6 md:px-12 flex justify-between items-center text-white h-14">
-      {/* Mobile Centered Title */}
-      <div className="md:hidden absolute left-1/2 transform -translate-x-1/2">
-        <span className="text-sm font-gnb font-regular">VUE PHOTOBUTH</span>
-      </div>
-
-      {/* Logo/Brand Name (Desktop Only) */}
-      <div className="hidden md:flex items-center">
-        <Link href="/" passHref className="relative w-24 h-8 md:w-32 md:h-10">
-          <Image src="/images/logo.png" alt="VUE PHOTOBOOTH Logo" fill className="object-contain" />
+      {/* Logo + Text (Desktop) / Text Only (Mobile Center) */}
+      <div className="flex items-center">
+        {/* Desktop Logo + Text */}
+        <Link href="/" passHref className="hidden md:flex items-center gap-1">
+          <div className="relative w-16 h-16">
+            <Image src="/images/logo.png" alt="VUE PHOTOBUTH Logo" fill className="object-contain" />
+          </div>
+          <span className="text-xl font-gnb tracking-tight">VUE PHOTOBUTH</span>
         </Link>
+        {/* Mobile Left Logo */}
+        <div className="md:hidden flex items-center">
+          <Link href="/" passHref className="relative w-10 h-10">
+            <Image src="/images/logo.png" alt="VUE Logo" fill className="object-contain" />
+          </Link>
+        </div>
+
+        {/* Mobile Centered Text */}
+        <div className="md:hidden absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
+          <Link href="/">
+            <span className="text-sm font-gnb tracking-wider">VUE PHOTOBUTH</span>
+          </Link>
+        </div>
       </div>
 
       {/* Desktop Navigation */}

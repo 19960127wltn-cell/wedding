@@ -8,15 +8,11 @@ const WeddingHero = () => {
   return (
     <section className="wedding-hero">
       <div className="wedding-hero-bg">
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
+        <img
+          src="/images/hero-wedding1.png"
+          alt="Wedding Hero Background"
           className="w-full h-full object-cover"
-        >
-          <source src="/images/main/기기+포스터+신랑신부.mp4" type="video/mp4" />
-        </video>
+        />
         <div className="wedding-hero-overlay"></div>
       </div>
 

@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import FadeInOnScroll from '../components/FadeInOnScroll';
 import StaggeredTextReveal from '../components/StaggeredTextReveal';
 import HandwritingText from '../components/HandwritingText';
@@ -16,6 +16,15 @@ export default function MainPage() {
   const isSmallMobile = windowWidth > 0 && windowWidth <= 500; // Define condition
 
   const [isNoticeOpen, setIsNoticeOpen] = useState(true);
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch(error => {
+        console.error("Auto-play failed:", error);
+      });
+    }
+  }, [videoRef]);
 
   useEffect(() => {
     const dimTimer = setTimeout(() => {
@@ -42,10 +51,12 @@ export default function MainPage() {
         {/* Background Image and Dimming */}
         <div className="absolute inset-0 z-0">
           <video
+            ref={videoRef}
             autoPlay
             loop
             muted
             playsInline
+            preload="auto"
             className="w-full h-full object-cover"
           >
             <source src="/images/main/기기+포스터+신랑신부.mp4" type="video/mp4" />

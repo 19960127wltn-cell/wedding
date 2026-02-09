@@ -29,9 +29,8 @@ export default function FadeInOnScroll({ children, className, delay = 0 }) {
 
   return (
     <div
-      className={`${className} transition-opacity duration-700 ease-out ${
-        isVisible ? 'opacity-100' : 'opacity-0'
-      }`}
+      className={`${className} transition-opacity duration-500 ease-out ${isVisible ? 'opacity-100' : 'opacity-0'
+        }`}
       style={{ transitionDelay: `${delay}ms` }}
       ref={domRef}
     >

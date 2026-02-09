@@ -46,11 +46,11 @@ const WeddingServiceContent = () => {
     <div className="space-y-20 md:space-y-28">
       <WeddingBenefits />
       <WeddingDifferentiation />
-      <div>
+      <div className="space-y-20">
         <WeddingReview />
         <AffiliatedHalls />
       </div>
-      
+
       <WeddingDayProcess />
 
       {/* Process Section */}
