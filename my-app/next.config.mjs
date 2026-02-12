@@ -1,7 +1,17 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // 필요한 설정이 있다면 여기에 작성 (없으면 비워두세요)
   reactStrictMode: true,
+  // Enable static file serving for large assets
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)$/,
+      type: 'asset/resource',
+      generator: {
+        filename: 'static/media/[name].[hash][ext]'
+      }
+    });
+    return config;
+  },
 };
 
 export default nextConfig;
