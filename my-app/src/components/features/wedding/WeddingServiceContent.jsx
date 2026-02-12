@@ -1,17 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 
-import WeddingBenefits from './WeddingBenefits';
-import WeddingDifferentiation from './WeddingDifferentiation';
-import AffiliatedHalls from './AffiliatedHalls';
-import WeddingReview from './WeddingReview';
-import WeddingProcess from './WeddingProcess';
-import WeddingDayProcess from './WeddingDayProcess';
-import ContactDialog from './ContactDialog';
-import WeddingPackageConfig from './WeddingPackageConfig'; // Import WeddingPackageConfig
+import WeddingBenefits from '@/components/features/wedding/WeddingBenefits';
+import WeddingDifferentiation from '@/components/features/wedding/WeddingDifferentiation';
+import AffiliatedHalls from '@/components/features/wedding/AffiliatedHalls';
+import WeddingReview from '@/components/features/wedding/WeddingReview';
+import WeddingProcess from '@/components/features/wedding/WeddingProcess';
+import WeddingDayProcess from '@/components/features/wedding/WeddingDayProcess';
+import ContactDialog from '@/components/features/contact/ContactDialog';
+import WeddingPackageConfig from '@/components/features/wedding/WeddingPackageConfig'; // Import WeddingPackageConfig
 import './WeddingProcess.css';
 import './WeddingDifferentiation.css';
-import './ContactDialog.css';
+
 import './WeddingPackageConfig.css'; // Import WeddingPackageConfig.css
 import './WeddingReview.css';
 

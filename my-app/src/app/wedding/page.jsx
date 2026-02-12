@@ -1,10 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import WeddingServiceContent from '../../components/WeddingServiceContent';
-import WeddingTemplateContent from '../../components/WeddingTemplateContent';
-import WeddingHero from '../../components/WeddingHero';
-import ContactSection from '../../components/ContactSection';
+import WeddingServiceContent from '@/components/features/wedding/WeddingServiceContent';
+import WeddingTemplateContent from '@/components/features/wedding/WeddingTemplateContent';
+import WeddingHero from '@/components/features/wedding/WeddingHero';
+import ContactSection from '@/components/features/contact/ContactSection';
 
 export default function WeddingPage() {
   const [activeTab, setActiveTab] = useState('service');

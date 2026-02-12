@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import StaggeredTextReveal from './StaggeredTextReveal';
+import StaggeredTextReveal from '@/components/shared/StaggeredTextReveal';
 import './PopupHero.css';
 
 const PopupHero = () => {

@@ -3,10 +3,10 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, useRef } from 'react';
-import FadeInOnScroll from '../components/FadeInOnScroll';
-import StaggeredTextReveal from '../components/StaggeredTextReveal';
-import HandwritingText from '../components/HandwritingText';
-import HomeNotice from '../components/HomeNotice'; // Import HomeNotice
+import FadeInOnScroll from '@/components/shared/FadeInOnScroll';
+import StaggeredTextReveal from '@/components/shared/StaggeredTextReveal';
+import HandwritingText from '@/components/shared/HandwritingText';
+import HomeNotice from '@/components/features/home/HomeNotice'; // Import HomeNotice
 import { useWindowWidth } from '../hooks/use-window-width'; // Import useWindowWidth hook
 
 export default function MainPage() {

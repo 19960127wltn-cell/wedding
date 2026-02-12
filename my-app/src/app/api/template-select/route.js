@@ -48,7 +48,10 @@ export async function POST(request) {
 
         // Update Excel files by branch
         try {
-            const excelDir = path.join(process.cwd(), 'public');
+            const excelDir = path.join(process.cwd(), 'public', 'data');
+            if (!fs.existsSync(excelDir)) {
+                fs.mkdirSync(excelDir, { recursive: true });
+            }
             const branches = ['서울', '대전', '광주', '부산'];
 
             for (const branchName of branches) {
