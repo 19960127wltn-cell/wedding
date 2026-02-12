@@ -1,6 +1,6 @@
 import "./globals.css";
-import GNB from '../components/GNB';
-import Footer from '../components/Footer';
+import GNB from '@/components/layout/GNB';
+import Footer from '@/components/layout/Footer';
 
 export const metadata = {
   title: "Admin Dashboard",

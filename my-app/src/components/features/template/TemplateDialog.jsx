@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { X } from 'lucide-react';
 import './TemplateDialog.css';
-import TemplateSelectionForm from './TemplateSelectionForm';
+import TemplateSelectionForm from '@/components/features/template/TemplateSelectionForm';
 
 const TemplateDialog = ({ isOpen, onClose, image }) => {
     const [isFormOpen, setIsFormOpen] = useState(false);

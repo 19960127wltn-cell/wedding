@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import StaggeredTextReveal from './StaggeredTextReveal';
+import StaggeredTextReveal from '@/components/shared/StaggeredTextReveal';
 import './WeddingHero.css';
 
 const WeddingHero = () => {

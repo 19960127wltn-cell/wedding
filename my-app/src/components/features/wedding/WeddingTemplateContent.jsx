@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
-import FadeInOnScroll from './FadeInOnScroll';
-import TemplateDialog from './TemplateDialog';
+import FadeInOnScroll from '@/components/shared/FadeInOnScroll';
+import TemplateDialog from '@/components/features/template/TemplateDialog';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 const WeddingTemplateContent = () => {
