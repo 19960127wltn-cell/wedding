@@ -59,7 +59,7 @@ export default function MainPage() {
             preload="auto"
             className="w-full h-full object-cover"
           >
-            <source src="/images/main/기기+포스터+신랑신부.mp4" type="video/mp4" />
+            <source src="/images/main/main_video.mp4" type="video/mp4" />
           </video>
           {/* Dimming Overlay */}
           <div className={`absolute inset-0 bg-black z-10 transition-opacity duration-500 ${showDimOverlay ? 'opacity-30' : 'opacity-0'}`}></div>
