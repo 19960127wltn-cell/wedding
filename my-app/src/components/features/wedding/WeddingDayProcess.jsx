@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Image from 'next/image';
-import FadeInOnScroll from './FadeInOnScroll';
+import FadeInOnScroll from '@/components/shared/FadeInOnScroll';
 
 const dayProcessSteps = [
   {

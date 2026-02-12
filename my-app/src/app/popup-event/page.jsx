@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import PopupHero from '../../components/PopupHero';
-import PopupServiceContent from '../../components/PopupServiceContent';
+import PopupHero from '@/components/features/popup/PopupHero';
+import PopupServiceContent from '@/components/features/popup/PopupServiceContent';
 
 export default function PopupEventPage() {
     return (
