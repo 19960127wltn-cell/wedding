@@ -186,6 +186,7 @@
     word-break: keep-all;
     max-width: 500px;
     font-family: 'Nanum Myeongjo', serif;
+    font-weight: 700;
 }
 
 .text-highlight {
@@ -310,6 +311,7 @@
     line-height: 1.6;
     word-break: keep-all;
     font-family: 'Nanum Myeongjo', serif;
+    font-weight: 700;
 }
 
 /* Responsive Tweak */
