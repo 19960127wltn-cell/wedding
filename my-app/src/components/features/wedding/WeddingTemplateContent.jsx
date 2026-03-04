@@ -77,13 +77,15 @@ const WeddingTemplateContent = () => {
                 className="relative rounded-2xl overflow-hidden shadow-sm group bg-muted/30 cursor-pointer"
                 onClick={() => setSelectedImage(image)}
               >
-                <Image
-                  src={image.src}
-                  alt={image.alt}
-                  width={600}
-                  height={800}
-                  className="w-full h-auto group-hover:scale-105 transition-transform duration-700 ease-out"
-                />
+                <div className="aspect-[3/4] overflow-hidden">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={600}
+                    height={800}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                  />
+                </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
                   <span className="bg-white/80 backdrop-blur-md text-foreground px-4 py-2 rounded-full text-sm font-medium shadow-lg transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                     View Details

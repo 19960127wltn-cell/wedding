@@ -46,7 +46,7 @@ html {
   line-height: 1.4;
   color: #0f172a;
   margin-bottom: 50px;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   transition: color 0.8s ease;
 }
 
@@ -108,8 +108,8 @@ html {
 .stat-item span {
   font-size: 1.1rem;
   color: #64748b;
-  font-family: "Nanum Myeongjo", serif;
-  font-weight: 500;
+  font-family: "KoPubWorldBatang", serif;
+  font-weight: 400;
 }
 
 /* 2. Service Appeal - Vertical Stack (No overlap) */
@@ -189,7 +189,7 @@ html {
 }
 
 .appeal-cross-num {
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   font-size: 1.5rem;
   /* 24px */
   color: var(--primary);
@@ -204,12 +204,12 @@ html {
   color: #ffffff;
   margin-bottom: 4px;
   line-height: 1.3;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   word-break: keep-all;
 }
 
 .appeal-cross-text p {
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   font-size: 1.05rem;
   color: rgba(255, 255, 255, 0.7);
   line-height: 1.8;
@@ -360,7 +360,7 @@ html {
   margin-bottom: 16px;
   font-size: 1.65rem;
   font-weight: 700;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   letter-spacing: -0.01em;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   z-index: 2;
@@ -378,7 +378,7 @@ html {
   font-size: 1.05rem;
   color: #64748b;
   line-height: 1.9;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   word-break: keep-all;
   margin-top: auto;
   transition: color 0.8s ease;
@@ -435,7 +435,7 @@ html {
 .identity-logo-label {
   color: rgb(255, 255, 255);
   font-size: 1.875rem;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   margin-bottom: 60px;
   letter-spacing: 0.05em;
 }
@@ -625,7 +625,7 @@ html {
   font-size: 2.5rem;
   font-weight: 800;
   color: #0f172a;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   margin-top: 16px;
   word-break: keep-all;
 }
@@ -832,7 +832,7 @@ html {
 
 .quality-num {
   display: block;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   font-size: 4rem;
   color: var(--primary);
   opacity: 0.3;
@@ -848,7 +848,7 @@ html {
   font-weight: 800;
   color: #0f172a;
   margin-bottom: 0;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   line-height: 1.3;
   word-break: keep-all;
 }
@@ -1084,7 +1084,7 @@ html {
   font-weight: 800;
   margin-bottom: 20px;
   color: #0f172a;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   word-break: keep-all;
 }
 
@@ -1137,7 +1137,7 @@ html {
   font-size: 2.5rem;
   font-weight: 800;
   color: #fff;
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
   line-height: 1.3;
   margin: 30px 0 20px;
 }
@@ -1145,7 +1145,7 @@ html {
 .cta-premium-desc {
   font-size: 1.4rem;
   color: rgba(255, 255, 255, 0.5);
-  font-family: "Nanum Myeongjo", serif;
+  font-family: "KoPubWorldBatang", serif;
 }
 
 .cta-contact-grid {

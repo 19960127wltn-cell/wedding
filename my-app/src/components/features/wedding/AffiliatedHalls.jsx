@@ -86,7 +86,7 @@ const AffiliatedHalls = () => {
             Partner
           </span>
           <span className="text-3xl md:text-4xl font-mj2 font-black block">
-            제휴 웨딩홀
+            제휴사
           </span>
           <div className="benefits-divider"></div>
         </h2>

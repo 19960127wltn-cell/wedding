@@ -1,6 +1,5 @@
 'use client';
 import React, { useEffect, useState, useRef } from 'react';
-import Image from 'next/image';
 import { ChevronDown, User } from 'lucide-react';
 import './WeddingReview.css';
 
@@ -129,12 +128,12 @@ const reviews = [
 ];
 
 const ReviewItem = ({ review, index, isExpanded, isMobile }) => {
-    const [isVisible, setIsVisible] = useState(false);
+    // Desktop shows everything immediately, Mobile uses intersection observer
+    const [isVisible, setIsVisible] = useState(!isMobile);
     const itemRef = useRef(null);
 
     useEffect(() => {
         if (!isMobile) {
-            setIsVisible(true);
             return;
         }
 
@@ -190,10 +189,14 @@ const WeddingReview = () => {
     const [isExpanded, setIsExpanded] = useState(false);
     const [isMobile, setIsMobile] = useState(false);
     const headerRef = useRef(null);
+    const trackRef = useRef(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
 
     useEffect(() => {
         const checkMobile = () => {
-            setIsMobile(window.innerWidth <= 500);
+            setIsMobile(window.innerWidth <= 768); // Match CSS breakpoint
         };
 
         checkMobile();
@@ -213,12 +216,66 @@ const WeddingReview = () => {
             observer.observe(headerRef.current);
         }
 
+        // Auto-scroll logic for desktop
+        let animationFrameId;
+        const step = () => {
+            if (!isDragging && !isMobile && trackRef.current) {
+                trackRef.current.scrollLeft += 0.8;
+                
+                // Infinite loop logic
+                if (trackRef.current.scrollLeft >= trackRef.current.scrollWidth / 2) {
+                    trackRef.current.scrollLeft = 0;
+                }
+            }
+            animationFrameId = requestAnimationFrame(step);
+        };
+        
+        if (!isMobile) {
+            animationFrameId = requestAnimationFrame(step);
+        }
+
         return () => {
             observer.disconnect();
             window.removeEventListener('resize', checkMobile);
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
         };
-    }, []);
+    }, [isDragging, isMobile]);
 
+    const handleMouseDown = (e) => {
+        if (isMobile) return;
+        setIsDragging(true);
+        // PageX - distance from left of the container
+        setStartX(e.pageX - trackRef.current.offsetLeft);
+        setScrollLeft(trackRef.current.scrollLeft);
+    };
+
+    const handleMouseMove = (e) => {
+        if (!isDragging || isMobile || !trackRef.current) return;
+        e.preventDefault();
+        const x = e.pageX - trackRef.current.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        trackRef.current.scrollLeft = scrollLeft - walk;
+
+        // Loop during drag
+        const track = trackRef.current;
+        if (track.scrollLeft >= track.scrollWidth / 2) {
+            track.scrollLeft -= track.scrollWidth / 2;
+            setStartX(x);
+            setScrollLeft(track.scrollLeft);
+        } else if (track.scrollLeft <= 0) {
+            track.scrollLeft += track.scrollWidth / 2;
+            setStartX(x);
+            setScrollLeft(track.scrollLeft);
+        }
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
+
+    const desktopReviews = [...reviews, ...reviews];
     const displayedReviews = (isMobile && !isExpanded) ? reviews.slice(0, 5) : reviews;
 
     return (
@@ -238,17 +295,36 @@ const WeddingReview = () => {
                 </h2>
             </div>
 
-            <div className={`chat-scroll-container ${isMobile ? 'mobile-list-view' : ''} ${isExpanded ? 'is-expanded' : ''}`}>
+            <div 
+                ref={trackRef}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+                onMouseLeave={handleMouseUp}
+                className={`chat-scroll-container ${isMobile ? 'mobile-list-view' : 'desktop-auto-scroll'} ${isExpanded ? 'is-expanded' : ''} ${isDragging ? 'is-dragging' : ''}`}
+            >
                 <div className="chat-scroll-track">
-                    {displayedReviews.map((review, index) => (
-                        <ReviewItem
-                            key={review.id}
-                            review={review}
-                            index={index}
-                            isExpanded={isExpanded}
-                            isMobile={isMobile}
-                        />
-                    ))}
+                    {isMobile ? (
+                        displayedReviews.map((review, index) => (
+                            <ReviewItem
+                                key={`${review.id}-${index}`}
+                                review={review}
+                                index={index}
+                                isExpanded={isExpanded}
+                                isMobile={isMobile}
+                            />
+                        ))
+                    ) : (
+                        desktopReviews.map((review, index) => (
+                            <ReviewItem
+                                key={`${review.id}-${index}`}
+                                review={review}
+                                index={index}
+                                isExpanded={isExpanded}
+                                isMobile={isMobile}
+                            />
+                        ))
+                    )}
                 </div>
 
                 {isMobile && (

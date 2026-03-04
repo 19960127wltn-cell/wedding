@@ -11,7 +11,7 @@
     margin-bottom: 50px;
     color: var(--primary-black);
     line-height: 1.4;
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'KoPubWorldBatang', serif;
 }
 
 .branch-grid {
@@ -63,7 +63,7 @@
     font-weight: 700;
     margin-bottom: 8px;
     color: var(--primary-black);
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'KoPubWorldBatang', serif;
 }
 
 .branch-desc {
@@ -73,7 +73,7 @@
     line-height: 1.5;
     min-height: 42px;
     /* 줄바꿈 시 높이 통일 */
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'KoPubWorldBatang', serif;
 }
 
 .open-modal-btn {
@@ -99,7 +99,7 @@
 
 /* 하단 안내 문구 */
 .info-footer {
-    font-family: 'Nanum Myeongjo', serif;
+    font-family: 'KoPubWorldBatang', serif;
     display: flex;
     align-items: center;
     justify-content: center;

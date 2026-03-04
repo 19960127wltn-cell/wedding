@@ -52,8 +52,8 @@ const qualityFeatures = [
   },
   {
     id: "q2",
-    title: "10초 완성 프리미엄 인화",
-    desc: "대규모 인원도 대기 없이 즐길 수 있는 초고속 시스템과 선명한 프리미엄 인화지를 사용합니다.",
+    title: "프리미엄 인화",
+    desc: "선명하고 완성도 높은 사진을 제공하기 위해, 프리미엄 인화지를 사용합니다.",
     image: "/images/popup/print1.png"
   },
   {
@@ -213,10 +213,10 @@ const PopupServiceContent = () => {
               <div className="promise-icon-box">
                 <Award size={40} strokeWidth={1.2} />
               </div>
-              <h3>무결점 현장 매너</h3>
+              <h3>현장 운영 노하우</h3>
               <div className="promise-divider"></div>
               <p>
-                단순 설치를 넘어, 기업 행사의 비즈니스 에티켓을 준수하여 정중하게 응대합니다.
+                수천 건의 경험을 토대로, 행사 운영 컨설팅 및 다음 행사에 도움이 될 개선 포인트를 제공합니다.
               </p>
               <div className="border-trace-container">
                 <svg className="border-trace-svg" viewBox="0 0 100 100" preserveAspectRatio="none">

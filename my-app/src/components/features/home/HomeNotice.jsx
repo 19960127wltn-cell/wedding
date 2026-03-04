@@ -44,7 +44,7 @@ export default function HomeNotice({ onOpenChange }) {
           <DialogHeader>
             <DialogTitle>🎉 2026년 새해 맞이 이벤트</DialogTitle>
             <DialogDescription>
-              Vue Photobuth와 함께 특별한 순간을 기록하세요.
+              Vue Photobooth와 함께 특별한 순간을 기록하세요.
             </DialogDescription>
           </DialogHeader>
           <div className="grid gap-4 py-4">
@@ -52,7 +52,7 @@ export default function HomeNotice({ onOpenChange }) {
               <h4 className="font-medium leading-none">혜택 안내</h4>
               <ul className="text-sm text-muted-foreground list-disc pl-4 space-y-2">
                 <li>전 상품 10% 얼리버드 할인</li>
-                <li>프리미엄 포토북 무료 업그레이드</li>
+                <li>프리미엄 포토 방명록 무료 업그레이드</li>
                 <li>무제한 인화 서비스 제공</li>
               </ul>
               <p className="text-sm text-muted-foreground pt-2">
@@ -80,7 +80,7 @@ export default function HomeNotice({ onOpenChange }) {
         <DrawerHeader className="text-left">
           <DrawerTitle>🎉 2026년 새해 맞이 이벤트</DrawerTitle>
           <DrawerDescription>
-            Vue Photobuth와 함께 특별한 순간을 기록하세요.
+            Vue Photobooth와 함께 특별한 순간을 기록하세요.
           </DrawerDescription>
         </DrawerHeader>
         <div className="p-4 pt-0">
@@ -88,7 +88,7 @@ export default function HomeNotice({ onOpenChange }) {
             <h4 className="font-medium leading-none">혜택 안내</h4>
             <ul className="text-sm text-muted-foreground list-disc pl-4 space-y-2">
               <li>전 상품 10% 얼리버드 할인</li>
-              <li>프리미엄 포토북 무료 업그레이드</li>
+              <li>프리미엄 포토 방명록 무료 업그레이드</li>
               <li>무제한 인화 서비스 제공</li>
             </ul>
             <p className="text-sm text-muted-foreground pt-2">

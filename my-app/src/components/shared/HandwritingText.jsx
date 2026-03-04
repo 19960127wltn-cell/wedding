@@ -54,7 +54,7 @@ const HandwritingText = ({ className = "", animate = false, isSmallMobile = fals
             visibility: animate ? 'visible' : 'hidden'
           }}
         >
-          Vue Photobuth
+          Vue Photobooth
         </text>
       </svg>
     </div>

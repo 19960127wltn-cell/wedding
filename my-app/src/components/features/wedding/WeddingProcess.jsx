@@ -39,14 +39,10 @@ const stepsData = [
     title: "예약금 결제",
     description: "예약금 결제 및<br/>예약 확정",
   },
-  {
-    icon: <svg viewBox="0 0 24 24" fill="none" strokeLinecap="round" strokeLinejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L4 2l3.5 12.5L13 18l5-5z"></path></svg>,
-    title: "템플릿 선택",
-    description: "우리만의<br/>맞춤 템플릿 선택",
-  },
+
   {
     icon: <CheckCircle size={24} strokeWidth={1.5} />,
-    title: "잔금 결제",
+    title: "잔금 결제 & 템플릿 선택",
     description: "잔금 결제 및<br/>최종 일정 점검",
   },
   {
@@ -56,8 +52,8 @@ const stepsData = [
   },
   {
     icon: <Gift size={24} strokeWidth={1.5} />,
-    title: "프리미엄 패키징 및<br/>포토북 제공",
-    description: "신랑신부님께<br/>안전하게 전달",
+    title: "포토 방명록 전달",
+    description: "프리미엄 패키징으로<br/>안전하게 전달",
   },
 ];
 

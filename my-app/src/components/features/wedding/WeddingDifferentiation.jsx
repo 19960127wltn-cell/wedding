@@ -191,13 +191,8 @@ const WeddingDifferentiation = () => {
       points: [
         {
           icon: <BookOpen size={20} />,
-          text: "마음까지 담은 포토북",
+          text: "마음까지 담은 포토 방명록",
           desc: "하객분들의오랜 시간이 흘러도 처음의 감동이 변치 않도록, 한 페이지 한 페이지 정성으로 제작해요"
-        },
-        {
-          icon: <PenTool size={20} />,
-          text: "견고한 핸드메이드 바인딩",
-          desc: "오랜 시간이 흘러도 변하지 않도록 튼튼하게 제작하여, 오래 간직할 수 있도록 가치를 더해요"
         },
         {
           icon: <Archive size={20} />,
@@ -220,7 +215,7 @@ const WeddingDifferentiation = () => {
             Our Benefit
           </span>
           <span className="text-3xl md:text-4xl font-mj2 font-black block">
-            <span className={`diff-title-line ${line1Visible ? 'visible' : ''}`}><span style={{ fontFamily: "'Prata', serif", fontWeight: 'bold', letterSpacing: '0.05em' }}>VUE PHOTOBUTH</span>는</span>
+            <span className={`diff-title-line ${line1Visible ? 'visible' : ''}`}><span style={{ fontFamily: "'Prata', serif", fontWeight: 'bold', letterSpacing: '0.05em' }}>VUE PHOTOBOOTH</span>는</span>
             <br />
             <span className={`diff-title-line ${line2Visible ? 'visible' : ''}`}>퀄리티 높은 기술에 정성을 담아,</span>
             <br />

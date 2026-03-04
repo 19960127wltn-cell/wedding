@@ -22,7 +22,7 @@ const dayProcessSteps = [
   },
   {
     title: "Step 04",
-    description: "신랑신부님께 포토북 전달",
+    description: "신랑신부님께 포토 방명록 전달",
     image: "/images/wedding/day-process-4.png"
   }
 ];
@@ -58,7 +58,7 @@ export default function WeddingDayProcess() {
           style={{ marginBottom: '35px' }}
         >
           <span className="text-primary block text-[32px] font-normal mb-2" style={{ fontFamily: 'Weddingday' }}>
-            Wedding Day
+            D -Day
           </span>
           <span className="text-3xl md:text-4xl font-mj2 font-black block">
             예식 당일, 가장 설레는 시작부터<br />

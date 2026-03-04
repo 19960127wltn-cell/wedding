@@ -69,9 +69,9 @@ export default function GNB() {
           <div className="flex items-center">
             <Link href="/" passHref className="flex items-center gap-1">
               <div className="relative w-16 h-16">
-                <Image src="/images/logo.png" alt="VUE PHOTOBUTH Logo" fill className="object-contain" />
+                <Image src="/images/logo.png" alt="VUE PHOTOBOOTH Logo" fill className="object-contain" />
               </div>
-              <span className="text-xl font-gnb tracking-tight">VUE PHOTOBUTH</span>
+              <span className="text-xl font-gnb tracking-tight">VUE PHOTOBOOTH</span>
             </Link>
           </div>
 
@@ -101,9 +101,9 @@ export default function GNB() {
         {/* Desktop Logo + Text */}
         <Link href="/" passHref className="hidden md:flex items-center gap-1">
           <div className="relative w-16 h-16">
-            <Image src="/images/logo.png" alt="VUE PHOTOBUTH Logo" fill className="object-contain" />
+            <Image src="/images/logo.png" alt="VUE PHOTOBOOTH Logo" fill className="object-contain" />
           </div>
-          <span className="text-xl font-gnb tracking-tight">VUE PHOTOBUTH</span>
+          <span className="text-xl font-gnb tracking-tight">VUE PHOTOBOOTH</span>
         </Link>
         {/* Mobile Left Logo */}
         <div className="md:hidden flex items-center">
@@ -115,7 +115,7 @@ export default function GNB() {
         {/* Mobile Centered Text */}
         <div className="md:hidden absolute left-1/2 transform -translate-x-1/2 whitespace-nowrap">
           <Link href="/">
-            <span className="text-sm font-gnb tracking-wider">VUE PHOTOBUTH</span>
+            <span className="text-sm font-gnb tracking-wider">VUE PHOTOBOOTH</span>
           </Link>
         </div>
       </div>

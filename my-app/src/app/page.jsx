@@ -99,7 +99,7 @@ export default function MainPage() {
                 <div className="relative w-full h-80 md:h-96 overflow-hidden">
                   <Image
                     src="/images/promo-wedding.png"
-                    alt="Wedding Photo Buth Service"
+                    alt="Wedding Photo Booth Service"
                     fill
                     className="object-cover"
                   />
@@ -119,7 +119,7 @@ export default function MainPage() {
                 <div className="relative w-full h-80 md:h-96 overflow-hidden">
                   <Image
                     src="/images/promo-event.png"
-                    alt="Popup and Event Photo Buth"
+                    alt="Popup and Event Photo Booth"
                     fill
                     className="object-cover"
                   />
