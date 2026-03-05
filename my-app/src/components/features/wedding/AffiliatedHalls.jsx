@@ -11,6 +11,9 @@ const partnerLogos = [
   { name: '서초화이트베일', src: '/logo/서초화이트베일.png' },
   { name: '아이벡스컨벤션', src: '/logo/아이벡스컨벤션.png' },
   { name: '해군호텔', src: '/logo/해군호텔.png' },
+  { name: '더라운지', src: '/logo/더라운지.png' },
+  { name: '모든날웨딩', src: '/logo/모든날웨딩.png' },
+  { name: 'ICC', src: '/logo/icc wedding.png' },
   { name: '뷰포토부스', src: '/logo/la-logo-w.png' },
 ];
 
