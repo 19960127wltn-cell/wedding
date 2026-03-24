@@ -22,7 +22,7 @@ export default function HomeNotice({ onOpenChange }) {
 
   React.useEffect(() => {
     // Open on mount
-    setOpen(true)
+    // setOpen(true) // Disable auto-open on mount as requested
 
     // Check media query
     const media = window.matchMedia("(min-width: 1280px)")

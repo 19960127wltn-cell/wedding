@@ -15,7 +15,7 @@ export default function MainPage() {
   const windowWidth = useWindowWidth(); // Use the hook
   const isSmallMobile = windowWidth > 0 && windowWidth <= 500; // Define condition
 
-  const [isNoticeOpen, setIsNoticeOpen] = useState(true);
+  const [isNoticeOpen, setIsNoticeOpen] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -50,17 +50,13 @@ export default function MainPage() {
       <section className="relative w-full h-[calc(100vh-3.5rem)] flex flex-col items-center justify-center text-center overflow-hidden pt-24 md:pt-32">
         {/* Background Image and Dimming */}
         <div className="absolute inset-0 z-0">
-          <video
-            ref={videoRef}
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-            className="w-full h-full object-cover"
-          >
-            <source src="/images/main/main_video.mp4" type="video/mp4" />
-          </video>
+          <Image
+            src="/images/main/main-04.jpg"
+            alt="Main Banner"
+            fill
+            priority
+            className="object-cover"
+          />
           {/* Dimming Overlay */}
           <div className={`absolute inset-0 bg-black z-10 transition-opacity duration-500 ${showDimOverlay ? 'opacity-30' : 'opacity-0'}`}></div>
         </div>
@@ -71,7 +67,7 @@ export default function MainPage() {
             <StaggeredTextReveal
               phrases={["가장 소중한 날", "그날의 행복을 담아드려요"]}
               className="text-lg md:text-2xl mb-4"
-              delayPerPhrase={1000}
+              delayPerPhrase={1500}
               isSmallMobile={isSmallMobile} // Pass the prop
             />
             {/* 4. Render HandwritingText component with internal control */}

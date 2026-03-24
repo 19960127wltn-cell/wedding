@@ -8,12 +8,12 @@ const dayProcessSteps = [
   {
     title: "Step 01",
     description: "예식 시작 60분 전 설치 완료",
-    image: "/images/wedding/day-process-1.png"
+    image: "/images/wedding/setting/setting-1.jpg"
   },
   {
     title: "Step 02",
     description: "하객 응대 및 서비스 진행",
-    image: "/images/wedding/day-process-2.png"
+    image: "/images/wedding/setting/setting-2.jpg"
   },
   {
     title: "Step 03",
@@ -23,7 +23,7 @@ const dayProcessSteps = [
   {
     title: "Step 04",
     description: "신랑신부님께 포토 방명록 전달",
-    image: "/images/wedding/day-process-4.png"
+    image: "/images/wedding/setting/setting-4.png"
   }
 ];
 

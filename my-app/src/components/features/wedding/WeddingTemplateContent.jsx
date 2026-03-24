@@ -3,42 +3,26 @@ import Image from 'next/image';
 import FadeInOnScroll from '@/components/shared/FadeInOnScroll';
 import TemplateDialog from '@/components/features/template/TemplateDialog';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import frames from '../../../data/wedding_frames_manifest.json';
+
 
 const WeddingTemplateContent = () => {
-  const categories = ['All', 'Signature', 'Best', 'New'];
-  const [activeCategory, setActiveCategory] = useState('All');
+  const categories = ['2 Cut', '4 Cut'];
+  const [activeCategory, setActiveCategory] = useState('2 Cut');
   const [selectedImage, setSelectedImage] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 20;
 
-  // Expanded gallery images for pagination demonstration
-  const baseImages = [
-    { src: '/images/templat1.png', alt: 'Wedding Template', category: 'Signature' },
-    { src: '/images/templat2.png', alt: 'Wedding Template', category: 'Best' },
-    { src: '/images/templat1.png', alt: 'Wedding Template', category: 'New' },
-    { src: '/images/templat2.png', alt: 'Wedding Template', category: 'Signature' },
-    { src: '/images/templat1.png', alt: 'Wedding Template', category: 'Best' },
-    { src: '/images/templat2.png', alt: 'Wedding Template', category: 'New' },
-    { src: '/images/templat1.png', alt: 'Wedding Template', category: 'Signature' },
-    { src: '/images/templat2.png', alt: 'Wedding Template', category: 'Best' },
-    { src: '/images/templat1.png', alt: 'Wedding Template', category: 'New' },
-    { src: '/images/templat2.png', alt: 'Wedding Template', category: 'Signature' },
-  ];
-
-  // Generate 40 images (repeat base 4 times)
-  const galleryImages = Array.from({ length: 44 }, (_, i) => ({
-    ...baseImages[i % baseImages.length],
-    id: i + 1,
-    alt: `Wedding Template ${String(i + 1).padStart(2, '0')}`
+  const galleryImages = frames.map(f => ({
+    ...f,
+    alt: `Wedding Frame ${String(f.id).padStart(2, '0')}`
   }));
 
   useEffect(() => {
     setCurrentPage(1);
   }, [activeCategory]);
 
-  const filteredImages = activeCategory === 'All'
-    ? galleryImages
-    : galleryImages.filter(img => img.category === activeCategory);
+  const filteredImages = galleryImages.filter(img => img.category === activeCategory);
 
   // Pagination Logic
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -77,13 +61,13 @@ const WeddingTemplateContent = () => {
                 className="relative rounded-2xl overflow-hidden shadow-sm group bg-muted/30 cursor-pointer"
                 onClick={() => setSelectedImage(image)}
               >
-                <div className="aspect-[3/4] overflow-hidden">
+                <div className="overflow-hidden bg-muted/30">
                   <Image
                     src={image.src}
                     alt={image.alt}
-                    width={600}
-                    height={800}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    width={image.width || 600}
+                    height={image.height || 800}
+                    className="w-full h-auto group-hover:scale-105 transition-transform duration-700 ease-out"
                   />
                 </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">
@@ -92,9 +76,8 @@ const WeddingTemplateContent = () => {
                   </span>
                 </div>
               </div>
-              <div className="px-1">
+              <div className="px-1 text-center">
                 <p className="text-sm font-mj2 font-medium text-muted-foreground mb-1">No {String(image.id).padStart(2, '0')}</p>
-                <h4 className="text-lg font-mj2 font-bold text-foreground">{image.alt}</h4>
               </div>
             </div>
           ))}

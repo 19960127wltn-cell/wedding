@@ -48,21 +48,13 @@ const TemplateDialog = ({ isOpen, onClose, image }) => {
                             <div className="template-detail-images">
                                 <div className="detail-image-wrapper">
                                     <Image
-                                        src="/images/templat_detail1.png"
-                                        alt={`${image.alt} Detail 1`}
-                                        width={1200}
-                                        height={1600}
+                                        src={image.src}
+                                        alt={image.alt}
+                                        width={image.width || 1200}
+                                        height={image.height || 1600}
                                         className="detail-image"
+                                        style={{ width: '100%', height: 'auto' }}
                                         priority
-                                    />
-                                </div>
-                                <div className="detail-image-wrapper">
-                                    <Image
-                                        src="/images/templat_detail2.png"
-                                        alt={`${image.alt} Detail 2`}
-                                        width={1200}
-                                        height={1600}
-                                        className="detail-image"
                                     />
                                 </div>
                             </div>

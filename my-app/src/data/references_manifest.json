@@ -1,0 +1,1574 @@
+[
+  {
+    "id": 1,
+    "entity": "AESOP",
+    "title": "AESOP",
+    "images": [
+      "/images/popup/popup_image/이솝/KakaoTalk_20260302_073823628_17.jpg",
+      "/images/popup/popup_image/이솝/KakaoTalk_20260302_073823628_18.jpg",
+      "/images/popup/popup_image/이솝/KakaoTalk_20260302_073823628_19.jpg",
+      "/images/popup/popup_image/이솝/KakaoTalk_20260302_073823628_20.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/이솝/KakaoTalk_20260302_073823628_17.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 2,
+    "entity": "AIR BUSAN",
+    "title": "AIR BUSAN",
+    "images": [
+      "/images/popup/popup_image/AIR BUSAN/KakaoTalk_20251204_141226492_14.jpg",
+      "/images/popup/popup_image/AIR BUSAN/SE-671d7ff3-18d9-425f-a1a8-2dca71cd184e.jpg",
+      "/images/popup/popup_image/AIR BUSAN/SE-882a8498-f135-4fb3-b4c8-f8a2ba63cc8f.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/AIR BUSAN/KakaoTalk_20251204_141226492_14.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 3,
+    "entity": "APEC 교촌",
+    "title": "APEC 교촌",
+    "images": [
+      "/images/popup/popup_image/APEC 교촌/KakaoTalk_20260302_073823628_21.jpg",
+      "/images/popup/popup_image/APEC 교촌/KakaoTalk_20260302_073823628_22.jpg",
+      "/images/popup/popup_image/APEC 교촌/KakaoTalk_20260302_073823628_23.jpg",
+      "/images/popup/popup_image/APEC 교촌/KakaoTalk_20260302_073823628_24.jpg",
+      "/images/popup/popup_image/APEC 교촌/KakaoTalk_20260302_073823628_25.jpg",
+      "/images/popup/popup_image/APEC 교촌/KakaoTalk_20260302_073823628_26.jpg",
+      "/images/popup/popup_image/APEC 교촌/KakaoTalk_20260302_073823628_27.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/APEC 교촌/KakaoTalk_20260302_073823628_21.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 4,
+    "entity": "CBRE",
+    "title": "CBRE",
+    "images": [
+      "/images/popup/popup_image/CBRE/KakaoTalk_20250420_042406692_02.jpg",
+      "/images/popup/popup_image/CBRE/KakaoTalk_20250420_042406692_03.jpg",
+      "/images/popup/popup_image/CBRE/KakaoTalk_20250420_042406692_05.jpg",
+      "/images/popup/popup_image/CBRE2/01_plat.jpg",
+      "/images/popup/popup_image/CBRE2/20231224_160619.png",
+      "/images/popup/popup_image/CBRE2/KakaoTalk_20231224_011153318.jpg",
+      "/images/popup/popup_image/CBRE2/KakaoTalk_20231224_011153318_02.jpg",
+      "/images/popup/popup_image/CBRE2/KakaoTalk_20231224_011153318_05.jpg",
+      "/images/popup/popup_image/CBRE2/KakaoTalk_20231224_155450422.jpg",
+      "/images/popup/popup_image/CBRE2/KakaoTalk_20260302_071324559_01.jpg",
+      "/images/popup/popup_image/CBRE2/제목+없음-1.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_071408994_23.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_071408994_24.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_071408994_25.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_071408994_26.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_071408994_27.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_071408994_28.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_073810151_09.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_073810151_10.jpg",
+      "/images/popup/popup_image/CBRE3/KakaoTalk_20260302_073810151_11.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/CBRE/KakaoTalk_20250420_042406692_02.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 5,
+    "entity": "CEO&PARTNERS 기업행사",
+    "title": "CEO&PARTNERS 기업행사",
+    "images": [
+      "/images/popup/popup_image/CEO&PARTNERS 기업행사/KakaoTalk_20230919_033512094_05.jpg",
+      "/images/popup/popup_image/CEO&PARTNERS 기업행사/KakaoTalk_20230919_033512094_07.jpg",
+      "/images/popup/popup_image/CEO&PARTNERS 기업행사/KakaoTalk_20230919_033512094_11.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/CEO&PARTNERS 기업행사/KakaoTalk_20230919_033512094_05.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 6,
+    "entity": "CJ",
+    "title": "CJ",
+    "images": [
+      "/images/popup/popup_image/CJ/KakaoTalk_20260302_052130534_12.jpg",
+      "/images/popup/popup_image/CJ/KakaoTalk_20260302_052130534_13.jpg",
+      "/images/popup/popup_image/CJ/KakaoTalk_20260302_052130534_14.jpg",
+      "/images/popup/popup_image/CJ/KakaoTalk_20260302_075833960_10.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/CJ/KakaoTalk_20260302_052130534_12.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 7,
+    "entity": "CJ ONSTYLE",
+    "title": "CJ ONSTYLE",
+    "images": [
+      "/images/popup/popup_image/CJ ONSTYLE/KakaoTalk_20260302_052130534_19.jpg",
+      "/images/popup/popup_image/CJ ONSTYLE/KakaoTalk_20260302_052130534_20.jpg",
+      "/images/popup/popup_image/CJ ONSTYLE/KakaoTalk_20260302_071343118_24.jpg",
+      "/images/popup/popup_image/CJ ONSTYLE/KakaoTalk_20260302_071343118_25.jpg",
+      "/images/popup/popup_image/CJ ONSTYLE/KakaoTalk_20260302_075833960_13.jpg",
+      "/images/popup/popup_image/CJ ONSTYLE/KakaoTalk_20260302_075833960_14.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/CJ ONSTYLE/KakaoTalk_20260302_052130534_19.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 8,
+    "entity": "CJ인재원",
+    "title": "CJ인재원",
+    "images": [
+      "/images/popup/popup_image/CJ인재원/KakaoTalk_20240614_223421508_01.jpg",
+      "/images/popup/popup_image/CJ인재원/KakaoTalk_20240614_223421508_03.jpg",
+      "/images/popup/popup_image/CJ인재원/KakaoTalk_20240620_030327371.jpg",
+      "/images/popup/popup_image/CJ인재원/KakaoTalk_20240808_192737557_01.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/CJ인재원/KakaoTalk_20240614_223421508_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 9,
+    "entity": "DRIFT",
+    "title": "DRIFT",
+    "images": [
+      "/images/popup/popup_image/drift/KakaoTalk_20250419_224630886.jpg",
+      "/images/popup/popup_image/drift/KakaoTalk_20250419_224630886_05.jpg",
+      "/images/popup/popup_image/drift/KakaoTalk_20250419_224630886_06.jpg",
+      "/images/popup/popup_image/drift/KakaoTalk_20250419_224739089.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/drift/KakaoTalk_20250419_224630886.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 10,
+    "entity": "F",
+    "title": "F",
+    "images": [
+      "/images/popup/popup_image/F45/KakaoTalk_20260302_052130534_16.jpg",
+      "/images/popup/popup_image/F45/KakaoTalk_20260302_052130534_17.jpg",
+      "/images/popup/popup_image/F45/KakaoTalk_20260302_052130534_18.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/F45/KakaoTalk_20260302_052130534_16.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 11,
+    "entity": "Geistlich",
+    "title": "Geistlich",
+    "images": [
+      "/images/popup/popup_image/geistlich/KakaoTalk_20250617_223144867_02.jpg",
+      "/images/popup/popup_image/geistlich/KakaoTalk_20260302_052122662_01.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/geistlich/KakaoTalk_20250617_223144867_02.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 12,
+    "entity": "Gilead",
+    "title": "Gilead",
+    "images": [
+      "/images/popup/popup_image/gilead/KakaoTalk_20260302_052130534_15.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/gilead/KakaoTalk_20260302_052130534_15.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 13,
+    "entity": "HYUNDAI",
+    "title": "HYUNDAI",
+    "images": [
+      "/images/popup/popup_image/HYUNDAI/KakaoTalk_20250104_200219846_01.jpg",
+      "/images/popup/popup_image/HYUNDAI/SE-1c5405d1-abc8-461f-9dfa-d98e46890826.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/HYUNDAI/KakaoTalk_20250104_200219846_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 14,
+    "entity": "KN",
+    "title": "KN",
+    "images": [
+      "/images/popup/popup_image/KN/KakaoTalk_20231224_164353472_01.jpg",
+      "/images/popup/popup_image/KN/KakaoTalk_20240201_033000489_14.jpg",
+      "/images/popup/popup_image/KN/KakaoTalk_20240201_033556603_04.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/KN/KakaoTalk_20231224_164353472_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 15,
+    "entity": "KTX",
+    "title": "KTX",
+    "images": [
+      "/images/popup/popup_image/KTX/KakaoTalk_20241105_042143312_01.jpg",
+      "/images/popup/popup_image/KTX/KakaoTalk_20241105_042143312_02.jpg",
+      "/images/popup/popup_image/KTX/KakaoTalk_20241105_042143312_03.jpg",
+      "/images/popup/popup_image/KTX/KakaoTalk_20241105_042143312_04.jpg",
+      "/images/popup/popup_image/KTX/SE-b96fac23-34ef-45b7-b5d1-03a91b9953bd.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/KTX/KakaoTalk_20241105_042143312_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 16,
+    "entity": "L'OREAL",
+    "title": "L'OREAL",
+    "images": [
+      "/images/popup/popup_image/로레알/KakaoTalk_20250617_223717524.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/로레알/KakaoTalk_20250617_223717524.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 17,
+    "entity": "LG U+",
+    "title": "LG U+",
+    "images": [
+      "/images/popup/popup_image/LG U+/KakaoTalk_20260302_052130534_11.jpg",
+      "/images/popup/popup_image/LG U+/KakaoTalk_20260302_071408994_01.jpg",
+      "/images/popup/popup_image/LG U+/KakaoTalk_20260302_071408994_02 (1).jpg",
+      "/images/popup/popup_image/LG U+/KakaoTalk_20260302_075825253_27.jpg",
+      "/images/popup/popup_image/LG U+/KakaoTalk_20260302_075825253_28.jpg",
+      "/images/popup/popup_image/LG U+/KakaoTalk_20260302_075825253_29.jpg",
+      "/images/popup/popup_image/엘지유플러/KakaoTalk_20260302_071343118_21.jpg",
+      "/images/popup/popup_image/엘지유플러/KakaoTalk_20260302_071343118_23.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/LG U+/KakaoTalk_20260302_052130534_11.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 18,
+    "entity": "MODERNA",
+    "title": "MODERNA",
+    "images": [
+      "/images/popup/popup_image/모더나/KakaoTalk_20260302_052131405_06.jpg",
+      "/images/popup/popup_image/모더나/KakaoTalk_20260302_052131405_08.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/모더나/KakaoTalk_20260302_052131405_06.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 19,
+    "entity": "Medtronic",
+    "title": "Medtronic",
+    "images": [
+      "/images/popup/popup_image/Medtronic/KakaoTalk_20260302_073823628_29.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/Medtronic/KakaoTalk_20260302_073823628_29.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 20,
+    "entity": "SK하이닉스",
+    "title": "SK하이닉스",
+    "images": [
+      "/images/popup/popup_image/SK하이닉스/IMG_7004.jpg",
+      "/images/popup/popup_image/SK하이닉스/KakaoTalk_20241030_033319563.jpg",
+      "/images/popup/popup_image/SK하이닉스/KakaoTalk_20241030_033319563_01.jpg",
+      "/images/popup/popup_image/SK하이닉스/KakaoTalk_20241030_033319563_04.jpg",
+      "/images/popup/popup_image/SK하이닉스/KakaoTalk_20241030_033319563_06.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/SK하이닉스/IMG_7004.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 21,
+    "entity": "SMC",
+    "title": "SMC",
+    "images": [
+      "/images/popup/popup_image/SMC/KakaoTalk_20260302_071343118_19 (1).jpg",
+      "/images/popup/popup_image/SMC/KakaoTalk_20260302_071343118_20.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/SMC/KakaoTalk_20260302_071343118_19 (1).jpg",
+    "category": "corp"
+  },
+  {
+    "id": 22,
+    "entity": "W컨셉",
+    "title": "W컨셉",
+    "images": [
+      "/images/popup/popup_image/w컨셉/KakaoTalk_20260302_052130534_23.jpg",
+      "/images/popup/popup_image/w컨셉/KakaoTalk_20260302_052130534_24.jpg",
+      "/images/popup/popup_image/w컨셉/KakaoTalk_20260302_052130534_25.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/w컨셉/KakaoTalk_20260302_052130534_23.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 23,
+    "entity": "ZP Therapeutics",
+    "title": "ZP Therapeutics",
+    "images": [
+      "/images/popup/popup_image/ZP Therapeutics/KakaoTalk_20240206_165810124.jpg",
+      "/images/popup/popup_image/ZP Therapeutics/KakaoTalk_20240206_165810124_03.jpg",
+      "/images/popup/popup_image/ZP Therapeutics/KakaoTalk_20240206_165810124_04.jpg",
+      "/images/popup/popup_image/ZP Therapeutics/KakaoTalk_20240412_015857495.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/ZP Therapeutics/KakaoTalk_20240206_165810124.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 24,
+    "entity": "가온초등학교",
+    "title": "가온초등학교",
+    "images": [
+      "/images/popup/popup_image/가온초등학교/KakaoTalk_20260302_071324559_02.jpg",
+      "/images/popup/popup_image/가온초등학교/KakaoTalk_20260302_071324559_04.jpg",
+      "/images/popup/popup_image/가온초등학교/기기 메인화면 샷.jpg",
+      "/images/popup/popup_image/가온초등학교/정보 및 환경.jpg",
+      "/images/popup/popup_image/가온초등학교/촬영중4.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/가온초등학교/KakaoTalk_20260302_071324559_02.jpg",
+    "category": "school"
+  },
+  {
+    "id": 25,
+    "entity": "감일유치원",
+    "title": "감일유치원",
+    "images": [
+      "/images/popup/popup_image/감일유치원/KakaoTalk_20250327_012704903.jpg",
+      "/images/popup/popup_image/감일유치원/KakaoTalk_20250327_012704903_01.jpg",
+      "/images/popup/popup_image/감일유치원/KakaoTalk_20250327_012704903_03.jpg",
+      "/images/popup/popup_image/감일유치원/KakaoTalk_20260302_052122662_09.jpg",
+      "/images/popup/popup_image/감일유치원2/KakaoTalk_20260302_052057543_01.jpg",
+      "/images/popup/popup_image/감일유치원2/KakaoTalk_20260302_052057543_02.jpg",
+      "/images/popup/popup_image/감일유치원2/KakaoTalk_20260302_052057543_03.jpg",
+      "/images/popup/popup_image/감일유치원2/KakaoTalk_20260302_052057543_04.jpg",
+      "/images/popup/popup_image/감일유치원2/KakaoTalk_20260302_052057543_05.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/감일유치원/KakaoTalk_20250327_012704903.jpg",
+    "category": "school"
+  },
+  {
+    "id": 26,
+    "entity": "강원관광인대",
+    "title": "강원관광인대",
+    "images": [
+      "/images/popup/popup_image/강원관광인대/KakaoTalk_20260302_073810151_03.jpg",
+      "/images/popup/popup_image/강원관광인대/KakaoTalk_20260302_073810151_04.jpg",
+      "/images/popup/popup_image/강원관광인대/KakaoTalk_20260302_073810151_05.jpg",
+      "/images/popup/popup_image/강원관광인대/KakaoTalk_20260302_073810151_06.jpg",
+      "/images/popup/popup_image/강원관광인대/KakaoTalk_20260302_073810151_07.jpg",
+      "/images/popup/popup_image/강원관광인대/KakaoTalk_20260302_073810151_08.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/강원관광인대/KakaoTalk_20260302_073810151_03.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 27,
+    "entity": "강원대학교",
+    "title": "강원대학교",
+    "images": [
+      "/images/popup/popup_image/강원대학교/KakaoTalk_20260302_073759551_02.jpg",
+      "/images/popup/popup_image/강원대학교/KakaoTalk_20260302_073759551_03.jpg",
+      "/images/popup/popup_image/강원대학교/KakaoTalk_20260302_073759551_04.jpg",
+      "/images/popup/popup_image/강원대학교/KakaoTalk_20260302_073759551_05.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/강원대학교/KakaoTalk_20260302_073759551_02.jpg",
+    "category": "school"
+  },
+  {
+    "id": 28,
+    "entity": "개운교회",
+    "title": "개운교회",
+    "images": [
+      "/images/popup/popup_image/개운교회/KakaoTalk_20250617_225731945_01.jpg",
+      "/images/popup/popup_image/개운교회/KakaoTalk_20250617_225731945_02.jpg",
+      "/images/popup/popup_image/개운교회/KakaoTalk_20250617_225731945_04.jpg",
+      "/images/popup/popup_image/개운교회/KakaoTalk_20250620_020952832.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/개운교회/KakaoTalk_20250617_225731945_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 29,
+    "entity": "개포중학교",
+    "title": "개포중학교",
+    "images": [
+      "/images/popup/popup_image/개포중학교/KakaoTalk_20250320_232825683_01.jpg",
+      "/images/popup/popup_image/개포중학교/SE-c8211b7d-f48f-49b7-9e30-348f6c70162b.jpg",
+      "/images/popup/popup_image/개포중학교/SE-ed43c942-b59b-4e31-a5d9-3f510d8c2fd6.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/개포중학교/KakaoTalk_20250320_232825683_01.jpg",
+    "category": "school"
+  },
+  {
+    "id": 30,
+    "entity": "고등학교프롬파티",
+    "title": "고등학교프롬파티",
+    "images": [
+      "/images/popup/popup_image/고등학교프롬파티/KakaoTalk_20230808_190955831.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/고등학교프롬파티/KakaoTalk_20230808_190955831.jpg",
+    "category": "school"
+  },
+  {
+    "id": 31,
+    "entity": "고양 솔마루유치원",
+    "title": "고양 솔마루유치원",
+    "images": [
+      "/images/popup/popup_image/고양 솔마루유치원/KakaoTalk_20251230_153347273.jpg",
+      "/images/popup/popup_image/고양 솔마루유치원/KakaoTalk_20251230_153347273_02.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/고양 솔마루유치원/KakaoTalk_20251230_153347273.jpg",
+    "category": "school"
+  },
+  {
+    "id": 32,
+    "entity": "과천초등학교",
+    "title": "과천초등학교",
+    "images": [
+      "/images/popup/popup_image/과천초등학/KakaoTalk_20260302_073759551_23.jpg",
+      "/images/popup/popup_image/과천초등학/KakaoTalk_20260302_073759551_24.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/과천초등학/KakaoTalk_20260302_073759551_23.jpg",
+    "category": "school"
+  },
+  {
+    "id": 33,
+    "entity": "교육",
+    "title": "교육",
+    "images": [
+      "/images/popup/popup_image/교육/KakaoTalk_20260302_075833960_11.jpg",
+      "/images/popup/popup_image/교육/KakaoTalk_20260302_075833960_12.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/교육/KakaoTalk_20260302_075833960_11.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 34,
+    "entity": "교통부",
+    "title": "교통부",
+    "images": [
+      "/images/popup/popup_image/교통부/KakaoTalk_20260302_073823628_14.jpg",
+      "/images/popup/popup_image/교통부/KakaoTalk_20260302_073823628_15.jpg",
+      "/images/popup/popup_image/교통부/KakaoTalk_20260302_073823628_16.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/교통부/KakaoTalk_20260302_073823628_14.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 35,
+    "entity": "국민건강보험",
+    "title": "국민건강보험",
+    "images": [
+      "/images/popup/popup_image/국민건강보험/KakaoTalk_20260302_073810151_18.jpg",
+      "/images/popup/popup_image/국민건강보험/KakaoTalk_20260302_073810151_19.jpg",
+      "/images/popup/popup_image/국민건강보험/KakaoTalk_20260302_073810151_20.jpg",
+      "/images/popup/popup_image/국민건강보험/KakaoTalk_20260302_073810151_21.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/국민건강보험/KakaoTalk_20260302_073810151_18.jpg",
+    "category": "public"
+  },
+  {
+    "id": 36,
+    "entity": "군남초등학교",
+    "title": "군남초등학교",
+    "images": [
+      "/images/popup/popup_image/군남초등학교/기기 메인화면 샷3.jpg",
+      "/images/popup/popup_image/군남초등학교/촬영중 단체2.jpg",
+      "/images/popup/popup_image/군남초등학교/촬영중3.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/군남초등학교/기기 메인화면 샷3.jpg",
+    "category": "school"
+  },
+  {
+    "id": 37,
+    "entity": "금정초등학교",
+    "title": "금정초등학교",
+    "images": [
+      "/images/popup/popup_image/금정초등학교/KakaoTalk_20260302_073759551_21.jpg",
+      "/images/popup/popup_image/금정초등학교/KakaoTalk_20260302_073759551_22.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/금정초등학교/KakaoTalk_20260302_073759551_21.jpg",
+    "category": "school"
+  },
+  {
+    "id": 38,
+    "entity": "김해 은혜학교",
+    "title": "김해 은혜학교",
+    "images": [
+      "/images/popup/popup_image/김해 은혜학교/SE-169a69d1-2e87-4eda-acbd-578aa3cc5f95.jpg",
+      "/images/popup/popup_image/김해 은혜학교/SE-a6996b5c-050a-4b78-b7ae-84bed8d66006.jpg",
+      "/images/popup/popup_image/김해 은혜학교/제목_없는_디자인_(9).png"
+    ],
+    "thumbnail": "/images/popup/popup_image/김해 은혜학교/SE-169a69d1-2e87-4eda-acbd-578aa3cc5f95.jpg",
+    "category": "school"
+  },
+  {
+    "id": 39,
+    "entity": "나디아잉글리",
+    "title": "나디아잉글리",
+    "images": [
+      "/images/popup/popup_image/나디아잉글리/KakaoTalk_20260302_052130534_26.jpg",
+      "/images/popup/popup_image/나디아잉글리/KakaoTalk_20260302_052130534_27.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/나디아잉글리/KakaoTalk_20260302_052130534_26.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 40,
+    "entity": "노원문화재단",
+    "title": "노원문화재단",
+    "images": [
+      "/images/popup/popup_image/노원문화재단/02_plat.jpg",
+      "/images/popup/popup_image/노원문화재단/KakaoTalk_20231221_184304118.jpg",
+      "/images/popup/popup_image/노원문화재단/KakaoTalk_20231221_184304118_01.jpg",
+      "/images/popup/popup_image/노원문화재단/KakaoTalk_20231221_184320812.jpg",
+      "/images/popup/popup_image/노원문화재단/KakaoTalk_20231221_184320812_01.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/노원문화재단/02_plat.jpg",
+    "category": "public"
+  },
+  {
+    "id": 41,
+    "entity": "녹십자",
+    "title": "녹십자",
+    "images": [
+      "/images/popup/popup_image/녹십자/KakaoTalk_20250311_235746556.jpg",
+      "/images/popup/popup_image/녹십자/KakaoTalk_20250311_235746556_04.jpg",
+      "/images/popup/popup_image/녹십자/KakaoTalk_20250311_235746556_06.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/녹십자/KakaoTalk_20250311_235746556.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 42,
+    "entity": "논산고등학교",
+    "title": "논산고등학교",
+    "images": [
+      "/images/popup/popup_image/논산고등학교/AY1_6381.JPG",
+      "/images/popup/popup_image/논산고등학교/AY1_6454.JPG"
+    ],
+    "thumbnail": "/images/popup/popup_image/논산고등학교/AY1_6381.JPG",
+    "category": "school"
+  },
+  {
+    "id": 43,
+    "entity": "누리라운지",
+    "title": "누리라운지",
+    "images": [
+      "/images/popup/popup_image/누리라운지/KakaoTalk_20230926_164242892.jpg",
+      "/images/popup/popup_image/누리라운지/KakaoTalk_20230927_025250132_02.jpg",
+      "/images/popup/popup_image/누리라운지/KakaoTalk_20230927_025250132_04.jpg",
+      "/images/popup/popup_image/누리라운지/KakaoTalk_20230927_025250132_05.jpg",
+      "/images/popup/popup_image/누리라운지/조ㅗ.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/누리라운지/KakaoTalk_20230926_164242892.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 44,
+    "entity": "닥터슈라클",
+    "title": "닥터슈라클",
+    "images": [
+      "/images/popup/popup_image/닥터슈라클/IMG_9917.jpg",
+      "/images/popup/popup_image/닥터슈라클/KakaoTalk_20230919_033721504_01.jpg",
+      "/images/popup/popup_image/닥터슈라클/KakaoTalk_20230919_033721504_02.jpg",
+      "/images/popup/popup_image/닥터슈라클/KakaoTalk_20230919_033721504_06.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/닥터슈라클/IMG_9917.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 45,
+    "entity": "당진 초락초",
+    "title": "당진 초락초",
+    "images": [
+      "/images/popup/popup_image/당진 초락초/KakaoTalk_20230627_201834420_10.jpg",
+      "/images/popup/popup_image/당진 초락초/KakaoTalk_20230627_201834420_13.jpg",
+      "/images/popup/popup_image/당진 초락초/KakaoTalk_20230627_201834420_15.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/당진 초락초/KakaoTalk_20230627_201834420_10.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 46,
+    "entity": "동대문DDP",
+    "title": "동대문DDP",
+    "images": [
+      "/images/popup/popup_image/동대문DDP/KakaoTalk_20260302_075833960_15.jpg",
+      "/images/popup/popup_image/동대문DDP/KakaoTalk_20260302_075833960_18.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/동대문DDP/KakaoTalk_20260302_075833960_15.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 47,
+    "entity": "동아방송예술대학",
+    "title": "동아방송예술대학",
+    "images": [
+      "/images/popup/popup_image/동아방송예술대학/KakaoTalk_20260302_071324559_23.jpg",
+      "/images/popup/popup_image/동아방송예술대학/KakaoTalk_20260302_071324559_24.jpg",
+      "/images/popup/popup_image/동아방송예술대학/KakaoTalk_20260302_071324559_25.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/동아방송예술대학/KakaoTalk_20260302_071324559_23.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 48,
+    "entity": "두산연강재단",
+    "title": "두산연강재단",
+    "images": [
+      "/images/popup/popup_image/두산연강재단/KakaoTalk_20241030_024243999.jpg",
+      "/images/popup/popup_image/두산연강재단/KakaoTalk_20241030_024243999_01.jpg",
+      "/images/popup/popup_image/두산연강재단/KakaoTalk_20241030_024243999_02.jpg",
+      "/images/popup/popup_image/두산연강재단/KakaoTalk_20241030_030853792_02.jpg",
+      "/images/popup/popup_image/두산연강재단/SE-1d9da822-ef2a-441e-b936-e26a400359c2.jpg",
+      "/images/popup/popup_image/두산연강재단/SE-56fbfa0e-ce78-486a-af89-e18fe80a77ec.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/두산연강재단/KakaoTalk_20241030_024243999.jpg",
+    "category": "public"
+  },
+  {
+    "id": 49,
+    "entity": "롤링힐",
+    "title": "롤링힐",
+    "images": [
+      "/images/popup/popup_image/롤링힐/KakaoTalk_20260302_071408994_09.jpg",
+      "/images/popup/popup_image/롤링힐/KakaoTalk_20260302_071408994_10.jpg",
+      "/images/popup/popup_image/롤링힐/KakaoTalk_20260302_071408994_11.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/롤링힐/KakaoTalk_20260302_071408994_09.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 50,
+    "entity": "롯데카드",
+    "title": "롯데카드",
+    "images": [
+      "/images/popup/popup_image/롯데카드/KakaoTalk_20250420_033323090_01.jpg",
+      "/images/popup/popup_image/롯데카드/KakaoTalk_20250420_033823692_03.jpg",
+      "/images/popup/popup_image/롯데카드/KakaoTalk_20250515_181902183.jpg",
+      "/images/popup/popup_image/롯데카드/SE-9c3b542c-a235-4ae2-8ca0-8ed13fba9b7a.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/롯데카드/KakaoTalk_20250420_033323090_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 51,
+    "entity": "리틀엔젤스",
+    "title": "리틀엔젤스",
+    "images": [
+      "/images/popup/popup_image/리틀엔젤스/KakaoTalk_20250627_001329955_01.jpg",
+      "/images/popup/popup_image/리틀엔젤스/KakaoTalk_20250627_001329955_03.jpg",
+      "/images/popup/popup_image/리틀엔젤스/KakaoTalk_20250627_001329955_06.jpg",
+      "/images/popup/popup_image/리틀엔젤스/KakaoTalk_20250630_213821665.jpg",
+      "/images/popup/popup_image/리틀엔젤스/KakaoTalk_20250708_021139653.jpg",
+      "/images/popup/popup_image/리틀엔젤스/KakaoTalk_20260302_052130534_21.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/리틀엔젤스/KakaoTalk_20250627_001329955_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 52,
+    "entity": "마리끌레르",
+    "title": "마리끌레르",
+    "images": [
+      "/images/popup/popup_image/마리끌레르/IMG_7233.jpg",
+      "/images/popup/popup_image/마리끌레르/KakaoTalk_20241030_033319563_08.jpg",
+      "/images/popup/popup_image/마리끌레르/SE-263706a8-7fa3-4f60-8a0e-9c592cc1e351.png",
+      "/images/popup/popup_image/마리끌레르/마리끌레르_성수_팝업_(46).png"
+    ],
+    "thumbnail": "/images/popup/popup_image/마리끌레르/IMG_7233.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 53,
+    "entity": "모비언트",
+    "title": "모비언트",
+    "images": [
+      "/images/popup/popup_image/모비언트/KakaoTalk_20260302_073823628_28.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/모비언트/KakaoTalk_20260302_073823628_28.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 54,
+    "entity": "문산고등학교",
+    "title": "문산고등학교",
+    "images": [
+      "/images/popup/popup_image/문산고등학교/KakaoTalk_20260302_075833960_20.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/문산고등학교/KakaoTalk_20260302_075833960_20.jpg",
+    "category": "school"
+  },
+  {
+    "id": 55,
+    "entity": "문원초등학교",
+    "title": "문원초등학교",
+    "images": [
+      "/images/popup/popup_image/문원초등학/KakaoTalk_20260302_071408994_14.jpg",
+      "/images/popup/popup_image/문원초등학/KakaoTalk_20260302_071408994_15.jpg",
+      "/images/popup/popup_image/문원초등학/KakaoTalk_20260302_071408994_16.jpg",
+      "/images/popup/popup_image/문원초등학/KakaoTalk_20260302_071408994_17.jpg",
+      "/images/popup/popup_image/문원초등학/KakaoTalk_20260302_071408994_18.jpg",
+      "/images/popup/popup_image/문원초등학교/KakaoTalk_20250506_214058321.jpg",
+      "/images/popup/popup_image/문원초등학교/KakaoTalk_20250506_214058321_01.jpg",
+      "/images/popup/popup_image/문원초등학교/KakaoTalk_20250506_214058321_02.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_02.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_03.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_04.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_05.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_06.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_07.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_08.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_09.jpg",
+      "/images/popup/popup_image/문원초등학교2/KakaoTalk_20260302_073823628_10.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/문원초등학/KakaoTalk_20260302_071408994_14.jpg",
+    "category": "school"
+  },
+  {
+    "id": 56,
+    "entity": "바닐라코",
+    "title": "바닐라코",
+    "images": [
+      "/images/popup/popup_image/바닐라코/KakaoTalk_20240313_020411996_02.jpg",
+      "/images/popup/popup_image/바닐라코/KakaoTalk_20260302_052130534_29.jpg",
+      "/images/popup/popup_image/바닐라코/KakaoTalk_20260302_052131405.jpg",
+      "/images/popup/popup_image/바닐라코/KakaoTalk_20260302_052131405_01.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/바닐라코/KakaoTalk_20240313_020411996_02.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 57,
+    "entity": "바이비카페",
+    "title": "바이비카페",
+    "images": [
+      "/images/popup/popup_image/바이비카페/SE-03cb9b90-d433-4acb-bfdb-82d0007dfcd3.jpg",
+      "/images/popup/popup_image/바이비카페/SE-6eaee6c6-7825-4750-998b-33c142749ff1.jpg",
+      "/images/popup/popup_image/바이비카페/SE-e447527e-f708-467a-b11a-40b195b18041.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/바이비카페/SE-03cb9b90-d433-4acb-bfdb-82d0007dfcd3.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 58,
+    "entity": "방송고등학교",
+    "title": "방송고등학교",
+    "images": [
+      "/images/popup/popup_image/방송고등학교/KakaoTalk_20251202_223544360.jpg",
+      "/images/popup/popup_image/방송고등학교/KakaoTalk_20251202_223544360_01.jpg",
+      "/images/popup/popup_image/방송고등학교/KakaoTalk_20251202_223544360_02.jpg",
+      "/images/popup/popup_image/방송고등학교/KakaoTalk_20251202_223544360_03.jpg",
+      "/images/popup/popup_image/방송고등학교/KakaoTalk_20251202_223734208.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/방송고등학교/KakaoTalk_20251202_223544360.jpg",
+    "category": "school"
+  },
+  {
+    "id": 59,
+    "entity": "배화여고",
+    "title": "배화여고",
+    "images": [
+      "/images/popup/popup_image/배화여고/KakaoTalk_20231113_194121762.jpg",
+      "/images/popup/popup_image/배화여고/KakaoTalk_20231114_030029154_01.jpg",
+      "/images/popup/popup_image/배화여고/KakaoTalk_20231114_030029154_03.jpg",
+      "/images/popup/popup_image/배화여고/KakaoTalk_20231114_030029154_04.jpg",
+      "/images/popup/popup_image/배화여고/KakaoTalk_20231204_225404756_01.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/배화여고/KakaoTalk_20231113_194121762.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 60,
+    "entity": "베페 베이비페어",
+    "title": "베페 베이비페어",
+    "images": [
+      "/images/popup/popup_image/베페 베이비페어/KakaoTalk_20250212_001831270_02.jpg",
+      "/images/popup/popup_image/베페 베이비페어/KakaoTalk_20250212_001831270_07.jpg",
+      "/images/popup/popup_image/베페 베이비페어/KakaoTalk_20250212_001831270_13.jpg",
+      "/images/popup/popup_image/베페 베이비페어/SE-77248724-9120-4bf5-a657-d5241833f5aa.jpg",
+      "/images/popup/popup_image/베페 베이비페어2/KakaoTalk_20250825_224517691_07.jpg",
+      "/images/popup/popup_image/베페 베이비페어2/KakaoTalk_20250825_224517691_08.jpg",
+      "/images/popup/popup_image/베페 베이비페어2/KakaoTalk_20250924_003243627_02.jpg",
+      "/images/popup/popup_image/베페 베이비페어2/KakaoTalk_20250924_003243627_05.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/베페 베이비페어/KakaoTalk_20250212_001831270_02.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 61,
+    "entity": "보건복지부",
+    "title": "보건복지부",
+    "images": [
+      "/images/popup/popup_image/보건복지부/KakaoTalk_20260302_052130534.jpg",
+      "/images/popup/popup_image/보건복지부/KakaoTalk_20260302_052130534_01.jpg",
+      "/images/popup/popup_image/보건복지부/KakaoTalk_20260302_052130534_02.jpg",
+      "/images/popup/popup_image/보건복지부/KakaoTalk_20260302_052130534_03.jpg",
+      "/images/popup/popup_image/보건복지부/KakaoTalk_20260302_052130534_04.jpg",
+      "/images/popup/popup_image/보건복지부/KakaoTalk_20260302_052130534_05.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/보건복지부/KakaoTalk_20260302_052130534.jpg",
+    "category": "public"
+  },
+  {
+    "id": 62,
+    "entity": "부산지방국세청",
+    "title": "부산지방국세청",
+    "images": [
+      "/images/popup/popup_image/부산지방국세청/KakaoTalk_20251218_150713595_03_(1).jpg",
+      "/images/popup/popup_image/부산지방국세청/KakaoTalk_20251218_150713595_17.jpg",
+      "/images/popup/popup_image/부산지방국세청/KakaoTalk_20251218_150746236_(1).jpg",
+      "/images/popup/popup_image/부산지방국세청/KakaoTalk_20251218_150746236_20.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/부산지방국세청/KakaoTalk_20251218_150713595_03_(1).jpg",
+    "category": "public"
+  },
+  {
+    "id": 63,
+    "entity": "삼성서울병원",
+    "title": "삼성서울병원",
+    "images": [
+      "/images/popup/popup_image/삼성서울병원/KakaoTalk_20250420_035225495.jpg",
+      "/images/popup/popup_image/삼성서울병원/KakaoTalk_20250420_035225495_03.jpg",
+      "/images/popup/popup_image/삼성서울병원/KakaoTalk_20250508_225530660_01.jpg",
+      "/images/popup/popup_image/삼성서울병원2/KakaoTalk_20260302_052122662_13.jpg",
+      "/images/popup/popup_image/삼성서울병원2/KakaoTalk_20260302_052122662_14.jpg",
+      "/images/popup/popup_image/삼성서울병원2/KakaoTalk_20260302_052122662_15.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/삼성서울병원/KakaoTalk_20250420_035225495.jpg",
+    "category": "public"
+  },
+  {
+    "id": 64,
+    "entity": "생일파티",
+    "title": "생일파티",
+    "images": [
+      "/images/popup/popup_image/생일파/KakaoTalk_20260302_071408994_19.jpg",
+      "/images/popup/popup_image/생일파티/KakaoTalk_20250617_223144867.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/생일파/KakaoTalk_20260302_071408994_19.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 65,
+    "entity": "서울특별시청",
+    "title": "서울특별시청",
+    "images": [
+      "/images/popup/popup_image/서울특별시청/KakaoTalk_20260302_075833960_06.jpg",
+      "/images/popup/popup_image/서울특별시청/KakaoTalk_20260302_075833960_07.jpg",
+      "/images/popup/popup_image/서울특별시청/KakaoTalk_20260302_075833960_08.jpg",
+      "/images/popup/popup_image/서울특별시청/KakaoTalk_20260302_075833960_09.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/서울특별시청/KakaoTalk_20260302_075833960_06.jpg",
+    "category": "public"
+  },
+  {
+    "id": 66,
+    "entity": "서정대",
+    "title": "서정대",
+    "images": [
+      "/images/popup/popup_image/서정대/KakaoTalk_20260302_071324559_11.jpg",
+      "/images/popup/popup_image/서정대/KakaoTalk_20260302_071324559_12.jpg",
+      "/images/popup/popup_image/서정대/KakaoTalk_20260302_071324559_13.jpg",
+      "/images/popup/popup_image/서정대/KakaoTalk_20260302_071324559_14.jpg",
+      "/images/popup/popup_image/서정대/KakaoTalk_20260302_071324559_15.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/서정대/KakaoTalk_20260302_071324559_11.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 67,
+    "entity": "선등거리 페스티벌",
+    "title": "선등거리 페스티벌",
+    "images": [
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_01.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_06.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_07.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_08.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_09.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_10.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_11.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_12.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_13.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_14.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_15.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_16.jpg",
+      "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_17.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/선등거리 페스티벌/KakaoTalk_20260302_073759551_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 68,
+    "entity": "세방서포터즈",
+    "title": "세방서포터즈",
+    "images": [
+      "/images/popup/popup_image/세방서포터즈/KakaoTalk_20260302_052130534_06.jpg",
+      "/images/popup/popup_image/세방서포터즈/KakaoTalk_20260302_052130534_07.jpg",
+      "/images/popup/popup_image/세방서포터즈/KakaoTalk_20260302_052130534_08.jpg",
+      "/images/popup/popup_image/세방서포터즈/KakaoTalk_20260302_052130534_09.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/세방서포터즈/KakaoTalk_20260302_052130534_06.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 69,
+    "entity": "세브란스병원",
+    "title": "세브란스병원",
+    "images": [
+      "/images/popup/popup_image/세브란스병원/KakaoTalk_20260302_073810151_12.jpg",
+      "/images/popup/popup_image/세브란스병원/KakaoTalk_20260302_073810151_13.jpg",
+      "/images/popup/popup_image/세브란스병원/KakaoTalk_20260302_073810151_14.jpg",
+      "/images/popup/popup_image/세브란스병원/KakaoTalk_20260302_073810151_15.jpg",
+      "/images/popup/popup_image/세브란스병원/KakaoTalk_20260302_073810151_16.jpg",
+      "/images/popup/popup_image/세브란스병원/KakaoTalk_20260302_073810151_17.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/세브란스병원/KakaoTalk_20260302_073810151_12.jpg",
+    "category": "public"
+  },
+  {
+    "id": 70,
+    "entity": "세종 연세유치원",
+    "title": "세종 연세유치원",
+    "images": [
+      "/images/popup/popup_image/세종 연세유치원/P20260114_191400145_C3667693-DFF1-4531-9B79-4A44FA7130D2.jpg",
+      "/images/popup/popup_image/세종 연세유치원/P20260118_203125748_B883CF06-AE4E-47A9-9FAA-6BA5223BAB4B.JPG",
+      "/images/popup/popup_image/세종 연세유치원/SE-d58e9de9-0eb6-4681-bf35-ed7b2011c409.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/세종 연세유치원/P20260114_191400145_C3667693-DFF1-4531-9B79-4A44FA7130D2.jpg",
+    "category": "school"
+  },
+  {
+    "id": 71,
+    "entity": "송곡대학교",
+    "title": "송곡대학교",
+    "images": [
+      "/images/popup/popup_image/송곡대학교/KakaoTalk_20260302_073745297.jpg",
+      "/images/popup/popup_image/송곡대학교/KakaoTalk_20260302_073745297_01.jpg",
+      "/images/popup/popup_image/송곡대학교/KakaoTalk_20260302_073745297_02.jpg",
+      "/images/popup/popup_image/송곡대학교/KakaoTalk_20260302_073745297_03.jpg",
+      "/images/popup/popup_image/송곡대학교/KakaoTalk_20260302_073745297_04.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/송곡대학교/KakaoTalk_20260302_073745297.jpg",
+    "category": "school"
+  },
+  {
+    "id": 72,
+    "entity": "숙명여대",
+    "title": "숙명여대",
+    "images": [
+      "/images/popup/popup_image/숙명여대/KakaoTalk_20260302_052130534_22.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/숙명여대/KakaoTalk_20260302_052130534_22.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 73,
+    "entity": "숭실대학교",
+    "title": "숭실대학교",
+    "images": [
+      "/images/popup/popup_image/숭실대학교/KakaoTalk_20260302_073745297_14.jpg",
+      "/images/popup/popup_image/숭실대학교/KakaoTalk_20260302_073745297_15.jpg",
+      "/images/popup/popup_image/숭실대학교/KakaoTalk_20260302_073745297_16.jpg",
+      "/images/popup/popup_image/숭실대학교/KakaoTalk_20260302_073745297_21.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/숭실대학교/KakaoTalk_20260302_073745297_14.jpg",
+    "category": "school"
+  },
+  {
+    "id": 74,
+    "entity": "스튜디오에피소드",
+    "title": "스튜디오에피소드",
+    "images": [
+      "/images/popup/popup_image/스튜디오에피소드/KakaoTalk_20250402_212719315.jpg",
+      "/images/popup/popup_image/스튜디오에피소드/KakaoTalk_20250402_212719315_02.jpg",
+      "/images/popup/popup_image/스튜디오에피소드/KakaoTalk_20250402_212719315_05.jpg",
+      "/images/popup/popup_image/스튜디오에피소드/KakaoTalk_20250402_212719315_09.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/스튜디오에피소드/KakaoTalk_20250402_212719315.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 75,
+    "entity": "식품의약품안전처",
+    "title": "식품의약품안전처",
+    "images": [
+      "/images/popup/popup_image/식품의약품안전처/KakaoTalk_20260302_052131405_02.jpg",
+      "/images/popup/popup_image/식품의약품안전처/KakaoTalk_20260302_052131405_04.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/식품의약품안전처/KakaoTalk_20260302_052131405_02.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 76,
+    "entity": "신도고등학교",
+    "title": "신도고등학교",
+    "images": [
+      "/images/popup/popup_image/신도고등학교/KakaoTalk_20260302_073745297_25.jpg",
+      "/images/popup/popup_image/신도고등학교/KakaoTalk_20260302_073745297_26.jpg",
+      "/images/popup/popup_image/신도고등학교2/KakaoTalk_20260302_075825253.jpg",
+      "/images/popup/popup_image/신도고등학교2/KakaoTalk_20260302_075825253_01.jpg",
+      "/images/popup/popup_image/신도고등학교2/KakaoTalk_20260302_075825253_02.jpg",
+      "/images/popup/popup_image/신도고등학교2/KakaoTalk_20260302_075825253_03.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/신도고등학교/KakaoTalk_20260302_073745297_25.jpg",
+    "category": "school"
+  },
+  {
+    "id": 77,
+    "entity": "신반포중학교",
+    "title": "신반포중학교",
+    "images": [
+      "/images/popup/popup_image/신반포중학교/KakaoTalk_20260302_052122662_11.jpg",
+      "/images/popup/popup_image/신반포중학교/KakaoTalk_20260302_052122662_12.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/신반포중학교/KakaoTalk_20260302_052122662_11.jpg",
+    "category": "school"
+  },
+  {
+    "id": 78,
+    "entity": "아스트라제네카",
+    "title": "아스트라제네카",
+    "images": [
+      "/images/popup/popup_image/아스트라제네카/KakaoTalk_20240321_031748666.jpg",
+      "/images/popup/popup_image/아스트라제네카/KakaoTalk_20240502_210151969_01.jpg",
+      "/images/popup/popup_image/아스트라제네카/KakaoTalk_20240502_210151969_03.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/아스트라제네카/KakaoTalk_20240321_031748666.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 79,
+    "entity": "아이쿱",
+    "title": "아이쿱",
+    "images": [
+      "/images/popup/popup_image/아이쿱/KakaoTalk_20250110_011646424_07.jpg",
+      "/images/popup/popup_image/아이쿱/KakaoTalk_20250110_011646424_12.jpg",
+      "/images/popup/popup_image/아이쿱/KakaoTalk_20250110_011646424_13.jpg",
+      "/images/popup/popup_image/아이쿱/KakaoTalk_20250110_011646424_18.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/아이쿱/KakaoTalk_20250110_011646424_07.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 80,
+    "entity": "아주대학교",
+    "title": "아주대학교",
+    "images": [
+      "/images/popup/popup_image/아주대학교/KakaoTalk_20260302_071324559_16.jpg",
+      "/images/popup/popup_image/아주대학교/KakaoTalk_20260302_071324559_17.jpg",
+      "/images/popup/popup_image/아주대학교/KakaoTalk_20260302_071324559_18.jpg",
+      "/images/popup/popup_image/아주대학교/KakaoTalk_20260302_075833960_19.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/아주대학교/KakaoTalk_20260302_071324559_16.jpg",
+    "category": "school"
+  },
+  {
+    "id": 81,
+    "entity": "애터미",
+    "title": "애터미",
+    "images": [
+      "/images/popup/popup_image/애터미/AY1_5858.JPG",
+      "/images/popup/popup_image/애터미/AY1_5898.JPG",
+      "/images/popup/popup_image/애터미/AY1_9931.JPG",
+      "/images/popup/popup_image/애터미/AY1_9968.JPG"
+    ],
+    "thumbnail": "/images/popup/popup_image/애터미/AY1_5858.JPG",
+    "category": "corp"
+  },
+  {
+    "id": 82,
+    "entity": "양산정신건강복지센터",
+    "title": "양산정신건강복지센터",
+    "images": [
+      "/images/popup/popup_image/양산정신건강복지센터/KakaoTalk_20251224_142954446_03.jpg",
+      "/images/popup/popup_image/양산정신건강복지센터/KakaoTalk_20251224_142956528_01.jpg",
+      "/images/popup/popup_image/양산정신건강복지센터/SE-1443d5a6-9cb1-46d1-9392-18fed6e05832.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/양산정신건강복지센터/KakaoTalk_20251224_142954446_03.jpg",
+    "category": "public"
+  },
+  {
+    "id": 83,
+    "entity": "엔투비",
+    "title": "엔투비",
+    "images": [
+      "/images/popup/popup_image/엔투비/KakaoTalk_20240103_024157574_01.jpg",
+      "/images/popup/popup_image/엔투비/KakaoTalk_20240103_024157574_03.jpg",
+      "/images/popup/popup_image/엔투비/KakaoTalk_20240103_024157574_04.jpg",
+      "/images/popup/popup_image/엔투비/KakaoTalk_20240103_024157574_06.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/엔투비/KakaoTalk_20240103_024157574_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 84,
+    "entity": "연양유치",
+    "title": "연양유치",
+    "images": [
+      "/images/popup/popup_image/연양유치/KakaoTalk_20260302_071343118_01 (1).jpg",
+      "/images/popup/popup_image/연양유치/KakaoTalk_20260302_071343118_02 (1).jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/연양유치/KakaoTalk_20260302_071343118_01 (1).jpg",
+    "category": "corp"
+  },
+  {
+    "id": 85,
+    "entity": "연현초등학교",
+    "title": "연현초등학교",
+    "images": [
+      "/images/popup/popup_image/연현초등학교/KakaoTalk_20260302_071324559_19.jpg",
+      "/images/popup/popup_image/연현초등학교/KakaoTalk_20260302_071324559_20.jpg",
+      "/images/popup/popup_image/연현초등학교/KakaoTalk_20260302_071324559_21.jpg",
+      "/images/popup/popup_image/연현초등학교/KakaoTalk_20260302_071324559_22.jpg",
+      "/images/popup/popup_image/연현초등학교2/KakaoTalk_20260302_071343118_13 (1).jpg",
+      "/images/popup/popup_image/연현초등학교2/KakaoTalk_20260302_071343118_14 (1).jpg",
+      "/images/popup/popup_image/연현초등학교2/KakaoTalk_20260302_071343118_15 (1).jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/연현초등학교/KakaoTalk_20260302_071324559_19.jpg",
+    "category": "school"
+  },
+  {
+    "id": 86,
+    "entity": "오감자페스티벌",
+    "title": "오감자페스티벌",
+    "images": [
+      "/images/popup/popup_image/오감자페스타/KakaoTalk_20260302_052048474.jpg",
+      "/images/popup/popup_image/오감자페스타/KakaoTalk_20260302_052048474_01.jpg",
+      "/images/popup/popup_image/오감자페스타/KakaoTalk_20260302_052048474_02.jpg",
+      "/images/popup/popup_image/오감자페스타/KakaoTalk_20260302_052048474_03.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_04.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_05.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_06.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_07.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_09.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_10.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_11.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_12.jpg",
+      "/images/popup/popup_image/오감자페스티벌2/KakaoTalk_20260302_075825253_13.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/오감자페스타/KakaoTalk_20260302_052048474.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 87,
+    "entity": "올리브영",
+    "title": "올리브영",
+    "images": [
+      "/images/popup/popup_image/올리브영/KakaoTalk_20260302_052122662_23.jpg",
+      "/images/popup/popup_image/올리브영/KakaoTalk_20260302_052122662_24.jpg",
+      "/images/popup/popup_image/올리브영/KakaoTalk_20260302_052122662_25.jpg",
+      "/images/popup/popup_image/올리브영/KakaoTalk_20260302_052122662_26.jpg",
+      "/images/popup/popup_image/올리브영/KakaoTalk_20260302_052122662_27.jpg",
+      "/images/popup/popup_image/올리브영/KakaoTalk_20260302_052122662_29.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/올리브영/KakaoTalk_20260302_052122662_23.jpg",
+    "category": "popup"
+  },
+  {
+    "id": 88,
+    "entity": "용인예술과학대학교",
+    "title": "용인예술과학대학교",
+    "images": [
+      "/images/popup/popup_image/용인예술과학대학교/KakaoTalk_20250716_234958657.jpg",
+      "/images/popup/popup_image/용인예술과학대학교/KakaoTalk_20250716_234958657_01.jpg",
+      "/images/popup/popup_image/용인예술과학대학교/KakaoTalk_20250716_234958657_02.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/용인예술과학대학교/KakaoTalk_20250716_234958657.jpg",
+    "category": "school"
+  },
+  {
+    "id": 89,
+    "entity": "울산광역시교육청",
+    "title": "울산광역시교육청",
+    "images": [
+      "/images/popup/popup_image/울산광역시교육청/SE-39ae72f7-6a41-4575-8f11-bfd330293768.jpg",
+      "/images/popup/popup_image/울산광역시교육청/SE-40abfb65-6314-4786-a218-0b7b0f72fe98.jpg",
+      "/images/popup/popup_image/울산광역시교육청/SE-e23871a8-4626-4023-9740-0707d2510ae7.jpg",
+      "/images/popup/popup_image/울산광역시교육청/SE-fa42d860-8cb4-47f3-90a4-fdd5251f7aa9.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/울산광역시교육청/SE-39ae72f7-6a41-4575-8f11-bfd330293768.jpg",
+    "category": "public"
+  },
+  {
+    "id": 90,
+    "entity": "유학생의밤",
+    "title": "유학생의밤",
+    "images": [
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_22.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_23.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_24.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_25.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_26.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_27.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_28.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_29.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073823628.jpg",
+      "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073823628_01.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/유학생의밤/KakaoTalk_20260302_073810151_22.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 91,
+    "entity": "응암초등학교",
+    "title": "응암초등학교",
+    "images": [
+      "/images/popup/popup_image/응암초등학교/KakaoTalk_20260302_073745297_28.jpg",
+      "/images/popup/popup_image/응암초등학교/KakaoTalk_20260302_073745297_29.jpg",
+      "/images/popup/popup_image/응암초등학교/KakaoTalk_20260302_073759551.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/응암초등학교/KakaoTalk_20260302_073745297_28.jpg",
+    "category": "school"
+  },
+  {
+    "id": 92,
+    "entity": "이천 사동초등학교",
+    "title": "이천 사동초등학교",
+    "images": [
+      "/images/popup/popup_image/이천 사동초등학교/KakaoTalk_20251230_152758139_01.jpg",
+      "/images/popup/popup_image/이천 사동초등학교/KakaoTalk_20251230_152758139_04.jpg",
+      "/images/popup/popup_image/이천 사동초등학교/KakaoTalk_20251230_152758139_05.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/이천 사동초등학교/KakaoTalk_20251230_152758139_01.jpg",
+    "category": "school"
+  },
+  {
+    "id": 93,
+    "entity": "전국 해상선원 노동조합연맹",
+    "title": "전국 해상선원 노동조합연맹",
+    "images": [
+      "/images/popup/popup_image/전국 해상선원 노동조합연맹/SE-51a51f8a-436a-43ae-bc9d-1512459d44a9.jpg",
+      "/images/popup/popup_image/전국 해상선원 노동조합연맹/SE-8949f338-7ed5-46f9-b09b-8f7f9db3f3ef.jpg",
+      "/images/popup/popup_image/전국 해상선원 노동조합연맹/SE-c25601bc-7f1c-45ea-94b7-0dcb4a45c415.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/전국 해상선원 노동조합연맹/SE-51a51f8a-436a-43ae-bc9d-1512459d44a9.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 94,
+    "entity": "전국동계체육대회",
+    "title": "전국동계체육대회",
+    "images": [
+      "/images/popup/popup_image/전국동계체육대회/KakaoTalk_20260302_073745297_05.jpg",
+      "/images/popup/popup_image/전국동계체육대회/KakaoTalk_20260302_073745297_06.jpg",
+      "/images/popup/popup_image/전국동계체육대회/KakaoTalk_20260302_073745297_07.jpg",
+      "/images/popup/popup_image/전국동계체육대회/KakaoTalk_20260302_073745297_08.jpg",
+      "/images/popup/popup_image/전국동계체육대회/KakaoTalk_20260302_073745297_09.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/전국동계체육대회/KakaoTalk_20260302_073745297_05.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 95,
+    "entity": "중앙대학교",
+    "title": "중앙대학교",
+    "images": [
+      "/images/popup/popup_image/중앙대학교/KakaoTalk_20240129_032115759.jpg",
+      "/images/popup/popup_image/중앙대학교/KakaoTalk_20240129_032115759_01.jpg",
+      "/images/popup/popup_image/중앙대학교/ㄷㄹㄷㄹ.jpg",
+      "/images/popup/popup_image/중앙대학교2/KakaoTalk_20250420_010410206_05.jpg",
+      "/images/popup/popup_image/중앙대학교2/KakaoTalk_20250420_010410206_06.jpg",
+      "/images/popup/popup_image/중앙대학교2/SE-97fe25ec-47e0-4972-842c-1cc3b6b6d8df.jpg",
+      "/images/popup/popup_image/중앙대학교2/SE-bbcf9e54-47a6-43dd-87ae-8b89775473f4.jpg",
+      "/images/popup/popup_image/중앙대학교2/vue_photobooth.png"
+    ],
+    "thumbnail": "/images/popup/popup_image/중앙대학교/KakaoTalk_20240129_032115759.jpg",
+    "category": "school"
+  },
+  {
+    "id": 96,
+    "entity": "중앙아시아 패스티벌",
+    "title": "중앙아시아 패스티벌",
+    "images": [
+      "/images/popup/popup_image/중앙아시아 패스티벌/KakaoTalk_20260302_071343118_16.jpg",
+      "/images/popup/popup_image/중앙아시아 패스티벌/KakaoTalk_20260302_071343118_17 (1).jpg",
+      "/images/popup/popup_image/중앙아시아 패스티벌/KakaoTalk_20260302_071343118_18.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/중앙아시아 패스티벌/KakaoTalk_20260302_071343118_16.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 97,
+    "entity": "지역산업진흥",
+    "title": "지역산업진흥",
+    "images": [
+      "/images/popup/popup_image/지역산업진흥/KakaoTalk_20260302_073759551_26.jpg",
+      "/images/popup/popup_image/지역산업진흥/KakaoTalk_20260302_073759551_27.jpg",
+      "/images/popup/popup_image/지역산업진흥/KakaoTalk_20260302_073759551_28.jpg",
+      "/images/popup/popup_image/지역산업진흥/KakaoTalk_20260302_073759551_29.jpg",
+      "/images/popup/popup_image/지역산업진흥/KakaoTalk_20260302_073810151.jpg",
+      "/images/popup/popup_image/지역산업진흥/KakaoTalk_20260302_073810151_01.jpg",
+      "/images/popup/popup_image/지역산업진흥/KakaoTalk_20260302_073810151_02.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/지역산업진흥/KakaoTalk_20260302_073759551_26.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 98,
+    "entity": "창동고등학교",
+    "title": "창동고등학교",
+    "images": [
+      "/images/popup/popup_image/창동고등학교/KakaoTalk_20260302_052107950.jpg",
+      "/images/popup/popup_image/창동고등학교/KakaoTalk_20260302_052107950_01.jpg",
+      "/images/popup/popup_image/창동고등학교/KakaoTalk_20260302_052107950_02.jpg",
+      "/images/popup/popup_image/창동고등학교/KakaoTalk_20260302_052107950_03.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/창동고등학교/KakaoTalk_20260302_052107950.jpg",
+    "category": "school"
+  },
+  {
+    "id": 99,
+    "entity": "충남대학교병원",
+    "title": "충남대학교병원",
+    "images": [
+      "/images/popup/popup_image/충남대학교병원/P20250430_094903470_B93C73BC-2913-49B8-9658-78350C27772E.jpg",
+      "/images/popup/popup_image/충남대학교병원/P20250430_153045260_BAB18423-C075-468B-B153-B68975E38D75.jpg",
+      "/images/popup/popup_image/충남대학교병원/P20250430_165732770_1CA7F7FD-1A84-4D77-A087-EC23AB6D30F4.jpg",
+      "/images/popup/popup_image/충남대학교병원/P20250506_004801549_82B9763F-4F59-490E-8EA7-DD5B8961E929.jpg",
+      "/images/popup/popup_image/충남대학교병원/SE-d70affab-f1f7-424c-9bc0-645483bb2888.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/충남대학교병원/P20250430_094903470_B93C73BC-2913-49B8-9658-78350C27772E.jpg",
+    "category": "school"
+  },
+  {
+    "id": 100,
+    "entity": "카카오",
+    "title": "카카오",
+    "images": [
+      "/images/popup/popup_image/카카오/KakaoTalk_20250218_233701478_05.jpg",
+      "/images/popup/popup_image/카카오/SE-01a9bc88-f26d-4d88-8d2a-7eca2d971a66.jpg",
+      "/images/popup/popup_image/카카오/SE-d5711ed4-ce89-449a-8127-287bd29f3839.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/카카오/KakaoTalk_20250218_233701478_05.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 101,
+    "entity": "쿠도",
+    "title": "쿠도",
+    "images": [
+      "/images/popup/popup_image/쿠도/KakaoTalk_20231126_195250728_02.jpg",
+      "/images/popup/popup_image/쿠도/KakaoTalk_20231127_033717036_03.jpg",
+      "/images/popup/popup_image/쿠도/KakaoTalk_20231127_033717036_04.jpg",
+      "/images/popup/popup_image/쿠도/KakaoTalk_20231127_033717036_13.jpg",
+      "/images/popup/popup_image/쿠도/KakaoTalk_20231127_033717036_15.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/쿠도/KakaoTalk_20231126_195250728_02.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 102,
+    "entity": "크리에이터 미디어 산업대",
+    "title": "크리에이터 미디어 산업대",
+    "images": [
+      "/images/popup/popup_image/크리에이터 미디어 산업대/KakaoTalk_20260302_071343118_29.jpg",
+      "/images/popup/popup_image/크리에이터 미디어 산업대/KakaoTalk_20260302_071408994.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/크리에이터 미디어 산업대/KakaoTalk_20260302_071343118_29.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 103,
+    "entity": "통진중학교",
+    "title": "통진중학교",
+    "images": [
+      "/images/popup/popup_image/통진중학교/KakaoTalk_20260302_052122662_02.jpg",
+      "/images/popup/popup_image/통진중학교/KakaoTalk_20260302_052122662_03.jpg",
+      "/images/popup/popup_image/통진중학교/KakaoTalk_20260302_052122662_04.jpg",
+      "/images/popup/popup_image/통진중학교/KakaoTalk_20260302_052122662_05.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/통진중학교/KakaoTalk_20260302_052122662_02.jpg",
+    "category": "school"
+  },
+  {
+    "id": 104,
+    "entity": "판교반디유치원",
+    "title": "판교반디유치원",
+    "images": [
+      "/images/popup/popup_image/판교반디유치/KakaoTalk_20260302_052122662_10.jpg",
+      "/images/popup/popup_image/판교반디유치/KakaoTalk_20260302_054155607.jpg",
+      "/images/popup/popup_image/판교반디유치/KakaoTalk_20260302_054155607_01.jpg",
+      "/images/popup/popup_image/판교반디유치원2/KakaoTalk_20260302_071343118_11 (1).jpg",
+      "/images/popup/popup_image/판교반디유치원2/KakaoTalk_20260302_071343118_12.jpg",
+      "/images/popup/popup_image/판교반디유치원3/KakaoTalk_20260302_073759551_18.jpg",
+      "/images/popup/popup_image/판교반디유치원3/KakaoTalk_20260302_073759551_19.jpg",
+      "/images/popup/popup_image/판교반디유치원3/KakaoTalk_20260302_073759551_20.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/판교반디유치/KakaoTalk_20260302_052122662_10.jpg",
+    "category": "school"
+  },
+  {
+    "id": 105,
+    "entity": "평촌초등학교",
+    "title": "평촌초등학교",
+    "images": [
+      "/images/popup/popup_image/평촌초등학교/KakaoTalk_20250219_201339415_03.jpg",
+      "/images/popup/popup_image/평촌초등학교/KakaoTalk_20250219_201339415_04.jpg",
+      "/images/popup/popup_image/평촌초등학교/KakaoTalk_20250219_201339415_07.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/평촌초등학교/KakaoTalk_20250219_201339415_03.jpg",
+    "category": "school"
+  },
+  {
+    "id": 106,
+    "entity": "하나동산교",
+    "title": "하나동산교",
+    "images": [
+      "/images/popup/popup_image/하나동산교/KakaoTalk_20260302_071408994_21.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/하나동산교/KakaoTalk_20260302_071408994_21.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 107,
+    "entity": "한국보육진흥원",
+    "title": "한국보육진흥원",
+    "images": [
+      "/images/popup/popup_image/한국보육진흥원/KakaoTalk_20260302_075833960.jpg",
+      "/images/popup/popup_image/한국보육진흥원/KakaoTalk_20260302_075833960_01.jpg",
+      "/images/popup/popup_image/한국보육진흥원/KakaoTalk_20260302_075833960_02.jpg",
+      "/images/popup/popup_image/한국보육진흥원/KakaoTalk_20260302_075833960_03.jpg",
+      "/images/popup/popup_image/한국보육진흥원/KakaoTalk_20260302_075833960_04.jpg",
+      "/images/popup/popup_image/한국보육진흥원/KakaoTalk_20260302_075833960_05.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/한국보육진흥원/KakaoTalk_20260302_075833960.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 108,
+    "entity": "한국콘크리트학회",
+    "title": "한국콘크리트학회",
+    "images": [
+      "/images/popup/popup_image/한국콘크리트학회/KakaoTalk_20240514_175302579.jpg",
+      "/images/popup/popup_image/한국콘크리트학회/KakaoTalk_20240514_175838083.jpg",
+      "/images/popup/popup_image/한국콘크리트학회/KakaoTalk_20240620_222608824_03.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/한국콘크리트학회/KakaoTalk_20240514_175302579.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 109,
+    "entity": "한양대 여성원우의",
+    "title": "한양대 여성원우의",
+    "images": [
+      "/images/popup/popup_image/한양대 여성원우의/KakaoTalk_20260302_071324559_08.jpg",
+      "/images/popup/popup_image/한양대 여성원우의/KakaoTalk_20260302_071324559_09.jpg",
+      "/images/popup/popup_image/한양대 여성원우의/KakaoTalk_20260302_071324559_10.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/한양대 여성원우의/KakaoTalk_20260302_071324559_08.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 110,
+    "entity": "한양대골프동아",
+    "title": "한양대골프동아",
+    "images": [
+      "/images/popup/popup_image/한양대골프동아/KakaoTalk_20260302_052131405_05.jpg",
+      "/images/popup/popup_image/한양대골프동아/KakaoTalk_20260302_071324559_05.jpg",
+      "/images/popup/popup_image/한양대골프동아/KakaoTalk_20260302_071324559_06.jpg",
+      "/images/popup/popup_image/한양대골프동아/KakaoTalk_20260302_071324559_07.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/한양대골프동아/KakaoTalk_20260302_052131405_05.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 111,
+    "entity": "한양대학교",
+    "title": "한양대학교",
+    "images": [
+      "/images/popup/popup_image/한양대학교/KakaoTalk_20231106_030933183_01.jpg",
+      "/images/popup/popup_image/한양대학교/KakaoTalk_20231122_021503562_04.jpg",
+      "/images/popup/popup_image/한양대학교/KakaoTalk_20231122_021553337.jpg",
+      "/images/popup/popup_image/한양대학교/ㄷㅎㄷ호.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/한양대학교/KakaoTalk_20231106_030933183_01.jpg",
+    "category": "school"
+  },
+  {
+    "id": 112,
+    "entity": "한양대학교BANQUET",
+    "title": "한양대학교BANQUET",
+    "images": [
+      "/images/popup/popup_image/한양대학교BANQUET/KakaoTalk_20260302_071343118_03 (1).jpg",
+      "/images/popup/popup_image/한양대학교BANQUET/KakaoTalk_20260302_071343118_04 (1).jpg",
+      "/images/popup/popup_image/한양대학교BANQUET/KakaoTalk_20260302_071343118_05 (1).jpg",
+      "/images/popup/popup_image/한양대학교BANQUET/KakaoTalk_20260302_071343118_06 (1).jpg",
+      "/images/popup/popup_image/한양대학교BANQUET 2/KakaoTalk_20260302_071408994_29.jpg",
+      "/images/popup/popup_image/한양대학교BANQUET 2/KakaoTalk_20260302_071410685.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/한양대학교BANQUET/KakaoTalk_20260302_071343118_03 (1).jpg",
+    "category": "school"
+  },
+  {
+    "id": 113,
+    "entity": "합동교육",
+    "title": "합동교육",
+    "images": [
+      "/images/popup/popup_image/합동교육/KakaoTalk_20260302_075825253_14.jpg",
+      "/images/popup/popup_image/합동교육/KakaoTalk_20260302_075825253_16.jpg",
+      "/images/popup/popup_image/합동교육/KakaoTalk_20260302_075825253_17.jpg",
+      "/images/popup/popup_image/합동교육/KakaoTalk_20260302_075825253_18.jpg",
+      "/images/popup/popup_image/합동교육/KakaoTalk_20260302_075825253_19.jpg",
+      "/images/popup/popup_image/합동교육/KakaoTalk_20260302_075825253_20.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/합동교육/KakaoTalk_20260302_075825253_14.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 114,
+    "entity": "해운대 백병원",
+    "title": "해운대 백병원",
+    "images": [
+      "/images/popup/popup_image/해운대 백병원/KakaoTalk_20251110_222944605_12.jpg",
+      "/images/popup/popup_image/해운대 백병원/KakaoTalk_20251110_222944605_15.jpg",
+      "/images/popup/popup_image/해운대 백병원/SE-304749e6-d9ad-4f77-9f43-e1d78d95428f.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/해운대 백병원/KakaoTalk_20251110_222944605_12.jpg",
+    "category": "public"
+  },
+  {
+    "id": 115,
+    "entity": "해커스",
+    "title": "해커스",
+    "images": [
+      "/images/popup/popup_image/해커스/KakaoTalk_20250108_001400839_01.jpg",
+      "/images/popup/popup_image/해커스/KakaoTalk_20250108_001400839_05.jpg",
+      "/images/popup/popup_image/해커스/KakaoTalk_20260302_071408994_04.jpg",
+      "/images/popup/popup_image/해커스/KakaoTalk_20260302_071408994_07.jpg",
+      "/images/popup/popup_image/해커스/SE-16d375fe-710d-45e1-afeb-928aba13322a.jpg",
+      "/images/popup/popup_image/해커스/SE-337c2ae5-a59c-447b-bd64-24bdefc32ae3.jpg",
+      "/images/popup/popup_image/해커스/SE-78450e5e-0bc3-4c74-9079-987bb6500b92.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/해커스/KakaoTalk_20250108_001400839_01.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 116,
+    "entity": "헷필로그",
+    "title": "헷필로그",
+    "images": [
+      "/images/popup/popup_image/헷필로그/KakaoTalk_20260302_052122662_21.jpg",
+      "/images/popup/popup_image/헷필로그/KakaoTalk_20260302_052122662_22.jpg",
+      "/images/popup/popup_image/헷필로그/KakaoTalk_20260302_052122662_28.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/헷필로그/KakaoTalk_20260302_052122662_21.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 117,
+    "entity": "현대홈쇼핑",
+    "title": "현대홈쇼핑",
+    "images": [
+      "/images/popup/popup_image/현대홈쇼핑/SE-39b1e6f6-9fdc-434f-8de1-39a68e965945.jpg",
+      "/images/popup/popup_image/현대홈쇼핑/SE-49c5cebb-900c-4e7e-bb24-dc8d7a33443c.jpg",
+      "/images/popup/popup_image/현대홈쇼핑/SE-85d36243-5134-49ef-9ca3-bca2130264aa.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/현대홈쇼핑/SE-39b1e6f6-9fdc-434f-8de1-39a68e965945.jpg",
+    "category": "corp"
+  },
+  {
+    "id": 118,
+    "entity": "화이자",
+    "title": "화이자",
+    "images": [
+      "/images/popup/popup_image/화이자/KakaoTalk_20260302_052122662_16.jpg",
+      "/images/popup/popup_image/화이자/KakaoTalk_20260302_052122662_17.jpg",
+      "/images/popup/popup_image/화이자/KakaoTalk_20260302_052122662_18.jpg",
+      "/images/popup/popup_image/화이자/KakaoTalk_20260302_052122662_19.jpg",
+      "/images/popup/popup_image/화이자/KakaoTalk_20260302_052122662_20.jpg"
+    ],
+    "thumbnail": "/images/popup/popup_image/화이자/KakaoTalk_20260302_052122662_16.jpg",
+    "category": "corp"
+  }
+]

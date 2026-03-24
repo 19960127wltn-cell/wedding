@@ -553,12 +553,19 @@ html {
   animation: fadeIn 0.3s ease-out;
 }
 
+@media (max-width: 768px) {
+  .brand-modal-overlay {
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+  }
+}
+
 .brand-modal-content {
   position: relative;
-  width: 90%;
+  width: 95%;
   max-width: 1000px;
-  height: auto;
-  max-height: 80vh;
+  height: 90vh;
   background: #ffffff;
   border-radius: 40px;
   border: 1px solid rgba(0, 0, 0, 0.05);
@@ -618,16 +625,37 @@ html {
 
 .brand-modal-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 20px;
 }
 
 .brand-modal-title {
-  font-size: 2.5rem;
+  font-size: 1.5rem;
   font-weight: 800;
   color: #0f172a;
   font-family: "KoPubWorldBatang", serif;
   margin-top: 16px;
   word-break: keep-all;
+}
+
+.modal-image-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.modal-image-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
 }
 
 .brand-modal-grid {
@@ -1704,34 +1732,61 @@ html {
 }
 
 /* 4. References - Horizontal Scroll Gallery */
-.ref-horizontal-scroll-container {
-  overflow-x: auto;
-  padding: 0 max(24px, calc((100% - 1000px) / 2 + 24px)) 60px;
-  cursor: grab;
-  scroll-behavior: smooth;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+.ref-carousel-wrapper {
+  position: relative;
+  width: 100%;
+  padding: 0 0 60px;
+  --item-width: 380px;
+  --gap: 24px;
 }
 
-.ref-horizontal-scroll-container::-webkit-scrollbar {
+.ref-carousel-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  /* Shared alignment logic */
+  --container-max-width: 1000px;
+  --base-padding: 24px;
+  --side-offset: max(var(--base-padding), calc((100% - var(--container-max-width)) / 2 + var(--base-padding)));
+
+  padding-left: var(--side-offset);
+  padding-right: var(--base-padding);
+  scroll-padding-left: var(--side-offset);
+}
+
+@media (min-width: 768px) {
+  .ref-carousel-container {
+    --base-padding: 32px;
+  }
+}
+
+.ref-carousel-container::-webkit-scrollbar {
   display: none;
 }
 
-.ref-horizontal-track {
+.ref-carousel-track {
   display: flex;
-  gap: 30px;
+  gap: var(--gap);
   width: max-content;
+  padding-bottom: 20px;
 }
 
 .ref-scroll-item {
-  width: 450px;
+  width: var(--item-width);
   flex-shrink: 0;
   cursor: pointer;
+  scroll-snap-align: start;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .ref-scroll-img-box {
   position: relative;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   border-radius: 32px;
   overflow: hidden;
   background: #f1f5f9;
@@ -1777,48 +1832,107 @@ html {
   color: rgba(255, 255, 255, 0.6);
 }
 
-/* View All Trigger - End of Scroll */
-.ref-scroll-all-trigger {
+/* Carousel Nav Buttons */
+.ref-nav-controls {
+  position: absolute;
+  top: 280px;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  z-index: 20;
+  pointer-events: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--side-offset);
+  /* Align with the content offset */
+}
+
+.ref-nav-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: white;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  color: #1e293b;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 60px;
   cursor: pointer;
-  height: 100%;
+  pointer-events: auto;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  position: relative;
 }
 
-.all-trigger-inner {
+.ref-nav-btn:hover {
+  background: var(--primary);
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 15px 35px rgba(184, 167, 126, 0.2);
+}
+
+.ref-nav-btn.prev {
+  margin-left: 0;
+}
+
+.ref-nav-btn.next {
+  margin-right: 0;
+}
+
+/* Indicators */
+.ref-indicators {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  color: var(--primary);
-  font-weight: 700;
-  transition: all 0.4s ease;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
 }
 
-.all-trigger-inner span {
-  font-size: 1.1rem;
-  letter-spacing: -0.02em;
+.ref-indicator {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e2e8f0;
+  cursor: pointer;
+  transition: all 0.3s ease;
 }
 
-.ref-scroll-all-trigger:hover .all-trigger-inner {
-  transform: translateX(10px);
-  color: #000;
+.ref-indicator.active {
+  width: 25px;
+  border-radius: 3px;
+  background: var(--primary);
 }
 
+.obje-image-pos {
+  object-position: top !important;
+}
 
 @media (max-width: 768px) {
   .ref-scroll-all-trigger {
     padding: 0 40px;
   }
 
-  .ref-scroll-item {
-    width: 300px;
+  .ref-carousel-wrapper {
+    padding: 0 0 40px;
+    --item-width: calc(100vw - 100px);
+    --gap: 16px;
   }
 
-  .ref-horizontal-scroll-container {
-    padding: 0 24px 40px 24px;
+  .ref-carousel-container {
+    padding: 0 24px;
+  }
+
+  /* Hide Nav Buttons on Mobile */
+  .ref-nav-controls {
+    display: none;
+  }
+
+  .ref-nav-btn {
+    display: none;
+  }
+
+  .ref-nav-btn svg {
+    width: 20px;
+    height: 20px;
   }
 
   .ref-scroll-title {

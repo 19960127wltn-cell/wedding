@@ -37,7 +37,7 @@ const packageItems = [
   { icon: Printer, text: "무제한 인쇄" },
   { icon: Sparkles, text: "뷰티 필터" },
   { icon: Monitor, text: "초대형 모니터" },
-  { icon: Camera, text: "DSLR 카메라\n(2410만 화소)" },
+  { icon: Camera, text: "미러리스 카메라\n(2410만 화소)" },
   { icon: Book, text: "고급 방명록지" },
   { icon: Lightbulb, text: "6400k 조명" },
   { icon: Table, text: "테이블 제공" },

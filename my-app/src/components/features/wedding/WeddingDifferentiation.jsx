@@ -11,7 +11,9 @@ import {
   Gem,
   BookOpen,
   PenTool,
-  Archive
+  Archive,
+  ChevronLeft,
+  ChevronRight
 } from 'lucide-react';
 import './WeddingDifferentiation.css';
 
@@ -22,30 +24,81 @@ const DiffItem = ({ title, description, points, image, reverse, index, imageClas
   const [showPoints, setShowPoints] = useState(false);
   const sectionRef = useRef(null);
 
+  // Carousel state
+  const isArray = Array.isArray(image);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
+
+  const images = isArray ? image : [image];
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  const onTouchMove = (e) => setTouchEnd(e.targetTouches[0].clientX);
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return;
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+
+    if (isLeftSwipe && currentIndex < images.length - 1) {
+      setCurrentIndex(prev => prev + 1);
+    }
+    if (isRightSwipe && currentIndex > 0) {
+      setCurrentIndex(prev => prev - 1);
+    }
+  };
+
+  const nextSlide = (e) => {
+    e.stopPropagation();
+    if (currentIndex < images.length - 1) setCurrentIndex(prev => prev + 1);
+  };
+
+  const prevSlide = (e) => {
+    e.stopPropagation();
+    if (currentIndex > 0) setCurrentIndex(prev => prev - 1);
+  };
+
+  // Auto-rolling effect
+  useEffect(() => {
+    if (!isArray || !isVisible || images.length <= 1) return;
+
+    const interval = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1) % images.length);
+    }, 2000); // 2 seconds interval for "faster" rolling
+
+    return () => clearInterval(interval);
+  }, [isArray, isVisible, images.length]);
+
   // Format index as "01", "02", etc.
   const formattedNumber = String(index + 1).padStart(2, '0');
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
+        setIsVisible(entry.isIntersecting);
+
         if (entry.isIntersecting) {
-          setIsVisible(true);
-
-          // Sequential sub-reveals
-          setTimeout(() => setShowImage(true), 100);
-          setTimeout(() => setShowHeader(true), 500);
-          setTimeout(() => setShowPoints(true), 900);
-
-          observer.unobserve(entry.target);
+          // One-time sub-reveals stay one-time
+          if (!showHeader) {
+            setTimeout(() => setShowImage(true), 100);
+            setTimeout(() => setShowHeader(true), 500);
+            setTimeout(() => setShowPoints(true), 900);
+          }
         }
       },
-      { threshold: 0.1 }
+      { threshold: 0.3 }
     );
 
     if (sectionRef.current) observer.observe(sectionRef.current);
 
     return () => observer.disconnect();
-  }, []);
+  }, [showHeader]); // Depend on showHeader to avoid resetting sub-reveals if we scroll away and back
 
   return (
     <div
@@ -53,14 +106,60 @@ const DiffItem = ({ title, description, points, image, reverse, index, imageClas
       className={`diff-item ${reverse ? 'reverse' : ''} ${isVisible ? 'item-active' : ''}`}
     >
       <div className={`diff-visual-container ${showImage ? 'visible' : ''}`}>
-        <div className="diff-visual">
-          <Image
-            src={image}
-            alt={title}
-            fill
-            className={`object-cover ${imageClassName || ''}`}
-          />
+        <div
+          className="diff-visual"
+          onTouchStart={isArray ? onTouchStart : undefined}
+          onTouchMove={isArray ? onTouchMove : undefined}
+          onTouchEnd={isArray ? onTouchEnd : undefined}
+        >
+          {images.map((img, idx) => (
+            <div
+              key={idx}
+              className={`carousel-slide ${idx === currentIndex ? 'active' : ''}`}
+            >
+              <Image
+                src={img}
+                alt={`${title} ${idx + 1}`}
+                fill
+                className={`object-cover ${imageClassName || ''}`}
+                priority={idx === 0}
+              />
+            </div>
+          ))}
           <div className="diff-visual-overlay"></div>
+
+          {isArray && (
+            <>
+              {currentIndex > 0 && (
+                <button
+                  className="hidden md:flex carousel-btn prev"
+                  onClick={prevSlide}
+                  aria-label="Previous image"
+                >
+                  <ChevronLeft size={24} />
+                </button>
+              )}
+              {currentIndex < images.length - 1 && (
+                <button
+                  className="hidden md:flex carousel-btn next"
+                  onClick={nextSlide}
+                  aria-label="Next image"
+                >
+                  <ChevronRight size={24} />
+                </button>
+              )}
+
+              <div className="carousel-indicators">
+                {images.map((_, idx) => (
+                  <div
+                    key={idx}
+                    className={`indicator ${idx === currentIndex ? 'active' : ''}`}
+                    onClick={() => setCurrentIndex(idx)}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </div>
 
@@ -144,7 +243,7 @@ const WeddingDifferentiation = () => {
         },
         {
           icon: <Camera size={20} />,
-          text: "Full-Frame DSLR",
+          text: "Full-Frame 미러리스",
           desc: "초고해상도 센서로 눈동자의 생생함까지 담아내는 압도적인 선명도를 구현해요"
         },
         {
@@ -153,7 +252,7 @@ const WeddingDifferentiation = () => {
           desc: "식장의 분위기와 조명 색온도에 최적화된 후보정 프로세스를 적용해요"
         }
       ],
-      image: "/images/bright.png",
+      image: "/images/wedding/today-1.jpg",
       imageClassName: "object-top-10"
     },
     {
@@ -200,7 +299,14 @@ const WeddingDifferentiation = () => {
           desc: "소중한 추억에 먼지가 쌓이지 않도록, 고급스러운 전용 보관함에 담아 안전하고 품격있게 전달드려요"
         }
       ],
-      image: "/images/gift.png"
+      image: [
+        "/images/gift.png",
+        "/images/바인더/바인더2.jpg",
+        "/images/바인더/바인더3.jpg",
+        "/images/바인더/바인더4.jpg",
+        "/images/바인더/바인더5.jpg",
+        "/images/바인더/바인더6.jpg"
+      ]
     }
   ];
 

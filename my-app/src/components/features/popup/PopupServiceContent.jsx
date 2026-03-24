@@ -14,9 +14,11 @@ import {
   MessageCircle,
   PhoneCall,
   Instagram,
+  ChevronLeft,
   ChevronRight
 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import referenceData from "../../../data/references_manifest.json";
 import "./PopupService.css";
 
 const portfolioItems = [
@@ -42,12 +44,11 @@ const portfolioItems = [
   },
 ];
 
-
 const qualityFeatures = [
   {
     id: "q1",
     title: "스튜디오급 광학 시스템",
-    desc: "고성능 DSLR과 정교한 조명 세팅으로 어떤 장소에서도 무결점 결과물을 만듭니다. 화사함과 깊이감을 동시에 잡는 VUE만의 노하우입니다.",
+    desc: "고성능 미러리스와 정교한 조명 세팅으로 어떤 장소에서도 무결점 결과물을 만듭니다. 화사함과 깊이감을 동시에 잡는 VUE만의 노하우입니다.",
     image: "/images/popup/DSLR.png"
   },
   {
@@ -70,21 +71,6 @@ const referenceCategories = [
   { id: 'popup', title: '팝업 스토어' },
   { id: 'public', title: '공공기관/단체' },
   { id: 'school', title: '대학교/학교' },
-];
-
-const referenceData = [
-  { id: 1, category: 'corp', entity: '애터미', title: '애터미 석세스 아카데미', image: '/popup/애터미1.JPG' },
-  { id: 2, category: 'corp', entity: '애터미', title: 'Atomy Leaders Conference', image: '/popup/애터미2.JPG' },
-  { id: 3, category: 'school', entity: '논산고등학교', title: '논산고 졸업 축제', image: '/popup/논산고0.JPG' },
-  { id: 4, category: 'public', entity: '죽향초등학교', title: '죽향초 별빛 야영 행사', image: '/popup/죽향초0.JPG' },
-  { id: 5, category: 'school', entity: '연세유치원', title: '연세유치원 가을 운동회', image: '/popup/연세유치원0.JPG' },
-  { id: 6, category: 'corp', entity: '애터미', title: '애터미 패밀리 데이', image: '/popup/애터미3.JPG' },
-  { id: 7, category: 'school', entity: '논산고등학교', title: '논산고 체육대회', image: '/popup/논산고1.JPG' },
-  { id: 8, category: 'public', entity: '죽향초등학교', title: '죽향초 학예 발표회', image: '/popup/죽향초1.JPG' },
-  { id: 9, category: 'school', entity: '연세유치원', title: '연세유치원 졸업 캠프', image: '/popup/연세유치원1.JPG' },
-  { id: 10, category: 'corp', entity: '애터미', title: 'Atomy Global Workshop', image: '/popup/애터미4.JPG' },
-  { id: 11, category: 'public', entity: '죽향초등학교', title: '죽향초 입학식 포토존', image: '/popup/죽향초2.JPG' },
-  { id: 12, category: 'school', entity: '연세유치원', title: '연세유치원 입학 축하 파티', image: '/popup/연세유치원2.JPG' },
 ];
 
 const PopupServiceContent = () => {
@@ -112,12 +98,78 @@ const PopupServiceContent = () => {
     setActiveRefEntity('all');
   }, [activeRefCategory]);
 
-  // Handle Horizontal Scroll with Mouse Wheel (Optional but Nice)
-  const handleWheel = (e) => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.scrollLeft += e.deltaY;
+  // Reference Carousel Scroll & Filter Handler
+  const carouselRef = useRef(null);
+  const [carouselCategory, setCarouselCategory] = useState("all");
+
+  const carouselItems = carouselCategory === "all"
+    ? referenceData
+    : referenceData.filter(item => item.category === carouselCategory);
+
+  // Main Carousel Scroll State for Buttons
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(true);
+
+  const checkScroll = () => {
+    if (!carouselRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = carouselRef.current;
+    setCanScrollPrev(scrollLeft > 20); // Small threshold
+    setCanScrollNext(scrollLeft < scrollWidth - clientWidth - 20);
+  };
+
+  useEffect(() => {
+    // Check scroll after data changes or category changes
+    setTimeout(checkScroll, 100);
+  }, [carouselItems]);
+
+  const scrollCarousel = (direction) => {
+    if (!carouselRef.current) return;
+    const scrollAmount = carouselRef.current.offsetWidth * 0.8;
+    carouselRef.current.scrollBy({
+      left: direction === "next" ? scrollAmount : -scrollAmount,
+      behavior: "smooth"
+    });
+  };
+
+  const nextRef = () => scrollCarousel("next");
+  const prevRef = () => scrollCarousel("prev");
+
+  // Reset scroll on category change
+  useEffect(() => {
+    if (carouselRef.current) {
+      carouselRef.current.scrollTo({ left: 0, behavior: "smooth" });
+      checkScroll();
+    }
+  }, [carouselCategory]);
+
+  // Modal Carousel State
+  const modalCarouselRef = useRef(null);
+  const [modalActiveIndex, setModalActiveIndex] = useState(0);
+
+  const handleModalScroll = () => {
+    if (!modalCarouselRef.current) return;
+    const scrollLeft = modalCarouselRef.current.scrollLeft;
+    const width = modalCarouselRef.current.offsetWidth;
+    const newIndex = Math.round(scrollLeft / width);
+    if (newIndex !== modalActiveIndex) {
+      setModalActiveIndex(newIndex);
     }
   };
+
+  const scrollModal = (direction) => {
+    if (!modalCarouselRef.current) return;
+    const width = modalCarouselRef.current.offsetWidth;
+    modalCarouselRef.current.scrollBy({
+      left: direction === 'next' ? width : -width,
+      behavior: 'smooth'
+    });
+  };
+
+  useEffect(() => {
+    if (!selectedRef) {
+      setModalActiveIndex(0);
+    }
+  }, [selectedRef]);
 
   // Quality Sticky Scroll Observer
   useEffect(() => {
@@ -126,7 +178,7 @@ const PopupServiceContent = () => {
 
     const options = {
       root: null,
-      rootMargin: "-45% 0px -45% 0px", // Trigger when element is near center of viewport
+      rootMargin: "-45% 0px -45% 0px",
       threshold: 0
     };
 
@@ -153,8 +205,8 @@ const PopupServiceContent = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "0px 0px -10% 0px", /* Trigger when 10% from the bottom of viewport */
-      threshold: 0.05, /* Low threshold for earlier triggering */
+      rootMargin: "0px 0px -10% 0px",
+      threshold: 0.05,
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -175,17 +227,11 @@ const PopupServiceContent = () => {
 
   return (
     <div className="popup-service-wrapper">
-
-
       {/* 1. Our Identity */}
       <section className="promise-section px-6 md:px-8">
         <div className="popup-content-inner">
           <div className="animate-on-scroll">
-            <span
-              className="section-label"
-            >
-              Our Identity
-            </span>
+            <span className="section-label">Our Identity</span>
             <h2 className="section-tit">
               VUE PHOTOBOOTH는
               <br />
@@ -204,7 +250,6 @@ const PopupServiceContent = () => {
               </p>
               <div className="border-trace-container">
                 <svg className="border-trace-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  {/* Inline rect: x=0.5, y=0.5, width=99, height=99 ensures stroke 1.5px stays inside */}
                   <rect x="0.5" y="0.5" width="99" height="99" rx="14" ry="11" className="border-rect" />
                 </svg>
               </div>
@@ -220,7 +265,6 @@ const PopupServiceContent = () => {
               </p>
               <div className="border-trace-container">
                 <svg className="border-trace-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  {/* Inline rect: x=0.5, y=0.5, width=99, height=99 ensures stroke 1.5px stays inside */}
                   <rect x="0.5" y="0.5" width="99" height="99" rx="14" ry="11" className="border-rect" />
                 </svg>
               </div>
@@ -236,15 +280,12 @@ const PopupServiceContent = () => {
               </p>
               <div className="border-trace-container">
                 <svg className="border-trace-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                  {/* Inline rect: x=0.5, y=0.5, width=99, height=99 ensures stroke 1.5px stays inside */}
                   <rect x="0.5" y="0.5" width="99" height="99" rx="14" ry="11" className="border-rect" />
                 </svg>
               </div>
             </div>
           </div>
-
         </div>
-
       </section>
 
       {/* 2. Service Appeal */}
@@ -260,12 +301,11 @@ const PopupServiceContent = () => {
           </div>
 
           <div className="appeal-cross-container">
-            {/* Appeal 01 - Cross Left/Right */}
             <div className="appeal-cross-row trigger-animation">
               <div className="appeal-cross-visual slide-from-left">
                 <div className="appeal-cross-card aspect-[16/10]">
                   <Image
-                    src="/images/popup/obje.png"
+                    src="/images/popup/obje-1.jpg"
                     alt="Minimal Design"
                     fill
                     className="object-cover obje-image-pos"
@@ -289,7 +329,6 @@ const PopupServiceContent = () => {
               </div>
             </div>
 
-            {/* Appeal 02 - Cross Layout (Standardized alignment) */}
             <div className="appeal-cross-row trigger-animation">
               <div className="appeal-cross-visual slide-from-left">
                 <div className="appeal-cross-card aspect-[16/10]">
@@ -318,7 +357,6 @@ const PopupServiceContent = () => {
               </div>
             </div>
 
-            {/* Appeal 03 - Cross Left/Right */}
             <div className="appeal-cross-row trigger-animation">
               <div className="appeal-cross-visual slide-from-left">
                 <div className="appeal-cross-card aspect-[16/10]">
@@ -350,7 +388,7 @@ const PopupServiceContent = () => {
         </div>
       </section>
 
-      {/* 3. High-End Quality Section (Sticky Scroll Design) */}
+      {/* 3. High-End Quality Section */}
       <section className="section-quality" ref={qualitySectionRef}>
         <div className="popup-content-inner">
           <div className="quality-header-wrap mb-10 text-center animate-on-scroll">
@@ -363,14 +401,12 @@ const PopupServiceContent = () => {
           </div>
 
           <div className="quality-sticky-container">
-            {/* Sticky Visual Area (Left/Top) */}
             <div className="quality-sticky-visual">
               <div className="quality-visual-frame">
                 {qualityFeatures.map((feature, index) => (
                   <div
                     key={`visual-${feature.id}`}
-                    className={`quality-visual-item ${activeQualityIndex === index ? "active" : ""
-                      }`}
+                    className={`quality-visual-item ${activeQualityIndex === index ? "active" : ""}`}
                   >
                     <Image
                       src={feature.image}
@@ -385,13 +421,11 @@ const PopupServiceContent = () => {
               </div>
             </div>
 
-            {/* Scrolling Text Area (Right/Bottom) */}
             <div className="quality-scroll-content">
               {qualityFeatures.map((feature, index) => (
                 <div
                   key={`text-${feature.id}`}
-                  className={`quality-text-item ${activeQualityIndex === index ? "active" : ""
-                    }`}
+                  className={`quality-text-item ${activeQualityIndex === index ? "active" : ""}`}
                   data-index={index}
                 >
                   <div className="quality-text-inner">
@@ -406,74 +440,93 @@ const PopupServiceContent = () => {
         </div>
       </section>
 
-      {/* 4. References (Horizontal Scroll Gallery) */}
+      {/* 4. Our References */}
       <section className="section-references relative overflow-hidden">
         <div className="popup-content-inner">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 px-6 animate-on-scroll">
-            <div>
-              <span className="section-label">Our References</span>
-              <h2 className="section-tit !mb-0">
-                수많은 기업이 선택한 이유,<br />실제 사례로 증명합니다.
-              </h2>
+          <div className="px-6 md:px-8 mb-12 animate-on-scroll">
+            <span className="section-label">Our References</span>
+            <h2 className="section-tit !mb-8">
+              수많은 기업이 선택한 이유,<br />실제 사례로 증명합니다.
+            </h2>
+
+            {/* Carousel Category Chips */}
+            <div className="flex flex-wrap gap-2 md:gap-3">
+              {referenceCategories.map(cat => (
+                <button
+                  key={cat.id}
+                  onClick={() => setCarouselCategory(cat.id)}
+                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 border ${carouselCategory === cat.id
+                    ? 'bg-primary text-white border-primary shadow-lg shadow-primary/20 scale-105'
+                    : 'bg-white text-slate-500 border-slate-200 hover:border-primary/50 hover:bg-slate-50'
+                    }`}
+                >
+                  {cat.title}
+                </button>
+              ))}
             </div>
-            <button
-              className="mt-4 md:mt-0 flex items-center gap-1 text-primary group font-bold tracking-tight"
-              onClick={() => setIsRefModalOpen(true)}
-            >
-              <span className="text-sm md:text-base">ALL VIEW</span>
-              <ChevronRight size={20} className="transition-transform group-hover:translate-x-1" />
-            </button>
           </div>
         </div>
 
-        {/* Horizontal Scroll Area */}
-        <div
-          className="ref-horizontal-scroll-container scrollbar-hide"
-          ref={scrollContainerRef}
-          onWheel={handleWheel}
-        >
-          <div className="ref-horizontal-track">
-            {referenceData.slice(0, 10).map((item, idx) => (
-              <div
-                key={item.id}
-                className="ref-scroll-item animate-on-scroll"
-                style={{ transitionDelay: `${idx * 0.1}s` }}
-                onClick={() => setSelectedRef(item)}
-              >
-                <div className="ref-scroll-img-box">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    fill
-                    className="object-cover"
-                  />
-                  <div className="ref-scroll-overlay">
-                    <span className="ref-scroll-category font-mj2">{referenceCategories.find(c => c.id === item.category)?.title}</span>
-                    <h4 className="ref-scroll-title font-mj2">{item.title}</h4>
-                    <p className="ref-scroll-entity">{item.entity}</p>
+        <div className="ref-carousel-wrapper">
+          <div
+            className="ref-carousel-container"
+            ref={carouselRef}
+            onScroll={checkScroll}
+          >
+            <div className="ref-carousel-track">
+              {carouselItems.map((item, idx) => (
+                <div
+                  key={item.id}
+                  className="ref-scroll-item animate-on-scroll"
+                  style={{ transitionDelay: `${idx * 0.05}s` }}
+                  onClick={() => setSelectedRef(item)}
+                >
+                  <div className="ref-scroll-img-box">
+                    <Image
+                      src={item.thumbnail}
+                      alt={item.title}
+                      fill
+                      className="object-cover"
+                    />
+                    <div className="ref-scroll-overlay">
+                      <span className="ref-scroll-category font-mj2">{referenceCategories.find(c => c.id === item.category)?.title}</span>
+                      <h4 className="ref-scroll-title font-mj2">{item.title}</h4>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
-
-          </div>
-        </div>
-
-        {/* Centered View All Button */}
-        <div className="hidden md:flex justify-center mt-12 pb-10 animate-on-scroll">
-          <button
-            className="flex flex-col items-center gap-3 text-primary hover:text-slate-900 transition-all group"
-            onClick={() => setIsRefModalOpen(true)}
-          >
-            <div className="w-14 h-14 rounded-full border border-primary/30 flex items-center justify-center group-hover:bg-primary group-hover:text-white group-hover:border-primary transition-all duration-500 shadow-sm">
-              <Plus size={28} strokeWidth={1.5} />
+              ))}
             </div>
-            <span className="text-base font-medium tracking-wide">전체보기</span>
-          </button>
+          </div>
+
+          {/* Navigation Controls (Desktop) */}
+          <div className="ref-nav-controls hidden md:flex">
+            <div className="flex-1 flex justify-start">
+              {canScrollPrev && (
+                <button
+                  className="ref-nav-btn prev"
+                  onClick={prevRef}
+                  aria-label="Previous"
+                >
+                  <ChevronLeft size={32} />
+                </button>
+              )}
+            </div>
+            <div className="flex-1 flex justify-end">
+              {canScrollNext && (
+                <button
+                  className="ref-nav-btn next"
+                  onClick={nextRef}
+                  aria-label="Next"
+                >
+                  <ChevronRight size={32} />
+                </button>
+              )}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Full Support Reference Modal */}
+      {/* Full Portfolio Modal */}
       {isRefModalOpen && (
         <div className="brand-modal-overlay" onClick={() => setIsRefModalOpen(false)}>
           <div className="brand-modal-content max-w-[1200px] h-[90vh]" onClick={(e) => e.stopPropagation()}>
@@ -482,16 +535,12 @@ const PopupServiceContent = () => {
             </button>
             <ScrollArea className="brand-modal-scroll-area">
               <div className="brand-modal-inner !p-0">
-                {/* Modal Header & Filters */}
                 <div className="px-10 pt-12 text-center">
                   <span className="section-label !text-sm tracking-widest uppercase">Portfolio</span>
                   <h3 className="brand-modal-title !mt-2 !text-3xl">VUE 레퍼런스 보드</h3>
                 </div>
 
-                {/* Sticky Filters Area */}
                 <div className="sticky top-0 z-20 bg-white/90 backdrop-blur-xl px-10 py-8 border-b border-muted/30">
-
-                  {/* Category Tabs */}
                   <div className="flex flex-wrap justify-center gap-2 mb-8">
                     {referenceCategories.map((cat) => (
                       <button
@@ -507,9 +556,8 @@ const PopupServiceContent = () => {
                     ))}
                   </div>
 
-                  {/* Entity Filter Chips (Secondary) */}
                   <div className="flex flex-wrap justify-center gap-1.5 border-t border-muted/30 pt-6">
-                    {currentEntities.map((ent) => (
+                    {currentEntities.slice(0, 30).map((ent) => ( // Capping entities to avoid UI clutter
                       <button
                         key={ent}
                         onClick={() => setActiveRefEntity(ent)}
@@ -524,13 +572,12 @@ const PopupServiceContent = () => {
                   </div>
                 </div>
 
-                {/* Filtered Grid Results */}
                 <div className="p-10">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                     {filteredReferences.map((item) => (
                       <div key={item.id} className="group relative bg-[#f1f5f9] rounded-3xl overflow-hidden aspect-[3/4] cursor-pointer shadow-sm hover:shadow-xl transition-all duration-500" onClick={() => setSelectedRef(item)}>
                         <Image
-                          src={item.image}
+                          src={item.thumbnail}
                           alt={item.title}
                           fill
                           className="object-cover transition-transform duration-700 group-hover:scale-110"
@@ -540,7 +587,6 @@ const PopupServiceContent = () => {
                             {referenceCategories.find(c => c.id === item.category)?.title}
                           </span>
                           <h4 className="text-white text-lg font-mj2 mt-1">{item.title}</h4>
-                          <p className="text-white/60 text-xs mt-0.5">{item.entity}</p>
                         </div>
                       </div>
                     ))}
@@ -558,63 +604,68 @@ const PopupServiceContent = () => {
         </div>
       )}
 
-      {/* Reference Detail Modal */}
       {selectedRef && (
-        <div className="brand-modal-overlay" onClick={() => setSelectedRef(null)}>
-          <div className="brand-modal-content" onClick={(e) => e.stopPropagation()}>
+        <div className="brand-modal-overlay" style={{ zIndex: 1000 }} onClick={() => setSelectedRef(null)}>
+          <div className="brand-modal-content !max-h-[1000px] !h-[90vh] overflow-hidden flex flex-col" onClick={(e) => e.stopPropagation()}>
             <button className="brand-modal-close" onClick={() => setSelectedRef(null)}>
               <X size={24} />
             </button>
-            <ScrollArea className="brand-modal-scroll-area">
-              <div className="brand-modal-inner">
-                {/* Header (Info) */}
-                <div className="brand-modal-header !mb-12">
-                  <span className="section-label">
-                    {referenceCategories.find(c => c.id === selectedRef.category)?.title}
-                  </span>
-                  <h3 className="brand-modal-title">
-                    {selectedRef.title}
-                  </h3>
-                  <p className="brand-modal-desc mt-6 text-slate-500 font-mj2 leading-relaxed break-keep max-w-2xl mx-auto">
-                    {selectedRef.entity}와 함께한 VUE의 프리미엄 포토부스 프로젝트입니다.
-                    공간의 특성과 브랜드의 아이덴티티를 고려한 맞춤형 솔루션을 통해 차별화된 경험을 제공했습니다.
-                  </p>
-                </div>
+            <div className="brand-modal-header !mb-4 pt-10 text-left px-6 md:px-12 flex-none">
+              <span className="section-label !text-xs mb-1">
+                {referenceCategories.find(c => c.id === selectedRef.category)?.title}
+              </span>
+              <h3 className="brand-modal-title !text-xl !leading-tight font-bold">
+                {selectedRef.title}
+              </h3>
+            </div>
 
-                {/* Main Selected Image & Gallery */}
-                <div className="brand-modal-gallery-grid w-full mt-10 pb-20">
-                  <div className="flex flex-col items-center gap-10">
-                    <div className="relative w-full max-w-4xl aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="flex-1 overflow-hidden relative mb-12 group/modal">
+              <div
+                className="modal-image-carousel h-full flex overflow-x-auto overflow-y-hidden snap-x snap-mandatory scrollbar-none pl-6 md:pl-12 pr-0 gap-[10px]"
+                ref={modalCarouselRef}
+                onScroll={handleModalScroll}
+              >
+                {selectedRef.images.map((img, i) => (
+                  <div key={i} className="flex-none h-full snap-start relative w-[280px] md:w-[450px]">
+                    <div className="relative w-full h-full">
                       <Image
-                        src={selectedRef.image}
-                        alt={selectedRef.title}
+                        src={img}
+                        alt={`${selectedRef.title} ${i + 1}`}
                         fill
-                        className="object-cover"
+                        className="object-contain"
+                        priority={i === 0}
                       />
                     </div>
-
-                    {/* Additional Gallery Images */}
-                    <div className="grid grid-cols-2 gap-4 w-full max-w-4xl">
-                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted/20">
-                        <Image src={selectedRef.image} alt="Gallery 1" fill className="object-cover opacity-90 transition-opacity hover:opacity-100" />
-                      </div>
-                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted/20">
-                        <Image src={selectedRef.image.replace(/(\d+)\./, (m, p1) => `${(parseInt(p1) % 4) + 1}.`)} alt="Gallery 2" fill className="object-cover opacity-90 transition-opacity hover:opacity-100" />
-                      </div>
-                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted/20">
-                        <Image src={selectedRef.image} alt="Gallery 3" fill className="object-cover opacity-90 transition-opacity hover:opacity-100 scale-x-[-1]" />
-                      </div>
-                      <div className="relative aspect-video rounded-2xl overflow-hidden shadow-lg border border-muted/20">
-                        <Image src={selectedRef.image.replace(/(\d+)\./, (m, p1) => `${(parseInt(p1) % 4) + 2}.`)} alt="Gallery 4" fill className="object-cover opacity-90 transition-opacity hover:opacity-100" />
-                      </div>
-                    </div>
                   </div>
-                </div>
+                ))}
               </div>
-            </ScrollArea>
+
+              {/* Navigation Arrows for Modal */}
+              {selectedRef.images.length > 1 && (
+                <>
+                  <button
+                    className="hidden md:flex absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 items-center justify-center text-white/80 hover:bg-white hover:text-primary transition-all z-20 shadow-2xl"
+                    onClick={() => scrollModal('prev')}
+                  >
+                    <ChevronLeft size={28} />
+                  </button>
+                  <button
+                    className="hidden md:flex absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 items-center justify-center text-white/80 hover:bg-white hover:text-primary transition-all z-20 shadow-2xl"
+                    onClick={() => scrollModal('next')}
+                  >
+                    <ChevronRight size={28} />
+                  </button>
+
+                  <div className="absolute bottom-[-20px] left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full bg-slate-900/50 backdrop-blur-md text-white/90 text-xs font-semibold">
+                    {modalActiveIndex + 1} / {selectedRef.images.length}
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </div>
       )}
+
       {/* 5. Systematic Process */}
       <section className="section-process px-6 md:px-8">
         <div className="popup-content-inner">
@@ -641,10 +692,7 @@ const PopupServiceContent = () => {
                 </div>
               </div>
             </div>
-            <div
-              className="process-node animate-on-scroll"
-              style={{ transitionDelay: "0.1s" }}
-            >
+            <div className="process-node animate-on-scroll" style={{ transitionDelay: "0.1s" }}>
               <div className="node-dot">
                 <UserCheck size={32} strokeWidth={1.2} />
               </div>
@@ -660,10 +708,7 @@ const PopupServiceContent = () => {
                 </div>
               </div>
             </div>
-            <div
-              className="process-node animate-on-scroll"
-              style={{ transitionDelay: "0.2s" }}
-            >
+            <div className="process-node animate-on-scroll" style={{ transitionDelay: "0.2s" }}>
               <div className="node-dot">
                 <FileBarChart size={32} strokeWidth={1.2} />
               </div>
@@ -696,20 +741,18 @@ const PopupServiceContent = () => {
           </div>
 
           <div className="cta-contact-grid">
-            {/* option 1: Phone */}
-            <a href="tel:010-7596-5558" className="contact-card">
+            <a href="tel:010-9548-1340" className="contact-card">
               <div className="contact-icon">
                 <PhoneCall size={32} strokeWidth={1.5} />
               </div>
               <div className="contact-info">
                 <h3>유선 상담</h3>
-                <p>010. 7596. 5558</p>
+                <p>010-9548-1340</p>
               </div>
               <ArrowRight className="card-arrow" />
             </a>
 
-            {/* option 2: Kakao */}
-            <a href="https://pf.kakao.com/_nSxcvG" target="_blank" rel="noopener noreferrer" className="contact-card highlight">
+            <a href="https://pf.kakao.com/_tqRxcxj" target="_blank" rel="noopener noreferrer" className="contact-card highlight">
               <div className="contact-icon">
                 <MessageCircle size={32} strokeWidth={1.5} />
               </div>
@@ -720,14 +763,13 @@ const PopupServiceContent = () => {
               <ArrowRight className="card-arrow" />
             </a>
 
-            {/* option 3: Instagram */}
-            <a href="https://www.instagram.com/official.vue" target="_blank" rel="noopener noreferrer" className="contact-card">
+            <a href="https://www.instagram.com/vue_photobooth/" target="_blank" rel="noopener noreferrer" className="contact-card">
               <div className="contact-icon">
                 <Instagram size={32} strokeWidth={1.5} />
               </div>
               <div className="contact-info">
                 <h3>인스타그램 문의</h3>
-                <p>@official.vue</p>
+                <p>@vue_photobooth</p>
               </div>
               <ArrowRight className="card-arrow" />
             </a>

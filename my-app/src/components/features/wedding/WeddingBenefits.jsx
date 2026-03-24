@@ -135,19 +135,19 @@ const WeddingBenefits = () => {
     {
       title: "기다림을 설레임으로\n로비의 활기를 더해요",
       description: "단순히 기다리는 시간도 즐거운 추억일 될 수 있도록, 하객들이 마주하는 예식의 첫인상을 더욱 특별하게 만들어요",
-      image: "/images/festival.png",
+      image: "/images/wedding/wating-1.jpg",
       icon: PartyPopper
     },
     {
       title: "오늘의 행복을\n선명하게 기록해요",
       description: "신랑신부님과 하객분들의 행복한 순간을 선명하게 담아내요, 시간이 흘러 꺼내보아도 변치 않는 소중한 선물이 될 거예요",
-      image: "/images/memory.png",
+      image: "/images/wedding/happy.png",
       icon: Camera
     },
     {
       title: "함께여서 더 눈부신\n우리의 오늘",
       description: "아이부터 어르신까지 세대를 넘어 다 함께 웃고 즐기는 시간을 만들어요, 한 장씩 쌓이는 사진 속에 예식의 깊은 감동을 담아드려요",
-      image: "/images/together2.png",
+      image: "/images/wedding/together-1.jpg",
       icon: User
     }
   ];
