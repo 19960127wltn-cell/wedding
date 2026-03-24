@@ -51,7 +51,7 @@ export default function MainPage() {
         {/* Background Image and Dimming */}
         <div className="absolute inset-0 z-0">
           <Image
-            src="/images/main/main-04.jpg"
+            src="/images/main/main-04.JPG"
             alt="Main Banner"
             fill
             priority
