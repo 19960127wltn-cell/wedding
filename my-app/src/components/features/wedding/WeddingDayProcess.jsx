@@ -18,7 +18,7 @@ const dayProcessSteps = [
   {
     title: "Step 03",
     description: "예식 종료 후 기기 철수",
-    image: "/images/wedding/day-process-3.png"
+    image: "/images/wedding/setting/setting-3.png"
   },
   {
     title: "Step 04",
