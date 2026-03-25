@@ -6,7 +6,6 @@ import './AffiliatedHalls.css';
 const partnerLogos = [
   { name: '광역무역센터컨벤션', src: '/logo/광역무역센터컨벤션.png' },
   { name: '그랜드힐컨벤션', src: '/logo/그랜드힐컨벤션.png' },
-  { name: '로카우스', src: '/logo/로카우스.png' },
   { name: '분당더메리든', src: '/logo/분당더메리든.png' },
   { name: '서초화이트베일', src: '/logo/서초화이트베일.png' },
   { name: '아이벡스컨벤션', src: '/logo/아이벡스컨벤션.png' },

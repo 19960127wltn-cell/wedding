@@ -67,7 +67,7 @@ const WeddingTemplateContent = () => {
                     alt={image.alt}
                     width={image.width || 600}
                     height={image.height || 800}
-                    className="w-full h-auto group-hover:scale-105 transition-transform duration-700 ease-out"
+                    className={`${image.category === '4 Cut' ? 'w-[70%]' : 'w-[60%]'} mx-auto h-auto group-hover:scale-110 transition-transform duration-700 ease-out px-4 py-8`}
                   />
                 </div>
                 <div className="absolute inset-0 bg-black/0 group-hover:bg-black/5 transition-colors duration-500 flex items-center justify-center opacity-0 group-hover:opacity-100">

@@ -4,7 +4,7 @@ import { Info } from 'lucide-react';
 import './ContactSection.css';
 
 const branches = [
-    { name: '서울 본점', desc: '서울 · 경기 · 인천 수도권', phone: '010-9548-1340', kakao: 'https://pf.kakao.com/_tqRxcxj' },
+    { name: '서울 본점', desc: '서울 · 경기 · 인천 수도권 · 강원', phone: '010-9548-1340', kakao: 'https://pf.kakao.com/_tqRxcxj' },
     { name: '부산 지점', desc: '경상 · 영남권 지역', phone: '010-3280-8831', kakao: 'http://pf.kakao.com/_xdJyxln' },
     { name: '대전 지점', desc: '충청 · 중부권 지역', phone: '010-8181-0281', kakao: 'http://pf.kakao.com/_LHYLG' },
     { name: '광주 지점', desc: '전라 · 호남권 지역', phone: '010-3492-7692', kakao: 'https://pf.kakao.com/_tqRxcxj' }

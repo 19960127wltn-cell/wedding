@@ -305,10 +305,11 @@ const PopupServiceContent = () => {
               <div className="appeal-cross-visual slide-from-left">
                 <div className="appeal-cross-card aspect-[16/10]">
                   <Image
-                    src="/images/popup/obje-1.jpg"
+                    src="/images/popup/obje-2.png"
                     alt="Minimal Design"
                     fill
-                    className="object-cover obje-image-pos"
+                    className="object-cover"
+                    style={{ objectPosition: 'center 100%' }}
                   />
                   <div className="appeal-card-overlay"></div>
                 </div>
