@@ -3,8 +3,11 @@ import GNB from '@/components/layout/GNB';
 import Footer from '@/components/layout/Footer';
 
 export const metadata = {
-  title: "Admin Dashboard",
+  title: "VUE PHOTOBOOTH",
   description: "관리자 페이지",
+  icons: {
+    icon: "/images/logo.png",
+  },
 };
 
 export default function RootLayout({ children }) {
