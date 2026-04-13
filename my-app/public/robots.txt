@@ -1,3 +1,21 @@
+# =============================================
+# robots.txt for vuephoto.co.kr
+# Based on Naver Search Advisor Guide
+# https://searchadvisor.naver.com/guide/seo-basic-robots
+# =============================================
+
+# 모든 검색엔진 로봇 - 기본 허용
 User-agent: *
 Allow: /
+
+# 비공개 경로 차단 (관리자, API, 개인정보 관련)
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+
+# 네이버 검색로봇 (Yeti) - 전체 허용
+User-agent: Yeti
+Allow: /
+
+# sitemap.xml 위치 지정 (네이버 검색로봇이 콘텐츠를 더 잘 수집하도록 도움)
 Sitemap: https://vuephoto.co.kr/sitemap.xml
