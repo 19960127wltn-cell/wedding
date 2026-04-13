@@ -46,6 +46,16 @@ export async function POST(request) {
         // Save back to JSON
         fs.writeFileSync(filePath, JSON.stringify(existingData, null, 2));
 
+        // Google Sheet Sync (Async)
+        const GOOGLE_SHEET_URL = process.env.GOOGLE_SHEET_WEBAPP_URL;
+        if (GOOGLE_SHEET_URL) {
+            fetch(GOOGLE_SHEET_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(newSelection),
+            }).catch(err => console.error('Google Sheet Sync Error:', err));
+        }
+
         // Update Excel files by branch
         try {
             const excelDir = path.join(process.cwd(), 'public', 'data');

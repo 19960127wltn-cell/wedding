@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://vuephoto.co.kr/sitemap.xml
